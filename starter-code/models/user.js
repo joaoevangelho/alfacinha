@@ -7,6 +7,10 @@ const schema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  username: {
+    type: String,
+    trim: true
+  },
   email: {
     type: String,
     required: true,
@@ -14,6 +18,9 @@ const schema = new mongoose.Schema({
     trim: true
   },
   passwordHash: {
+    type: String
+  },
+  image: {
     type: String
   }
 });
