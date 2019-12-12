@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { listRestaurants } from "./../services/restaurantZomato";
+import { Link } from "react-router-dom";
 
 class RestaurantList extends Component {
   constructor() {
@@ -25,43 +26,74 @@ class RestaurantList extends Component {
     const vegRestaurants = this.state.vegetarianRestaurants;
     console.log(vegRestaurants);
     return (
-      <div>
+      <div className="d-flex flex-wrap">
         {vegRestaurants &&
           vegRestaurants.map(restaurant => (
-            <div>{restaurant.restaurant.name}</div>
+            <div
+              key={restaurant.restaurant.id}
+              className="card mb-3"
+              style={{ maxWidth: "540px" }}
+            >
+              <div className="row no-gutters">
+                <div className="col-md-4">
+                  <img
+                    src={restaurant.restaurant.featured_image}
+                    className="card-img"
+                    alt="Image"
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{restaurant.restaurant.name}</h5>
+                    <p className="card-text">
+                      {restaurant.restaurant.cuisines}
+                    </p>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        Contact: {restaurant.restaurant.phone_numbers}
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            // <div >
+            //
+            // </div>
           ))}
+          <div>
         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="restaurantes/1">
+          <ul className="pagination justify-content-center">
+            <li className="page-item">
+              <Link to="/restaurants/1" className="page-link" size="sm">
                 1
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="restaurantes/2">
+            <li className="page-item">
+              <Link to="/restaurants/2" className="page-link" size="sm">
                 2
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="restaurantes/3">
+            <li className="page-item">
+              <Link to="/restaurants/3" className="page-link" size="sm">
                 3
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="restaurantes/4">
+            <li className="page-item">
+              <Link to="/restaurants/4" className="page-link" size="sm">
                 4
-              </a>
+              </Link>
             </li>
-            <li class="page-item">
-              <a class="page-link" href="restaurantes/5">
+            <li className="page-item">
+              <Link to="/restaurants/5" className="page-link" size="sm">
                 5
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
+        </div>
       </div>
     );
   }
 }
-
 export default RestaurantList;
