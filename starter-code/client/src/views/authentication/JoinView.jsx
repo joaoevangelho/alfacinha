@@ -44,6 +44,7 @@ class AuthenticationJoinView extends Component {
             value={this.state.email}
             name="email"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="name"
@@ -51,13 +52,15 @@ class AuthenticationJoinView extends Component {
             value={this.state.name}
             name="name"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="username"
             placeholder="Username"
-            value={this.state.name}
+            value={this.state.username}
             name="username"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="password"
@@ -65,6 +68,7 @@ class AuthenticationJoinView extends Component {
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
+            required
           />
           <button>Join!</button>
         </form>
