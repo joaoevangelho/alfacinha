@@ -10,6 +10,10 @@ const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
+=======
+// const serveFavicon = require('serve-favicon');
+>>>>>>> b33c9866e959c0a8d772ec2dc9dac6ef1a6b7f41
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const indexRouter = require('./routes/index');
@@ -17,6 +21,10 @@ const authenticationRouter = require('./routes/authentication');
 
 const app = express();
 
+<<<<<<< HEAD
+=======
+// app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
+>>>>>>> b33c9866e959c0a8d772ec2dc9dac6ef1a6b7f41
 app.use(logger('dev'));
 app.use(express.urlencoded({
   extended: true
@@ -37,7 +45,8 @@ app.use(
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
-  }));
+  })
+);
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
