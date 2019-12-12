@@ -1,3 +1,12 @@
 .LogoImg {
   width: 2em;
 }
+
+.card-img {
+  height: 12em;
+  object-fit: cover;
+}
+
+.card {
+  margin: 3em;
+}
