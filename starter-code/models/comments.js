@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
   title: {
-    type: String
+    type: String,
+    required: true
   },
   content: {
-    type: String
+    type: String,
+    required: true
   },
   image: {
     type: String

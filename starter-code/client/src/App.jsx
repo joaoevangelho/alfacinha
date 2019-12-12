@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
 import './App.css';
 
 import AuthenticationLoginView from './views/authentication/LogInView';
 import AuthenticationJoinView from './views/authentication/JoinView';
 import AuthenticationPrivateView from './views/authentication/PrivateView';
+import RestaurantList from "./views/RestaurantList";
 
 import ErrorView from './views/ErrorView';
 
@@ -55,6 +55,7 @@ class App extends Component {
         user={this.state.user}
         changeAuthenticationStatus={this.changeAuthenticationStatus}
       />
+      <RestaurantList />
       {this.state.loaded && (
         <Switch>
           {/* <ProtectedRoute
