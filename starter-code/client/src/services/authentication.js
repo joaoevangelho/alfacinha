@@ -22,6 +22,15 @@ export const join = async data => {
   }
 };
 
+export const loadUserInformation = async () => {
+  try {
+    const response = await apiAuthenticationService.get(`/loggedin`);
+    return response.data.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const logOut = async () => {
   try {
     await apiAuthenticationService.post(`/logout`);
@@ -29,5 +38,3 @@ export const logOut = async () => {
     throw error;
   }
 };
-
-

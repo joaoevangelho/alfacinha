@@ -16,9 +16,10 @@ router.post('/join', async (req, res, next) => {
       passwordHash: hash
     });
     req.session.user = user._id;
-    res.json({ user });
+    res.json({ user, message: "user successfully created" });
     res.redirect('/');
   } catch (error) {
+    console.log('JOIN', error);
     next(error);
   }
 });
@@ -31,16 +32,34 @@ router.post('/login', async (req, res, next) => {
     const result = await bcryptjs.compare(password, user.passwordHash);
     if (!result) throw new Error('Wrong password.');
     req.session.user = user._id;
-    res.json({ user });
+    res.json({ user, message: "user successfully signed in" });
     res.redirect('/');
   } catch (error) {
+    console.log('LOGIN', error);
+
     next(error);
+  }
+});
+
+router.get("/loggedin", async (req, res, next) => {
+  const userId = req.session.user;
+  console.log("oiiiiiiii");
+  if (!userId) {
+    res.json({});
+  } else {
+    try {
+      const user = await User.findById(userId).exec();
+      if (!user) throw new Error("Signed in user not found");
+      res.json({ user, message: "user in session" });
+    } catch (error) {
+      next(error);
+    }
   }
 });
 
 router.post('/logout', (req, res, next) => {
   req.session.destroy();
-  res.redirect('/');
+  // res.redirect('/');
   res.json({});
 });
 
