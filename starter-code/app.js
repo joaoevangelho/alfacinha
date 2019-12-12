@@ -35,7 +35,8 @@ app.use(
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
-  }));
+  })
+);
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
