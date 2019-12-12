@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { join as joinService } from './../../services/authentication';
+import { join as joinService } from "./../../services/authentication";
 
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      password: ''
+      name: "",
+      username: "",
+      email: "",
+      password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -24,9 +25,10 @@ class AuthenticationJoinView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password, username, name } = this.state;
     try {
-      const user = await joinService({ email, password });
+      const user = await joinService({ email, password, username, name });
+      console.log(user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/private`);
     } catch (error) {

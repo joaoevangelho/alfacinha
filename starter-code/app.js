@@ -1,8 +1,6 @@
 "use strict";
 
-const {
-  join
-} = require("path");
+const { join } = require("path");
 const express = require("express");
 const createError = require("http-errors");
 const connectMongo = require("connect-mongo");
@@ -21,8 +19,8 @@ const app = express();
 // app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger("dev"));
 
-app.use(express.urlencoded());
-// app.use(express.json());
+//app.use(express.urlencoded());
+app.use(express.json());
 app.use(cookieParser());
 app.use(
   expressSession({
@@ -35,7 +33,7 @@ app.use(
       httpOnly: true,
       secure: process.env.NODE_ENV === "production"
     },
-    store: new(connectMongo(expressSession))({
+    store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
