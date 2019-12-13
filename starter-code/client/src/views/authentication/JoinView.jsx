@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
+=======
+import React, { Component } from "react";
+import Image from "react-bootstrap/Image";
+>>>>>>> 50b0c0d4bf2467d1a94115b9dc5de7a81759861d
 
 import { join as joinService } from './../../services/authentication';
 
@@ -30,7 +35,7 @@ class AuthenticationJoinView extends Component {
       const user = await joinService({ email, password, username, name });
       console.log(user);
       this.props.changeAuthenticationStatus(user);
-      this.props.history.push(`/private`);
+      this.props.history.push(`/`);
     } catch (error) {
       console.log(error);
     }
@@ -38,41 +43,67 @@ class AuthenticationJoinView extends Component {
 
   render() {
     return (
-      <main className="pt-5 m-5">
-        <form onSubmit={this.handleFormSubmission}>
+      <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
+        <form
+          onSubmit={this.handleFormSubmission}
+          className="form-signin LoginJoinForm"
+        >
+          <Image
+            fluid
+            className="mb-4 LoginJoinImg"
+            src="/images/alfacinha-logo1.png"
+            alt=""
+          />
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
           <input
             type="email"
             placeholder="Email"
             value={this.state.email}
             name="email"
+            className="form-control mb-3"
             onChange={this.handleInputChange}
             required
           />
+          <label htmlFor="name" className="sr-only">
+            Name
+          </label>
           <input
             type="name"
             placeholder="Name"
             value={this.state.name}
             name="name"
+            className="form-control mb-3"
             onChange={this.handleInputChange}
             required
           />
+          <label htmlFor="username" className="sr-only">
+            Username
+          </label>
           <input
             type="username"
             placeholder="Username"
             value={this.state.username}
             name="username"
+            className="form-control mb-3"
             onChange={this.handleInputChange}
             required
           />
+          <label htmlFor="password" className="sr-only">
+            Password
+          </label>
           <input
             type="password"
             placeholder="Password"
             value={this.state.password}
             name="password"
+            className="form-control mb-3"
             onChange={this.handleInputChange}
             required
           />
-          <button>Join</button>
+          <button className="btn btn-lg MyBtn btn-block mb-5">Join</button>
+          {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
         </form>
       </main>
     );
@@ -80,3 +111,4 @@ class AuthenticationJoinView extends Component {
 }
 
 export default AuthenticationJoinView;
+

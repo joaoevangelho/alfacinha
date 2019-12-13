@@ -27,9 +27,10 @@ class NavBar extends Component {
         collapseOnSelect
         expand="lg"
         fixed="top"
-        bg="dark"
-        className="TransparentBg"
-        variant="dark"
+        // bg="dark"
+        className="TransparentBg "
+        // variant="dark"
+        variant="light"
       >
         <Navbar.Brand href="/">
           <Image
@@ -61,15 +62,15 @@ class NavBar extends Component {
                 <Nav.Link className="mx-2" href="/private">
                   My Profile
                 </Nav.Link>
-                <Nav.Link
-                  type="button"
-                  onClick={this.onLogOutTrigger}
-                  className="btn MyBtn mx-2"
-                  href="/login"
-                >
-                  {/* <Button onClick={this.onLogOutTrigger}>Log Out</Button> */}
+                {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
                   Log Out
-                </Nav.Link>
+                </Nav.Link> */}
+                <Button
+                  className="MyBtn LogoutBtn mx-2"
+                  onClick={this.onLogOutTrigger}
+                >
+                  Log Out
+                </Button>
               </Nav>
             </Fragment>
           )) || (
