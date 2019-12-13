@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-=======
 import React, { Component } from "react";
 import Image from "react-bootstrap/Image";
->>>>>>> 50b0c0d4bf2467d1a94115b9dc5de7a81759861d
 
 import { join as joinService } from './../../services/authentication';
 

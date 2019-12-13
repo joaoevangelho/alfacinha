@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
+import Button from "react-bootstrap/Button";
+
 // import { Link } from "react-router-dom";
 
 import { logOut as logOutService } from './../services/authentication';
