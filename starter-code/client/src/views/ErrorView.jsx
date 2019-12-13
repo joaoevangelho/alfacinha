@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 
-export class ErrorView extends Component {
+class ErrorView extends Component {
   render() {
+    const errorMessageMap = {
+      404: 'Page not found',
+      401: 'User not authorized',
+      500: 'Server error'
+    };
+    const defaultErrorMessage = 'Unknown error';
+    const code = this.props.match.params.code;
+    const message = errorMessageMap[code] || defaultErrorMessage;
     return (
-      <div>
-        <h1>Error, modafuckaaa</h1>
-        
-      </div>
-    )
+      <main>
+        <h1>There was an error</h1>
+        <h3>{message}</h3>
+      </main>
+    );
   }
 }
 

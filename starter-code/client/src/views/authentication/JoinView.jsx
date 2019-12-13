@@ -38,7 +38,7 @@ class AuthenticationJoinView extends Component {
 
   render() {
     return (
-      <main>
+      <main className="pt-5 m-5">
         <form onSubmit={this.handleFormSubmission}>
           <input
             type="email"

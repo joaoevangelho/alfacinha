@@ -35,7 +35,7 @@ class RestaurantListView extends Component {
               style={{ maxWidth: "540px" }}
             >
               <div className="row no-gutters">
-                <div className="col-md-4">
+                <div className="BgHack col-md-4">
                   <img
                     src={restaurant.restaurant.featured_image}
                     className="card-img"

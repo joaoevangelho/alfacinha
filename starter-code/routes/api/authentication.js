@@ -8,7 +8,7 @@ const bcryptjs = require("bcryptjs");
 
 router.post("/join", async (req, res, next) => {
   const { username, name, email, password } = req.body;
-  console.log(`this should show req.body`, req.body);
+  // console.log(`this should show req.body`, req.body);
   try {
     const hash = await bcryptjs.hash(password, 10);
     const user = await User.create({
@@ -30,10 +30,14 @@ router.post("/join", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
+  console.log("AQUI bodyyy", req.body);
+
   try {
     const user = await User.findOne({
       username
     }).exec();
+    console.log("USEEER", user);
+
     if (!user) throw new Error("There's no user with that username.");
     const result = await bcryptjs.compare(password, user.passwordHash);
     if (!result) throw new Error("Wrong password.");
@@ -42,13 +46,13 @@ router.post("/login", async (req, res, next) => {
       user,
       message: "user successfully signed in"
     });
-    res.redirect("/");
   } catch (error) {
     console.log("LOGIN", error);
-
     next(error);
   }
 });
+
+// const routeGuard = require('./../../middleware/route-guard');
 
 router.get("/loggedin", async (req, res, next) => {
   const userId = req.session.user;
@@ -71,7 +75,6 @@ router.get("/loggedin", async (req, res, next) => {
 
 router.post("/logout", (req, res, next) => {
   req.session.destroy();
-  // res.redirect('/');
   res.json({});
 });
 
