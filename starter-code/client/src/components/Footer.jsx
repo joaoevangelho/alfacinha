@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer py-2 bg-dark ">
+      <footer className="footer py-2 bg-dark mt-5">
         <Nav className="flex-column">
           <Nav.Link
             // href="https://www.un.org/sustainabledevelopment/"
