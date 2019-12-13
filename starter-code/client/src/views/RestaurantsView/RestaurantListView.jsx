@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { listRestaurants } from "../../services/restaurantZomato";
-import { Link } from "react-router-dom";
-import Pagination from "./../../components/Pagination";
+import React, { Component } from 'react';
+import { listRestaurants } from '../../services/restaurantZomato';
+import { Link } from 'react-router-dom';
+import Pagination from './../../components/Pagination';
 
 class RestaurantListView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       vegetarianRestaurants: null
     };
@@ -19,7 +19,7 @@ class RestaurantListView extends Component {
       });
     } catch (error) {
       console.log(error);
-      console.log("Error in service.");
+      console.log('Error in service.');
     }
   }
 
@@ -33,19 +33,23 @@ class RestaurantListView extends Component {
             <div
               key={restaurant.restaurant.id}
               className="card mb-3"
-              style={{ maxWidth: "540px" }}
+              style={{ maxWidth: '540px' }}
             >
               <div className="row no-gutters">
                 <div className="BgHack col-md-4">
                   <img
                     src={restaurant.restaurant.featured_image}
                     className="card-img"
-                    alt="Image"
+                    alt="Restaurant"
                   />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <h5 className="card-title">{restaurant.restaurant.name}</h5>
+                    <Link to={`/restaurant/${restaurant.restaurant.id}`}>
+                      <h5 className="card-title">
+                        {restaurant.restaurant.name}
+                      </h5>
+                    </Link>
                     <p className="card-text">
                       {restaurant.restaurant.cuisines}
                     </p>
@@ -59,38 +63,6 @@ class RestaurantListView extends Component {
               </div>
             </div>
           ))}
-        <div>
-          <Pagination />
-          {/* <nav aria-label="Page navigation example">
-            <ul className="pagination justify-content-center">
-              <li className="page-item">
-                <Link to="/restaurants/1" className="page-link" size="sm">
-                  1
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/restaurants/2" className="page-link" size="sm">
-                  2
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/restaurants/3" className="page-link" size="sm">
-                  3
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/restaurants/4" className="page-link" size="sm">
-                  4
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link to="/restaurants/5" className="page-link" size="sm">
-                  5
-                </Link>
-              </li>
-            </ul>
-          </nav> */}
-        </div>
       </div>
     );
   }
