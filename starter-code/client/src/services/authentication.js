@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiAuthenticationService = axios.create({
-  baseURL: '/api/authentication'
+  baseURL: "/api/authentication"
 });
 
 export const logIn = async data => {
@@ -14,10 +14,13 @@ export const logIn = async data => {
 };
 
 export const join = async data => {
+  console.log(data);
   try {
     const response = await apiAuthenticationService.post(`/join`, data);
+    console.log("RESPONSE SERVICE", response.data);
     return response.data.user;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };

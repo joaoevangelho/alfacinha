@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { join as joinService } from './../../services/authentication';
+import { join as joinService } from "./../../services/authentication";
 
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      password: ''
+      name: "",
+      username: "",
+      email: "",
+      password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -24,9 +25,10 @@ class AuthenticationJoinView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password, username, name } = this.state;
     try {
-      const user = await joinService({ email, password });
+      const user = await joinService({ email, password, username, name });
+      console.log(user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/private`);
     } catch (error) {
@@ -44,6 +46,7 @@ class AuthenticationJoinView extends Component {
             value={this.state.email}
             name="email"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="name"
@@ -51,13 +54,15 @@ class AuthenticationJoinView extends Component {
             value={this.state.name}
             name="name"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="username"
             placeholder="Username"
-            value={this.state.name}
+            value={this.state.username}
             name="username"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="password"
@@ -65,8 +70,9 @@ class AuthenticationJoinView extends Component {
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
+            required
           />
-          <button>Join!</button>
+          <button>Join</button>
         </form>
       </main>
     );

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { logIn as logInService } from './../../services/authentication';
+import { logIn as logInService } from "./../../services/authentication";
 
 class AuthenticationLogInView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -27,7 +27,7 @@ class AuthenticationLogInView extends Component {
     try {
       const user = await logInService({ email, password });
       console.log(user);
-      
+
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/private`);
     } catch (error) {
@@ -45,6 +45,7 @@ class AuthenticationLogInView extends Component {
             value={this.state.email}
             name="email"
             onChange={this.handleInputChange}
+            required
           />
           <input
             type="password"
@@ -52,6 +53,7 @@ class AuthenticationLogInView extends Component {
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
+            required
           />
           <button>Log In</button>
         </form>

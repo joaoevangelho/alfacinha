@@ -5,10 +5,10 @@ import {
   thirdListRestaurants,
   fourthListRestaurants,
   fifthListRestaurants
-} from "./../services/restaurantZomato";
+} from "../../services/restaurantZomato";
 import { Link } from "react-router-dom";
 
-class RestaurantList extends Component {
+class RestaurantListView extends Component {
   constructor() {
     super();
     this.state = {
@@ -63,9 +63,6 @@ class RestaurantList extends Component {
                 </div>
               </div>
             </div>
-            // <div >
-            //
-            // </div>
           ))}
         <div>
           <nav aria-label="Page navigation example">
@@ -102,4 +99,4 @@ class RestaurantList extends Component {
     );
   }
 }
-export default RestaurantList;
+export default RestaurantListView;
