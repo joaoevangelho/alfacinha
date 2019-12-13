@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
 import "./App.css";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Homepage from "./views/Homepage";
 import AuthenticationLoginView from "./views/authentication/LogInView";
 import AuthenticationJoinView from "./views/authentication/JoinView";
 import AuthenticationPrivateView from "./views/authentication/PrivateView";
 import RestaurantListView from "./views/restaurants/RestaurantListView";
-
 import ErrorView from "./views/ErrorView";
-
-import Navbar from "./components/Navbar";
-import Homepage from "./components/Homepage";
-import Footer from "./components/Footer";
 
 import { loadUserInformation as loadUserInformationService } from "./services/authentication";
 
@@ -85,7 +85,6 @@ class App extends Component {
                   />
                 )}
               />
-              {/* <Route path="/private" component={AuthenticationPrivateView} /> */}
               <Route
                 path="/private"
                 render={props => (
