@@ -6,17 +6,18 @@
   height: 12em;
   object-fit: cover;
   border-radius: 50%;
-  background-color: rgb(187, 187, 104);
+  background-color: #343a40;
   padding: 1em;
 }
 
 .card {
   margin: 3em;
   border-color: #343a40;
+  color: white;
 }
 
 .card-body {
-  background-color: rgb(187, 187, 104);
+  background-color: #343a40;
   height: 100%;
 }
 
@@ -25,7 +26,7 @@
 }
 
 .col-md-4 {
-  background-color: rgb(187, 187, 104);
+  background-color: #343a40;
 }
 
 .lh-75 {

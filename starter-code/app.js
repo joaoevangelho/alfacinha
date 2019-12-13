@@ -1,6 +1,8 @@
 "use strict";
 
-const { join } = require("path");
+const {
+  join
+} = require("path");
 const express = require("express");
 const createError = require("http-errors");
 const connectMongo = require("connect-mongo");
@@ -13,6 +15,7 @@ const basicAuthenticationDeserializer = require("./middleware/basic-authenticati
 const bindUserToViewLocals = require("./middleware/bind-user-to-view-locals.js");
 const indexRouter = require("./routes/index");
 const authenticationRouter = require("./routes/api/authentication");
+const restaurantsRouter = require("./routes/api/restaurants");
 
 const app = express();
 
@@ -33,7 +36,7 @@ app.use(
       httpOnly: true,
       secure: process.env.NODE_ENV === "production"
     },
-    store: new (connectMongo(expressSession))({
+    store: new(connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
@@ -44,6 +47,7 @@ app.use(bindUserToViewLocals);
 
 app.use("/", indexRouter);
 app.use("/api/authentication", authenticationRouter);
+app.use("/api/authentication", restaurantsRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
