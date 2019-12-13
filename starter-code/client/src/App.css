@@ -5,7 +5,9 @@
 .card-img {
   height: 12em;
   object-fit: cover;
-  margin: 1em;
+  border-radius: 50%;
+  background-color: rgb(187, 187, 104);
+  padding: 1em;
 }
 
 .card {
@@ -20,4 +22,8 @@
 
 .DarkGreyBg {
   background-color: #323940;
+}
+
+.col-md-4 {
+  background-color: rgb(187, 187, 104);
 }
