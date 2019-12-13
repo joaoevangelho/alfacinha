@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { listRestaurants } from "./../services/restaurantZomato";
+import {
+  listRestaurants,
+  secondListRestaurants,
+  thirdListRestaurants,
+  fourthListRestaurants,
+  fifthListRestaurants
+} from "./../services/restaurantZomato";
 import { Link } from "react-router-dom";
 
 class RestaurantList extends Component {
@@ -61,36 +67,36 @@ class RestaurantList extends Component {
             //
             // </div>
           ))}
-          <div>
-        <nav aria-label="Page navigation example">
-          <ul className="pagination justify-content-center">
-            <li className="page-item">
-              <Link to="/restaurants/1" className="page-link" size="sm">
-                1
-              </Link>
-            </li>
-            <li className="page-item">
-              <Link to="/restaurants/2" className="page-link" size="sm">
-                2
-              </Link>
-            </li>
-            <li className="page-item">
-              <Link to="/restaurants/3" className="page-link" size="sm">
-                3
-              </Link>
-            </li>
-            <li className="page-item">
-              <Link to="/restaurants/4" className="page-link" size="sm">
-                4
-              </Link>
-            </li>
-            <li className="page-item">
-              <Link to="/restaurants/5" className="page-link" size="sm">
-                5
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div>
+          <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center">
+              <li className="page-item">
+                <Link to="/restaurants/1" className="page-link" size="sm">
+                  1
+                </Link>
+              </li>
+              <li className="page-item">
+                <Link to="/restaurants/2" className="page-link" size="sm">
+                  2
+                </Link>
+              </li>
+              <li className="page-item">
+                <Link to="/restaurants/3" className="page-link" size="sm">
+                  3
+                </Link>
+              </li>
+              <li className="page-item">
+                <Link to="/restaurants/4" className="page-link" size="sm">
+                  4
+                </Link>
+              </li>
+              <li className="page-item">
+                <Link to="/restaurants/5" className="page-link" size="sm">
+                  5
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     );

@@ -5,8 +5,15 @@
 .card-img {
   height: 12em;
   object-fit: cover;
+  margin: 1em;
 }
 
 .card {
   margin: 3em;
+  border-color: #343a40;
+}
+
+.card-body {
+  background-color: rgb(187, 187, 104);
+  height: 100%;
 }
