@@ -16,4 +16,8 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
   res.render('restaurant-list');
 });
 
+// router.get('/single-restaurant', routeGuard, (req, res, next) => {
+//   res.render('restaurant-list');
+// });
+
 module.exports = router;
