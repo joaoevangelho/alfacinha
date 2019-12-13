@@ -6,7 +6,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import Homepage from "./views/Homepage";
+import Homepage from "./views/Homepage/Homepage";
 import AuthenticationLoginView from "./views/authentication/LogInView";
 import AuthenticationJoinView from "./views/authentication/JoinView";
 import AuthenticationPrivateView from "./views/authentication/PrivateView";
