@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { listRestaurants } from "../../services/restaurantZomato";
 import { Link } from "react-router-dom";
+import Pagination from "./../../components/Pagination";
 
 class RestaurantListView extends Component {
   constructor() {
@@ -59,7 +60,8 @@ class RestaurantListView extends Component {
             </div>
           ))}
         <div>
-          <nav aria-label="Page navigation example">
+          <Pagination />
+          {/* <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
               <li className="page-item">
                 <Link to="/restaurants/1" className="page-link" size="sm">
@@ -87,7 +89,7 @@ class RestaurantListView extends Component {
                 </Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </div>
       </div>
     );
