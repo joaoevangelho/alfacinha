@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { listRestaurants } from "../../services/restaurantZomato";
 import { Link } from "react-router-dom";
-import Pagination from "./../../components/Pagination";
+// import Pagination from "./../../components/Pagination";
 
 class RestaurantListView extends Component {
   constructor() {
@@ -36,7 +36,7 @@ class RestaurantListView extends Component {
               style={{ maxWidth: "540px" }}
             >
               <div className="row no-gutters">
-                <div className="BgHack col-md-4">
+                <div className="col-md-4">
                   <img
                     src={restaurant.restaurant.featured_image}
                     className="card-img"
@@ -60,8 +60,7 @@ class RestaurantListView extends Component {
             </div>
           ))}
         <div>
-          <Pagination />
-          {/* <nav aria-label="Page navigation example">
+          <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
               <li className="page-item">
                 <Link to="/restaurants/1" className="page-link" size="sm">
@@ -89,7 +88,7 @@ class RestaurantListView extends Component {
                 </Link>
               </li>
             </ul>
-          </nav> */}
+          </nav>
         </div>
       </div>
     );

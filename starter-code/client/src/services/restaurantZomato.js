@@ -27,7 +27,6 @@ export const listRestaurants = async function () {
       ...array4,
       ...array5
     ]
-    console.log(newArray);
     return newArray
   } catch (error) {
     console.log('There was an error from ZOMATO API');
