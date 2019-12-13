@@ -4,7 +4,7 @@ class PrivateView extends Component {
   render() {
     const user = this.props.user;
     return (
-      <div>
+      <div className="pt-5 m-5">
         <h1>Private</h1>
         {user && (
           <div>

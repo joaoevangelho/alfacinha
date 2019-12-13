@@ -23,9 +23,9 @@ class AuthenticationLogInView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { username, password } = this.state;
     try {
-      const user = await logInService({ email, password });
+      const user = await logInService({ username, password });
       console.log(user);
 
       this.props.changeAuthenticationStatus(user);
@@ -37,13 +37,13 @@ class AuthenticationLogInView extends Component {
 
   render() {
     return (
-      <main>
+      <main className="pt-5 m-5">
         <form onSubmit={this.handleFormSubmission}>
           <input
-            type="email"
-            placeholder="Email"
-            value={this.state.email}
-            name="email"
+            type="text"
+            placeholder="Username"
+            value={this.state.username}
+            name="username"
             onChange={this.handleInputChange}
             required
           />
