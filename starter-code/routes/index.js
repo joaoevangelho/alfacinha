@@ -12,4 +12,8 @@ router.get('/private', routeGuard, (req, res, next) => {
   res.render('private');
 });
 
+router.get('/restaurant-list', routeGuard, (req, res, next) => {
+  res.render('restaurant-list');
+});
+
 module.exports = router;

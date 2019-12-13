@@ -72,7 +72,7 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           />
-          <button>Join!</button>
+          <button>Join</button>
         </form>
       </main>
     );
