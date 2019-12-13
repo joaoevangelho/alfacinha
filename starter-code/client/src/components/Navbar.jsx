@@ -65,12 +65,12 @@ class NavBar extends Component {
                 {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
                   Log Out
                 </Nav.Link> */}
-                <Button
+                {/* <Button
                   className="MyBtn LogoutBtn mx-2"
                   onClick={this.onLogOutTrigger}
                 >
                   Log Out
-                </Button>
+                </Button> */}
               </Nav>
             </Fragment>
           )) || (
