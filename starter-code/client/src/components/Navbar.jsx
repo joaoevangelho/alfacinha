@@ -7,7 +7,14 @@ import Image from "react-bootstrap/Image";
 class NavBar extends Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        fixed="top"
+        bg="dark"
+        className="TransparentBg"
+        variant="dark"
+      >
         <Navbar.Brand href="/">
           <Image
             className="LogoImg"
@@ -32,8 +39,8 @@ class NavBar extends Component {
           </NavDropdown> */}
           {/* </Nav> */}
           <Nav className="ml-auto">
-            <Nav.Link href="/login">Log In</Nav.Link>
-            <Nav.Link href="/join">Join</Nav.Link>
+            <Nav.Link className="mx-2" href="/login">Log In</Nav.Link>
+            <Nav.Link className="mx-2" href="/join">Join</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

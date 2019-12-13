@@ -27,3 +27,61 @@
 .col-md-4 {
   background-color: rgb(187, 187, 104);
 }
+
+.lh-75 {
+  line-height: 75%;
+}
+
+.carousel-inner {
+  /* background: url("../assets/BackgroundTexture.png") bottom center no-repeat; */
+  min-height: 490px;
+}
+
+.CarouselImg {
+  /* height:20em; */
+  object-fit: cover;
+}
+
+.GreenBg {
+  /* background-color: #693668; */
+  background-color: #5cb471;
+}
+
+.PurpleTxt {
+  color: #693668;
+}
+
+.BeigeBg {
+  background-color: rgb(217, 223, 219);
+}
+
+.MyBtn {
+  background-color: #693668;
+  border-color: #693668;
+  /* color: darkgrey; */
+}
+
+.MyBtn:hover {
+  background-color: #693668;
+  border-color: #693668;
+  /* color: darkgrey; */
+}
+
+.MyBtn:focus {
+  background-color: #693668;
+  border-color: #693668;
+  /* color: darkgrey; */
+}
+
+.MyBtn:active {
+  background-color: #693668;
+  border-color: #693668;
+  /* color: darkgrey; */
+}
+
+.TransparentBg {
+  background-color: transparent;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  /* min-height: 80px; */
+}
