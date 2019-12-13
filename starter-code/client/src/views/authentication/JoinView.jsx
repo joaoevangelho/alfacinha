@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Image from 'react-bootstrap/Image';
+import React, { Component } from "react";
+import Image from "react-bootstrap/Image";
 
 import { join as joinService } from './../../services/authentication';
 
