@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-import Homepage from "./views/Homepage";
-import AuthenticationLoginView from "./views/authentication/LogInView";
-import AuthenticationJoinView from "./views/authentication/JoinView";
-import AuthenticationPrivateView from "./views/authentication/PrivateView";
-import RestaurantListView from "./views/restaurants/RestaurantListView";
-import ErrorView from "./views/ErrorView";
+import Homepage from './views/Homepage/Homepage';
+import AuthenticationLoginView from './views/authentication/LogInView';
+import AuthenticationJoinView from './views/authentication/JoinView';
+import AuthenticationPrivateView from './views/authentication/PrivateView';
+import RestaurantListView from './views/RestaurantsView/RestaurantListView';
+import SingleRestaurantView from './views/SingleRestaurantView/index';
+import ErrorView from './views/ErrorView';
 
-import { loadUserInformation as loadUserInformationService } from "./services/authentication";
+import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class App extends Component {
         loaded: true
       });
     } catch (error) {
-      console.log("IS THIS IT?", error);
+      console.log('IS THIS IT?', error);
     }
   }
 
@@ -100,6 +101,11 @@ class App extends Component {
                 path="/restaurant-list"
                 exact
                 component={RestaurantListView}
+              />
+              <Route
+                path="/restaurant/:id"
+                exact
+                component={SingleRestaurantView}
               />
               <Redirect to="/error/404" />
             </Switch>

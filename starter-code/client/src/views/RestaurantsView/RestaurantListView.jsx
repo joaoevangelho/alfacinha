@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 // import Pagination from "./../../components/Pagination";
 
 class RestaurantListView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       vegetarianRestaurants: null
     };
@@ -40,12 +40,16 @@ class RestaurantListView extends Component {
                   <img
                     src={restaurant.restaurant.featured_image}
                     className="card-img"
-                    alt="Image"
+                    alt="Restaurant"
                   />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <h5 className="card-title">{restaurant.restaurant.name}</h5>
+                    <Link to={`/restaurant/${restaurant.restaurant.id}`}>
+                      <h5 className="card-title">
+                        {restaurant.restaurant.name}
+                      </h5>
+                    </Link>
                     <p className="card-text">
                       {restaurant.restaurant.cuisines}
                     </p>

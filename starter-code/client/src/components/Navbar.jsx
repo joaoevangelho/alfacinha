@@ -1,11 +1,12 @@
-import React, { Component, Fragment } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Image from "react-bootstrap/Image";
+import React, { Component, Fragment } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Image from 'react-bootstrap/Image';
 import Button from "react-bootstrap/Button";
+
 // import { Link } from "react-router-dom";
 
-import { logOut as logOutService } from "./../services/authentication";
+import { logOut as logOutService } from './../services/authentication';
 
 class NavBar extends Component {
   constructor(props) {
@@ -28,9 +29,10 @@ class NavBar extends Component {
         collapseOnSelect
         expand="lg"
         fixed="top"
-        bg="dark"
-        className="TransparentBg"
-        variant="dark"
+        // bg="dark"
+        className="TransparentBg "
+        // variant="dark"
+        variant="light"
       >
         <Navbar.Brand href="/">
           <Image
@@ -62,9 +64,15 @@ class NavBar extends Component {
                 <Nav.Link className="mx-2" href="/private">
                   My Profile
                 </Nav.Link>
-                <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/login">
-                  {/* <Button onClick={this.onLogOutTrigger}>Log Out</Button> */}Log Out
-                </Nav.Link>
+                {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
+                  Log Out
+                </Nav.Link> */}
+                {/* <Button
+                  className="MyBtn LogoutBtn mx-2"
+                  onClick={this.onLogOutTrigger}
+                >
+                  Log Out
+                </Button> */}
               </Nav>
             </Fragment>
           )) || (
