@@ -3,6 +3,8 @@ import Image from "react-bootstrap/Image";
 
 import { join as joinService } from './../../services/authentication';
 
+import "./style.css";
+
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);

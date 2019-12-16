@@ -1,30 +1,36 @@
 import React, { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
-// import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+
+import "./style.css";
 
 class RestaurantsSection extends Component {
   render() {
     return (
       <Fragment>
-        <div className="w-100 py-3 px-5 mb-0 BeigeBg text-right ">
+        <div id="restaurants" className="w-100 text-right">
           <Row className="d-flex justify-content-between align-items-center">
-            <Col sm={4}>
+            <Col sm={8}>
               <Image
-                className="HomepageCenterImg my-3"
+                className="HomepageCenterImg"
                 fluid
-                src="/images/01.jpg"
+                src="/images/food9.jpg"
                 alt="BrandLogo"
               />
             </Col>
-            <Col sm={8} className="text-left">
-              <h5>Restaurants</h5>
+            <Col sm={4} className="text-left p-3">
+              <h5 className="ml-5">RESTAURANTS</h5>
+              <p className="text-justify mx-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+                beatae impedit, perferendis eaque ratione rem provident maiores
+                rerum. Deserunt libero voluptas beatae sint quos commodi
+                inventore blanditiis, ratione dolorem iusto!
+              </p>
               <Link to="/restaurant-list">
-                <Button className="ReadMoreBtn mx-2">Read more</Button>
+                <Button className="ReadMoreBtn w-50 mx-5">READ MORE</Button>
               </Link>
             </Col>
           </Row>

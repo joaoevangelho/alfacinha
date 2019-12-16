@@ -62,7 +62,7 @@ router.get("/loggedin", async (req, res, next) => {
   } else {
     try {
       const user = await User.findById(userId).exec();
-      if (!user) throw new Error("Signed in user not found");
+      if (!user) throw new Error("Signed in user not found");      
       res.json({
         user,
         message: "user in session"

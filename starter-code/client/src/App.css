@@ -1,58 +1,12 @@
-.LogoImg {
-  width: 2em;
-}
-
-.HomepageCenterImg {
-  height: 10em;
-  width: 10em;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.card-img {
-  height: 12em;
-  object-fit: cover;
-  border-radius: 50%;
-  background-color: #343a40;
-  padding: 1em;
-}
-
-.card {
-  margin: 3em;
-  border-color: #343a40;
-  color: white;
-}
-
-.card-body {
-  background-color: #343a40;
-  height: 100%;
-}
-
 .DarkGreyBg {
   background-color: #323940;
 }
 
-.BgHack {
-  background-color: rgb(187, 187, 104);
-}
-
-.lh-75 {
+.LineH75 {
   line-height: 75%;
 }
 
-.carousel-inner {
-  /* background: url("../assets/BackgroundTexture.png") bottom center no-repeat; */
-  min-height: 30em;
-}
-
-.CarouselImg {
-  height: 15em;
-  width: 10em;
-  object-fit: cover;
-}
-
 .GreenBg {
-  /* background-color: #693668; */
   background-color: #5cb471;
 }
 
@@ -88,55 +42,12 @@
   color: rgb(184, 184, 184);
 }
 
-.ReadMoreBtn {
-  background-color: rgb(217, 223, 219);
-  border-color: rgb(194, 197, 194);
-  border-radius: 0;
-  color: rgb(78, 78, 78);
-  margin: 0;
+.MinPageHeight {
+  min-height: 65vh;
 }
 
-.ReadMoreBtn:hover {
-  background-color: rgb(194, 197, 194);
-  border-color: rgb(194, 197, 194);
-  border-radius: 0;
-  color: rgb(78, 78, 78);
-}
-
-.ReadMoreBtn:focus {
-  background-color: rgb(194, 197, 194);
-  border-color: rgb(194, 197, 194);
-  border-radius: 0;
-  color: rgb(78, 78, 78);
-  margin: 0;
-}
-
-.ReadMoreBtn:active {
-  background-color: rgb(194, 197, 194);
-  border-color: rgb(194, 197, 194);
-  border-radius: 0;
-  color: rgb(78, 78, 78);
-  margin: 0;
-}
-
-.TransparentBg {
-  background-color: rgba(92, 180, 113, 0.2);
-  /* background-color: transparent; */
-  /* -webkit-transition: background-color 0.2s linear; */
-  /* transition: background-color 0.2s linear; */
-  /* min-height: 80px; */
-}
-
-.LoginJoinImg {
-  width: 10em;
-}
-
-.LoginJoinForm {
-  width: 30em;
-}
-
-.LogoutBtn {
-  max-width: 6em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Overpass', sans-serif;
 }
 
 .App {
