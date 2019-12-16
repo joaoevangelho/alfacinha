@@ -8,15 +8,16 @@ const apiService = axios.create({
   baseURL: '/api/comment'
 });
 
-// export const list = async () => {
-//   try {
-//     const response = await apiService.get('/restaurant/:id');
-//     const comments = response.data.comments;
-//     return comments;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const list = async resid => {
+  try {
+    const response = await apiService.get(`/list/${resid}`);
+    const comments = response.data.comments;
+    console.log('RESPONSE IN SERVICE', response.data);
+    return comments;
+  } catch (error) {
+    throw error;
+  }
+};
 
 // export const load = async id => {
 //   try {
@@ -46,8 +47,8 @@ const apiService = axios.create({
 
 export const create = async comment => {
   const data = new FormData();
-  //data.append('restaurant', comment.restaurant);
-  data.append('user', comment.user);
+  data.append('restaurant', comment.restaurant);
+  //data.append('user', comment.user);
   data.append('text', comment.text);
   data.append('image', comment.image);
   try {
