@@ -49,6 +49,7 @@ export const create = async comment => {
   //data.append('restaurant', comment.restaurant);
   data.append('user', comment.user);
   data.append('text', comment.text);
+  data.append('image', comment.image);
   try {
     const response = await apiService.post(`/create`, data);
     return response.data.comment;

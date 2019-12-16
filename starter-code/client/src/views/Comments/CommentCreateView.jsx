@@ -7,7 +7,7 @@ class CommentEditView extends Component {
     super(props);
     this.state = {
       comments: {
-        restaurant: '',
+        image: null,
         user: '',
         text: ''
       }
@@ -52,16 +52,13 @@ class CommentEditView extends Component {
     }
   }
 
-  // handleFileChange(event) {
-  //   console.dir(event.target.files);
-  //   const file = event.target.files[0];
-  //   this.setState({
-  //     comments: {
-  //       ...this.state.comment,
-  //       image: file
-  //     }
-  //   });
-  // }
+  handleFileChange(event) {
+    console.dir(event.target.files);
+    const file = event.target.files[0];
+    this.setState({
+      image: file
+    });
+  }
 
   render() {
     const comment = this.state.comment;
