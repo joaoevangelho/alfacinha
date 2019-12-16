@@ -13,7 +13,7 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
   }));
 
   // get page from query params or default to first page
-  const page = parseInt(req.query.page) || 1;
+  const pager = parseInt(req.query.page) || 1;
 
   // get pager object for specified page
   // const pager = paginate(items.length, page);
@@ -27,7 +27,5 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
     pageOfItems
   });
 });
-
-// router.post('/create', multerMiddleware.single('image'), async (req, res, next) => {
 
 module.exports = router;
