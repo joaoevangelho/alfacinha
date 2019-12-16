@@ -1,0 +1,35 @@
+.LogoImg {
+  width: 2em;
+}
+
+.TransparentBg {
+  background-color: rgb(92, 180, 113);
+  /* background-color: rgba(92, 180, 113, 0.2); */
+  /* background-color: transparent; */
+  /* -webkit-transition: background-color 0.2s linear; */
+  /* transition: background-color 0.2s linear; */
+  /* min-height: 80px; */
+}
+
+.NavBarTxt {
+  color: white;
+  font-weight: bold;
+}
+
+.FooterImg {
+  width: 8em;
+}
+
+.fa {
+  color: #693668;
+  text-decoration: none;
+}
+.fa:hover {
+  color: #693668;
+  text-decoration: none;
+}
+
+.fa:active {
+  color: #693668;
+  text-decoration: none;
+}

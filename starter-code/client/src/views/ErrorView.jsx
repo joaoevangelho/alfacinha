@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import "./style.css";
+
 class ErrorView extends Component {
   render() {
     const errorMessageMap = {
@@ -11,9 +13,9 @@ class ErrorView extends Component {
     const code = this.props.match.params.code;
     const message = errorMessageMap[code] || defaultErrorMessage;
     return (
-      <main>
-        <h1>There was an error</h1>
-        <h3>{message}</h3>
+      <main className="MinPageHeight m-5 p-5">
+        <h2>Something went wrong...</h2>
+        <h5>{message}</h5>
       </main>
     );
   }

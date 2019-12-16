@@ -1,0 +1,26 @@
+.SingleRestaurantCard {
+  background-color: transparent;
+}
+
+.BgHack {
+  background-color: rgb(187, 187, 104);
+}
+
+.CardImg {
+  height: 12em;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #343a40;
+  padding: 1em;
+}
+
+.Card {
+  margin: 3em;
+  border-color: #343a40;
+  color: white;
+}
+
+.CardBody {
+  background-color: #343a40;
+  height: 100%;
+}
