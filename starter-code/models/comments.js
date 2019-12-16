@@ -10,22 +10,17 @@ const schema = new mongoose.Schema(
       maxlength: 140,
       minlength: 1
     },
-    image: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: 'Image'
-      }
-    ],
+    image: {
+      type: String
+    },
     user: {
       type: mongoose.Types.ObjectId,
       required: true,
       ref: 'User'
+    },
+    restaurant: {
+      type: String
     }
-    // restaurant: {
-    //   type: mongoose.Types.ObjectId,
-    //   required: true,
-    //   ref: 'Restaurant'
-    // }
   },
   {
     timestamps: {

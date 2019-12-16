@@ -4,7 +4,6 @@ const { Router } = require('express');
 const router = new Router();
 // const paginate = require('jw-paginate');
 const routeGuard = require('./../../middleware/route-guard');
-const Comments = require('./../../models/comments');
 
 router.get('/restaurant-list', routeGuard, (req, res, next) => {
   const items = [...Array(150).keys()].map(i => ({
