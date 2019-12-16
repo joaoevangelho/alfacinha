@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = new Router();
 // const paginate = require('jw-paginate');
-const routeGuard = require('./../../middleware/route-guard');
+// const routeGuard = require('./../../middleware/route-guard');
 const Comments = require('./../../models/comments');
 
 //comentários nas páginas dos restaurantes
