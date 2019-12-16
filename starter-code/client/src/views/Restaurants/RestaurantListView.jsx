@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { listRestaurants } from "../../services/restaurantZomato";
 import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
 
 import "./style.css";
 import Button from "react-bootstrap/Button";
@@ -83,7 +84,7 @@ class RestaurantListView extends Component {
     return (
       <div className="d-flex flex-wrap mt-5 p-5 MinPageHeight">
         {!this.state.restaurants && (
-          <h2>Loading...</h2>
+          <ReactLoading type={"bars"} color={"white"} />
         )}
         {this.state.restaurants && (
           <div>

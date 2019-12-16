@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Image from "react-bootstrap/Image";
 
-import { logIn as logInService } from "./../../services/authentication";
+import { logIn as logInService } from "../../services/authentication";
 
 import "./style.css";
 
