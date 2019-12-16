@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { listRestaurants } from "../../services/restaurantZomato";
+import SearchInput from "../../components/SearchInput";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
 
@@ -12,9 +13,13 @@ class RestaurantListView extends Component {
     this.state = {
       loadingState: false,
       restaurants: null,
-      limit: 15
+      limit: 15,
+      nameQuery: "",
+      locationQuery: "",
+      averageQuery: ""
     };
     this.onLoadMore = this.onLoadMore.bind(this);
+    this.handleOnInputChange = this.handleOnInputChange.bind(this);
     this.renderRestaurants = this.renderRestaurants.bind(this);
   }
 
@@ -25,15 +30,28 @@ class RestaurantListView extends Component {
     });
   }
 
-  async componentDidUpdate(prevProps, prevState) {
-    console.log(prevState);
-    if (prevState !== this.state) {
-      const vegetarianRestaurants = await listRestaurants();
-      this.setState({
-        restaurants: vegetarianRestaurants
-      });
-    }
+  handleOnInputChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    const filteredByName = this.state.restaurants.filter(res =>
+      res.restaurant.name.toLowerCase().includes(this.state.nameQuery)
+    );
+    this.setState({
+      restaurants: filteredByName,
+      [name]: value
+    });
+    console.log(this.state);
   }
+
+  // async componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState);
+  //   if (prevState !== this.state) {
+  //     const vegetarianRestaurants = await listRestaurants();
+  //     this.setState({
+  //       restaurants: vegetarianRestaurants
+  //     });
+  //   }
+  // }
 
   onLoadMore() {
     console.log("load more");
@@ -45,7 +63,6 @@ class RestaurantListView extends Component {
   }
 
   renderRestaurants() {
-    console.log("limit", this.state.limit);
     return this.state.restaurants.slice(0, this.state.limit).map(restaurant => {
       return (
         <div
@@ -66,7 +83,15 @@ class RestaurantListView extends Component {
                 <Link to={`/restaurant/${restaurant.restaurant.id}`}>
                   <h5 className="card-title">{restaurant.restaurant.name}</h5>
                 </Link>
-                <p className="card-text">{restaurant.restaurant.cuisines}</p>
+                <p className="card-text">
+                  Cousine: {restaurant.restaurant.cuisines}
+                </p>
+                <p className="card-text">
+                  Location: {restaurant.restaurant.location.address}
+                </p>
+                <p className="card-text">
+                  Average Cost: {restaurant.restaurant.average_cost_for_two}{restaurant.restaurant.currency}
+                </p>
                 <p className="card-text">
                   <small className="text-muted">
                     Contact: {restaurant.restaurant.phone_numbers}
@@ -83,6 +108,8 @@ class RestaurantListView extends Component {
   render() {
     return (
       <div className="d-flex flex-wrap mt-5 p-5 MinPageHeight">
+        {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
+        <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (
           <ReactLoading type={"bars"} color={"white"} />
         )}
