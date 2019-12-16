@@ -1,0 +1,18 @@
+.UserProfileCardBg {
+  background-color: transparent;
+}
+
+.UserProfileImg {
+  width: 15em;
+  height: 15em;
+  object-fit: cover;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.UserProfileBanner {
+  height: 17em;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+}

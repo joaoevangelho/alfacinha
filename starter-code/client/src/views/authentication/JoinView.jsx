@@ -12,9 +12,11 @@ class AuthenticationJoinView extends Component {
       name: "",
       username: "",
       email: "",
-      password: ""
+      password: "",
+      image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
   }
 
@@ -22,16 +24,32 @@ class AuthenticationJoinView extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
+      ...this.state,
       [name]: value
+    });
+  }
+
+  handleFileChange(event) {
+    console.dir(event.target.files);
+    const file = event.target.files[0];
+    this.setState({
+      image: file
     });
   }
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password, username, name } = this.state;
+    const { email, password, username, name, image } = this.state;
+    console.log(this.state)
     try {
-      const user = await joinService({ email, password, username, name });
-      console.log(user);
+      const user = await joinService({
+        email,
+        password,
+        username,
+        name,
+        image
+      });
+      console.log("USER JOINVIEW", user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {
@@ -40,6 +58,7 @@ class AuthenticationJoinView extends Component {
   }
 
   render() {
+    // const user = this.state.user;
     return (
       <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
         <form
@@ -100,6 +119,10 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           />
+          <label htmlFor="image" className="sr-only">
+            Image
+          </label>
+          <input type="file" name="image" onChange={this.handleFileChange} />
           <button className="btn btn-lg MyBtn btn-block mb-5">Join</button>
           {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
         </form>
