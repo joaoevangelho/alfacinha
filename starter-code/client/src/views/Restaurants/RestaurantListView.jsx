@@ -21,6 +21,7 @@ class RestaurantListView extends Component {
     this.onLoadMore = this.onLoadMore.bind(this);
     this.handleOnInputChange = this.handleOnInputChange.bind(this);
     this.renderRestaurants = this.renderRestaurants.bind(this);
+    this.filterBySearch = this.filterBySearch.bind(this);
   }
 
   async componentDidMount() {
@@ -33,25 +34,17 @@ class RestaurantListView extends Component {
   handleOnInputChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    const filteredByName = this.state.restaurants.filter(res =>
-      res.restaurant.name.toLowerCase().includes(this.state.nameQuery)
-    );
     this.setState({
-      restaurants: filteredByName,
       [name]: value
     });
-    console.log(this.state);
   }
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   console.log(prevState);
-  //   if (prevState !== this.state) {
-  //     const vegetarianRestaurants = await listRestaurants();
-  //     this.setState({
-  //       restaurants: vegetarianRestaurants
-  //     });
-  //   }
-  // }
+  filterBySearch(restaurant) {
+    console.log(restaurant);
+    return restaurant.restaurant.name
+      .toLowerCase()
+      .includes(this.state.nameQuery);
+  }
 
   onLoadMore() {
     console.log("load more");
@@ -63,46 +56,53 @@ class RestaurantListView extends Component {
   }
 
   renderRestaurants() {
-    return this.state.restaurants.slice(0, this.state.limit).map(restaurant => {
-      return (
-        <div
-          key={restaurant.restaurant.id}
-          className="card mb-3"
-          style={{ maxWidth: "540px" }}
-        >
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <img
-                src={restaurant.restaurant.featured_image}
-                className="card-img"
-                alt="Restaurant"
-              />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <Link to={`/restaurant/${restaurant.restaurant.id}`}>
-                  <h5 className="card-title">{restaurant.restaurant.name}</h5>
-                </Link>
-                <p className="card-text">
-                  Cousine: {restaurant.restaurant.cuisines}
-                </p>
-                <p className="card-text">
-                  Location: {restaurant.restaurant.location.address}
-                </p>
-                <p className="card-text">
-                  Average Cost: {restaurant.restaurant.average_cost_for_two}{restaurant.restaurant.currency}
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">
-                    Contact: {restaurant.restaurant.phone_numbers}
-                  </small>
-                </p>
+    return this.state.restaurants
+      .filter(filteredRestaurantByName =>
+        this.filterBySearch(filteredRestaurantByName)
+      )
+      .slice(0, this.state.limit)
+      .map(restaurant => {
+        return (
+          <div
+            key={restaurant.restaurant.id}
+            className="card mb-3"
+            style={{ maxWidth: "540px" }}
+          >
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img
+                  src={restaurant.restaurant.featured_image}
+                  className="card-img"
+                  alt="Restaurant"
+                />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <Link to={`/restaurant/${restaurant.restaurant.id}`}>
+                    <h5 className="card-title">{restaurant.restaurant.name}</h5>
+                  </Link>
+                  <p className="card-text">
+                    Cousine: {restaurant.restaurant.cuisines}
+                  </p>
+                  <p className="card-text">
+                    Location: {restaurant.restaurant.location.address}
+                  </p>
+                  <p className="card-text">
+                    Average Cost:{" "}
+                    {restaurant.restaurant.average_cost_for_two / 2}
+                    {restaurant.restaurant.currency}
+                  </p>
+                  <p className="card-text">
+                    <small className="text-muted">
+                      Contact: {restaurant.restaurant.phone_numbers}
+                    </small>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
-    });
+        );
+      });
   }
 
   render() {
