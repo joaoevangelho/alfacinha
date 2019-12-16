@@ -6,7 +6,7 @@
   background-color: rgb(187, 187, 104);
 }
 
-.CardImg {
+/* .CardImg {
   height: 12em;
   object-fit: cover;
   border-radius: 50%;
@@ -23,4 +23,4 @@
 .CardBody {
   background-color: #343a40;
   height: 100%;
-}
+} */

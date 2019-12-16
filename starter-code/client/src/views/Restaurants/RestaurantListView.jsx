@@ -81,7 +81,7 @@ class RestaurantListView extends Component {
 
   render() {
     return (
-      <div className="d-flex flex-wrap m-3 p-3">
+      <div className="d-flex flex-wrap mt-5 p-5 MinPageHeight">
         {!this.state.restaurants && (
           <h2>Loading...</h2>
         )}
