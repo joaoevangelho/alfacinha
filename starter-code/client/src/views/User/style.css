@@ -1,5 +1,7 @@
 .UserProfileCardBg {
   background-color: transparent;
+  border: none;
+  margin: 0;
 }
 
 .UserProfileImg {
@@ -15,4 +17,37 @@
   object-fit: cover;
   display: flex;
   justify-content: center;
+}
+
+.FavoritesCarouselHeight {
+  min-height: 20em;
+}
+
+.FavoritesCarouselBg {
+  background-color: transparent;
+  /* border: 1px solid lightgrey; */
+}
+
+/* .FavoritesCarouselBgLayer1 {
+  background-color: rgba(90, 89, 89, 0.5);
+  min-height: 20em;
+}
+
+.FavoritesCarouselBgLayer2 {
+  background-color: rgba(90, 89, 89, 0.5);
+  min-height: 20em;
+} */
+
+.FavoritesCard {
+  margin-top: 1em;
+  margin-left: 1em;
+  width: 12em;
+  height: 15em;
+}
+
+.FavoritesImg {
+  width: 11.5em;
+  height: 11em;
+  object-fit: cover;
+  padding-top: 1em;
 }

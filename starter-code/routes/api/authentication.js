@@ -80,4 +80,27 @@ router.post("/logout", (req, res, next) => {
   res.json({});
 });
 
+/* router.post("/add-to-favorites", async (req, res, next) => {
+  const userId = req.session.user;
+  console.log("AQUIIII", req);
+  const restaurandId = "INSERT ID HERE";
+  console.log("IS THERE A USER HERE", userId);
+  if (!userId) {
+    res.json({});
+  } else {
+    try {
+      const user = await User.findByIdAndUpdate(userId, {
+        $push: { favorites: restaurandId }
+      }).exec();
+      if (!user) throw new Error("there's no user logged in");
+      res.json({
+        user,
+        message: "there's a user logged in"
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+}); */
+
 module.exports = router;

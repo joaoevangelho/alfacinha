@@ -33,8 +33,11 @@ const schema = new mongoose.Schema(
       type: String,
       minlength: 1,
       maxlenght: 140
-    }
-
+    },
+    favorites: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Restaurants'
+      }]
     /*  image: [{
     type: mongoose.Types.ObjectId,
     ref: 'Image'

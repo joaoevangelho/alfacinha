@@ -14,12 +14,13 @@
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
-.CarouselBgLayer1 {
+.AboutCarouselBgLayer1 {
   /* background: url("/images/lettuce1.jpg") bottom center no-repeat; */
   min-height: 25em;
 }
 
-.CarouselBgLayer2 {
+.AboutCarouselBgLayer2 {
+  background-color: #D98314;
   /* background-color: rgba(90, 89, 89, 0.5); */
   min-height: 25em;
 }

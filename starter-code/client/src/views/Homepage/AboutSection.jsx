@@ -10,8 +10,8 @@ class AboutSection extends Component {
   render() {
     return (
       <Fragment>
-        <Carousel className="CarouselBgLayer1">
-          <Carousel.Item className="CarouselBgLayer2 bg-secondary">
+        <Carousel className="AboutCarouselBgLayer1">
+          <Carousel.Item className="AboutCarouselBgLayer2">
             {/* <img
                 className="d-block w-100"
                 src="/images/01.jpg"
@@ -22,7 +22,7 @@ class AboutSection extends Component {
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item className="CarouselBgLayer2 bg-secondary">
+          <Carousel.Item className="AboutCarouselBgLayer2">
             {/* <img
                 className="d-block w-100"
                 src="/images/01.jpg"
@@ -34,7 +34,7 @@ class AboutSection extends Component {
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item className="CarouselBgLayer2 bg-secondary">
+          <Carousel.Item className="AboutCarouselBgLayer2">
             {/* <img
                 className="d-block w-100"
                 src="/images/01.jpg"

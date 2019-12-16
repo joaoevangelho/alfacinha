@@ -40,6 +40,15 @@ export const loadUserInformation = async () => {
   }
 };
 
+export const addToFavorites = async () => {
+  try {
+    const response = await apiAuthenticationService.get(`/add-to-favorites`);
+    return response.data.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const logOut = async () => {
   try {
     await apiAuthenticationService.post(`/logout`);
