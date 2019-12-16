@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
+import CommentCreateView from './../Comments/CommentCreateView';
+import CommentList from './../Comments/CommentList';
 
 import './style.css';
 
@@ -16,7 +18,7 @@ class singleRestaurant extends Component {
 
     try {
       const singleRestaurant = await restaurantApi(id);
-      console.log('response from api', singleRestaurant);
+      //console.log('response from api', singleRestaurant);
 
       this.setState({
         restaurant: singleRestaurant
@@ -29,7 +31,7 @@ class singleRestaurant extends Component {
   render() {
     const restaurant = this.state.restaurant;
     // const id = this.props.match.params.id;
-    console.log('hello', restaurant);
+    //console.log('hello', restaurant);
     return (
       <div className="MinPageHeight mt-4 pt-4">
         {restaurant && (
@@ -77,6 +79,8 @@ class singleRestaurant extends Component {
         <div>
           <br />
           COMENTÁRIOS NOS RESTAURANTES
+          <CommentList {...this.props} />
+          <CommentCreateView {...this.props} />
           {/* <div
             className="fb-comments"
             data-href="https://www.facebook.com/Alfacinha-100341914808752"

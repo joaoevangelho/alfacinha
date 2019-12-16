@@ -9,10 +9,10 @@ class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      username: "",
-      email: "",
-      password: "",
+      name: '',
+      username: '',
+      email: '',
+      password: '',
       image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,7 +40,7 @@ class AuthenticationJoinView extends Component {
   async handleFormSubmission(event) {
     event.preventDefault();
     const { email, password, username, name, image } = this.state;
-    console.log(this.state)
+    console.log(this.state);
     try {
       const user = await joinService({
         email,
@@ -49,7 +49,7 @@ class AuthenticationJoinView extends Component {
         name,
         image
       });
-      console.log("USER JOINVIEW", user);
+      console.log('USER JOINVIEW', user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {

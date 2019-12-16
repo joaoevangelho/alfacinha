@@ -21,9 +21,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(217, 223, 219);
+  /* background-color: #D9DBCA; */
+  color: #3D3A35;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* 
+#421F45 - purple
+#D98314 - orange
+#A8B550 - bright green
+#C5CF88 - light green
+#D9DBCA - greyish beige
+#9DA184 - greyish green
+#3D3A35 - dark greyish green
+*/

@@ -24,10 +24,9 @@ class RestaurantsSection extends Component {
             <Col sm={4} className="text-left p-3">
               <h5 className="ml-5">RESTAURANTS</h5>
               <p className="text-justify mx-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                beatae impedit, perferendis eaque ratione rem provident maiores
-                rerum. Deserunt libero voluptas beatae sint quos commodi
-                inventore blanditiis, ratione dolorem iusto!
+                Browse through a list of cool places to eat vegetarian food, wether you're in
+                the mood for a snack, a quick meal at lunch break or a nice
+                dinner with friends.
               </p>
               <Link to="/restaurant-list">
                 <Button className="ReadMoreBtn w-50 mx-5">READ MORE</Button>
