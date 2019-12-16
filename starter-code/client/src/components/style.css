@@ -3,6 +3,7 @@
 }
 
 .TransparentBg {
+  /* background-color: #421F45; */
   background-color: rgb(92, 180, 113);
   /* background-color: rgba(92, 180, 113, 0.2); */
   /* background-color: transparent; */
@@ -12,7 +13,8 @@
 }
 
 .NavBarTxt {
-  color: white;
+  color: #C5CF88;
+  /* color: white; */
   font-weight: bold;
 }
 

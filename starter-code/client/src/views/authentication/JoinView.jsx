@@ -9,17 +9,10 @@ class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      name: '',
-      username: '',
-      email: '',
-      password: '',
-=======
       name: "",
       username: "",
       email: "",
       password: "",
->>>>>>> fe3bf4ebb36bba76165aabe9f4c83b18e32bb9da
       image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);

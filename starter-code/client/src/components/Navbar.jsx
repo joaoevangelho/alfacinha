@@ -33,7 +33,7 @@ class NavBar extends Component {
         expand="lg"
         fixed="top"
         // bg="dark"
-        className="TransparentBg NavBarTxt"
+        className="TransparentBg"
         variant="dark"
         // variant="light"
       >
@@ -49,9 +49,9 @@ class NavBar extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
           
-            <Nav.Link className="mx-2" href="#restaurants" /* href="/restaurant-list" */>Restaurants</Nav.Link>
-            <Nav.Link className="mx-2" href="#shops" /* href="/shop-list" */>Shops</Nav.Link>
-            <Nav.Link className="mx-2" href="#events" /* href="/event-list" */>Events</Nav.Link>
+            <Nav.Link className="mx-2" /* href="#restaurants" */ href="/restaurant-list">Restaurants</Nav.Link>
+            <Nav.Link className="mx-2" /* href="#shops" */ href="/shop-list">Shops</Nav.Link>
+            <Nav.Link className="mx-2" /* href="#events" */ href="/event-list">Events</Nav.Link>
           
           {/* <NavDropdown title="What are you looking for?" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#restaurants">Restaurants</NavDropdown.Item>
