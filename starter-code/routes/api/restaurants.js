@@ -1,15 +1,14 @@
 'use strict';
 
-const {
-  Router
-} = require('express');
+const { Router } = require('express');
 const router = new Router();
 // const paginate = require('jw-paginate');
 const routeGuard = require('./../../middleware/route-guard');
+const Comments = require('./../../models/comments');
 
 router.get('/restaurant-list', routeGuard, (req, res, next) => {
   const items = [...Array(150).keys()].map(i => ({
-    id: (i + 1),
+    id: i + 1,
     name: 'Item ' + (i + 1)
   }));
 
@@ -28,5 +27,7 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
     pageOfItems
   });
 });
+
+// router.post('/create', multerMiddleware.single('image'), async (req, res, next) => {
 
 module.exports = router;

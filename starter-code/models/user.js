@@ -11,13 +11,15 @@ const schema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    unique: true
   },
   email: {
     type: String,
     required: true,
     lowercase: true,
-    trim: true
+    trim: true,
+    unique: true
   },
   passwordHash: {
     type: String,
@@ -25,6 +27,14 @@ const schema = new mongoose.Schema({
   },
   image: {
     type: String
+  },
+  favourites: {
+    type: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'Comments'
+      }
+    ]
   }
 });
 

@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
+import React, { Component } from 'react';
+import Image from 'react-bootstrap/Image';
 
-import { join as joinService } from "../../services/authentication";
+import { join as joinService } from '../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      username: "",
-      email: "",
-      password: ""
+      name: '',
+      username: '',
+      email: '',
+      password: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
