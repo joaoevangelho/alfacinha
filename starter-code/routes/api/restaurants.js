@@ -4,7 +4,7 @@ const {
   Router
 } = require('express');
 const router = new Router();
-const paginate = require('jw-paginate');
+// const paginate = require('jw-paginate');
 const routeGuard = require('./../../middleware/route-guard');
 
 router.get('/restaurant-list', routeGuard, (req, res, next) => {
@@ -17,7 +17,7 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
 
   // get pager object for specified page
-  const pager = paginate(items.length, page);
+  // const pager = paginate(items.length, page);
 
   // get page of items from items array
   const pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
