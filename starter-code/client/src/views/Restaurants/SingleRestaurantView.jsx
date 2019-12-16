@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato";
+import React, { Component } from 'react';
+import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
 
-import "./style.css";
+import './style.css';
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -12,24 +12,24 @@ class singleRestaurant extends Component {
   }
   async componentDidMount() {
     const id = this.props.match.params.id;
-    console.log("singleRest", id);
+    console.log('singleRest', id);
 
     try {
       const singleRestaurant = await restaurantApi(id);
-      console.log("response from api", singleRestaurant);
+      console.log('response from api', singleRestaurant);
 
       this.setState({
         restaurant: singleRestaurant
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push("/error/404");
+      this.props.history.push('/error/404');
     }
   }
   render() {
     const restaurant = this.state.restaurant;
     // const id = this.props.match.params.id;
-    console.log("hello", restaurant);
+    console.log('hello', restaurant);
     return (
       <div className="MinPageHeight mt-4 pt-4">
         {restaurant && (
@@ -57,9 +57,11 @@ class singleRestaurant extends Component {
                   <p className="card-text">
                     Address: {restaurant.location.address}
                   </p>
-                  <p className="card-text">Contact: {restaurant.phone_numbers}</p>
                   <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{" "}
+                    Contact: {restaurant.phone_numbers}
+                  </p>
+                  <p className="card-text">
+                    Zomato Rating{/*  (1-5) */}:{' '}
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
@@ -72,6 +74,17 @@ class singleRestaurant extends Component {
             </div>
           </div>
         )}
+        <div>
+          <br />
+          COMENTÁRIOS NOS RESTAURANTES
+          {/* <div
+            className="fb-comments"
+            data-href="https://www.facebook.com/Alfacinha-100341914808752"
+            data-width=""
+            data-numposts="10"
+          ></div> */}
+          <br />
+        </div>
       </div>
     );
   }

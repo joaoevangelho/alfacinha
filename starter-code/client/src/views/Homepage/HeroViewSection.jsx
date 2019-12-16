@@ -18,7 +18,7 @@ class HeroViewSection extends Component {
               <Col md={1}></Col>
               <Col /* className="text-light" */>
                 <h3 className="pl-5">Welcome to</h3>
-                <h1 className="ALfacinhaTitleText display-1 PurpleTxt font-weight-bold LineH75">
+                <h1 className="AlfacinhaTitleText display-1 PurpleTxt font-weight-bold LineH75">
                   ALFACINHA
                 </h1>
               </Col>

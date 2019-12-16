@@ -13,11 +13,17 @@ export const logIn = async data => {
   }
 };
 
-export const join = async data => {
-  console.log(data);
+export const join = async user => {
+  console.log("DATA ON SERVICE", user);
+  const data = new FormData();
+  data.append("name", user.name);
+  data.append("username", user.username);
+  data.append("email", user.email);
+  data.append("image", user.image);
+  data.append("password", user.password);
   try {
     const response = await apiAuthenticationService.post(`/join`, data);
-    console.log("RESPONSE SERVICE", response.data);
+    console.log("RESPONSE DATA!!", response);
     return response.data.user;
   } catch (error) {
     console.log(error);

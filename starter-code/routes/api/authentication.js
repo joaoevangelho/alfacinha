@@ -2,20 +2,22 @@
 
 const { Router } = require("express");
 const router = new Router();
-
-const User = require("./../../models/user");
 const bcryptjs = require("bcryptjs");
+const User = require("./../../models/user");
+const uploader = require("./../../middleware/multer-configuration");
 
-router.post("/join", async (req, res, next) => {
+router.post("/join", uploader.single("image"), async (req, res, next) => {
   const { username, name, email, password } = req.body;
-  // console.log(`this should show req.body`, req.body);
+  console.log(`this should show req.file(route)`, req.file);
   try {
+    /*  const imageFile = await Image.create(req.file); */
     const hash = await bcryptjs.hash(password, 10);
     const user = await User.create({
       username,
       name,
       email,
-      passwordHash: hash
+      passwordHash: hash,
+      image: req.file.url
     });
     req.session.user = user._id;
     res.json({
@@ -23,7 +25,7 @@ router.post("/join", async (req, res, next) => {
       message: "user successfully created"
     });
   } catch (error) {
-    console.log("JOIN", error);
+    console.log("JOIN ERROR", error);
     next(error);
   }
 });
@@ -47,7 +49,7 @@ router.post("/login", async (req, res, next) => {
       message: "user successfully signed in"
     });
   } catch (error) {
-    console.log("LOGIN", error);
+    console.log("LOGIN ERROR", error);
     next(error);
   }
 });
@@ -62,7 +64,7 @@ router.get("/loggedin", async (req, res, next) => {
   } else {
     try {
       const user = await User.findById(userId).exec();
-      if (!user) throw new Error("Signed in user not found");      
+      if (!user) throw new Error("Signed in user not found");
       res.json({
         user,
         message: "user in session"
