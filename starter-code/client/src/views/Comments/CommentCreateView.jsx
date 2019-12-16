@@ -6,79 +6,64 @@ class CommentEditView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: {
-        restaurant: '',
-        user: '',
-        text: ''
-      }
+      image: null,
+      text: '',
+      restaurant: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
-    console.log(this.props);
   }
 
   handleInputChange(event) {
+    const resId = this.props.match.params.id;
     const name = event.target.name;
     const value = event.target.value;
-    // console.log(name, value);
     this.setState({
-      // [name]: value
-      comments: {
-        ...this.state.comments,
-        [name]: value
-      }
+      ...this.state,
+      [name]: value,
+      restaurant: resId
     });
-    /*
-    this.setState(previousState => ({
-      note: {
-        ...previousState.note,
-        [name]: value
-      }
-    }));
-    */
   }
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const comments = this.state.comments;
-    console.log(comments);
+    const { text, image } = this.state;
+    const resId = this.props.match.params.id;
     try {
-      const commentDocument = await createCommentService(comments);
-      const id = commentDocument._id;
-      this.props.history.push(`/${id}`);
+      const commentDocument = await createCommentService({
+        text,
+        image,
+        restaurant: resId
+      });
+
+      this.props.history.push(`/restaurant/${resId}`);
     } catch (error) {
       console.log(error);
     }
   }
 
-  // handleFileChange(event) {
-  //   console.dir(event.target.files);
-  //   const file = event.target.files[0];
-  //   this.setState({
-  //     comments: {
-  //       ...this.state.comment,
-  //       image: file
-  //     }
-  //   });
-  // }
+  handleFileChange(event) {
+    const file = event.target.files[0];
+    this.setState({
+      image: file
+    });
+  }
 
   render() {
-    const comment = this.state.comment;
+    const { text, image } = this.state;
     return (
       <main>
-        {comment && (
-          <form onSubmit={this.handleFormSubmission}>
-            <textarea
-              placeholder="Comment"
-              value={comment.text || ''}
-              name="text"
-              onChange={this.handleInputChange}
-            ></textarea>
-            <input type="file" name="image" onChange={this.handleFileChange} />
-            <button>Create comment</button>
-          </form>
-        )}
+        <form onSubmit={this.handleFormSubmission}>
+          <textarea
+            placeholder="Comment"
+            value={text || ''}
+            name="text"
+            onChange={this.handleInputChange}
+          ></textarea>
+          <input type="file" name="image" onChange={this.handleFileChange} />
+          <button>Create comment</button>
+        </form>
       </main>
     );
   }
