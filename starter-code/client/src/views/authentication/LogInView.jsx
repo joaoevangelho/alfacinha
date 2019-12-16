@@ -9,7 +9,7 @@ class AuthenticationLogInView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
