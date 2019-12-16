@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Homepage from './views/Homepage/Homepage';
-import AuthenticationLoginView from './views/authentication/LogInView';
-import AuthenticationJoinView from './views/authentication/JoinView';
-import AuthenticationPrivateView from './views/authentication/PrivateView';
-import RestaurantListView from './views/RestaurantsView/RestaurantListView';
-import SingleRestaurantView from './views/SingleRestaurantView/index';
-import ErrorView from './views/ErrorView';
+import Homepage from "./views/Homepage/Homepage";
+import AuthenticationLoginView from "./views/Authentication/LogInView";
+import AuthenticationJoinView from "./views/Authentication/JoinView";
+import AuthenticationUserProfileView from "./views/User/UserProfileView";
 
-import { loadUserInformation as loadUserInformationService } from './services/authentication';
+import RestaurantListView from "./views/Restaurants/RestaurantListView";
+import SingleRestaurantView from "./views/Restaurants/SingleRestaurantView";
+
+import ShopListView from "./views/Shops/ShopListView";
+import SingleShopView from "./views/Shops/SingleShopView";
+
+import EventListView from "./views/Events/EventListView";
+import SingleEventView from "./views/Events/SingleEventView";
+
+import ErrorView from "./views/ErrorView";
+
+import { loadUserInformation as loadUserInformationService } from "./services/authentication";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +45,7 @@ class App extends Component {
         loaded: true
       });
     } catch (error) {
-      console.log('IS THIS IT?', error);
+      console.log("IS THIS IT?", error);
     }
   }
 
@@ -61,13 +69,6 @@ class App extends Component {
           />
           {this.state.loaded && (
             <Switch>
-              {/* <ProtectedRoute
-            path="/create"
-            // component={NoteCreateView}
-            render={props => <NoteCreateView {...props} />}
-            verify={this.verifyAuthentication}
-            redirect="/error/401"
-          /> */}
               <Route
                 path="/join"
                 render={props => (
@@ -87,9 +88,9 @@ class App extends Component {
                 )}
               />
               <Route
-                path="/private"
+                path="/user-profile"
                 render={props => (
-                  <AuthenticationPrivateView
+                  <AuthenticationUserProfileView
                     {...props}
                     user={this.state.user}
                   />
@@ -103,9 +104,29 @@ class App extends Component {
                 component={RestaurantListView}
               />
               <Route
+                path="/shop-list"
+                exact
+                component={ShopListView}
+              />
+              <Route
+                path="/event-list"
+                exact
+                component={EventListView}
+              />
+              <Route
                 path="/restaurant/:id"
                 exact
                 component={SingleRestaurantView}
+              />
+              <Route
+                path="/shop/:id"
+                exact
+                component={SingleShopView}
+              />
+              <Route
+                path="/event/:id"
+                exact
+                component={SingleEventView}
               />
               <Redirect to="/error/404" />
             </Switch>

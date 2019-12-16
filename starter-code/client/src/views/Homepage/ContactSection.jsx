@@ -1,11 +1,9 @@
 import React, { Fragment, Component } from "react";
-import { Link } from "react-router-dom";
-import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Carousel from "react-bootstrap/Carousel";
-// import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+
+import "./style.css";
 
 class ContactSection extends Component {
   render() {

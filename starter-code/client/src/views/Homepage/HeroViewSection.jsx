@@ -3,10 +3,12 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import "./style.css";
+
 class HeroViewSection extends Component {
   render() {
     return (
-      <div>
+      <div id="home">
         <Jumbotron
           fluid
           className="py-5 mb-0 GreenBg d-flex justify-content-center align-items-center w-100"
@@ -16,7 +18,7 @@ class HeroViewSection extends Component {
               <Col md={1}></Col>
               <Col /* className="text-light" */>
                 <h3 className="pl-5">Welcome to</h3>
-                <h1 className="display-1 PurpleTxt font-weight-bold lh-75">
+                <h1 className="ALfacinhaTitleText display-1 PurpleTxt font-weight-bold LineH75">
                   ALFACINHA
                 </h1>
               </Col>

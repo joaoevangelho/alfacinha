@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap');
+
+.ALfacinhaTitleText {
+  font-family: 'Amatic SC', cursive;
+  font-size: 12em;
+  font-weight: 700;
+}
+
+.HomepageCenterImg {
+  width: 70em;
+  height: 37em;
+  object-fit: cover;
+  /* border-radius: 50%; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.CarouselBgLayer1 {
+  /* background: url("/images/lettuce1.jpg") bottom center no-repeat; */
+  min-height: 25em;
+}
+
+.CarouselBgLayer2 {
+  /* background-color: rgba(90, 89, 89, 0.5); */
+  min-height: 25em;
+}
+
+.CarouselImg {
+  height: 15em;
+  width: 10em;
+  object-fit: cover;
+}
+
+.ReadMoreBtn {
+  background-color: rgb(217, 223, 219);
+  border-color: rgb(83, 83, 83);
+  border-radius: 0;
+  color: rgb(53, 52, 52);
+  margin: 0;
+}
+
+.ReadMoreBtn:hover {
+  background-color: rgb(194, 197, 194);
+  border-color: rgb(194, 197, 194);
+  border-radius: 0;
+  color: rgb(78, 78, 78);
+}
+
+.ReadMoreBtn:focus {
+  background-color: rgb(194, 197, 194);
+  border-color: rgb(194, 197, 194);
+  border-radius: 0;
+  color: rgb(78, 78, 78);
+  margin: 0;
+}
+
+.ReadMoreBtn:active {
+  background-color: rgb(194, 197, 194);
+  border-color: rgb(194, 197, 194);
+  border-radius: 0;
+  color: rgb(78, 78, 78);
+  margin: 0;
+}
