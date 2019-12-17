@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { list as listservice } from "../../services/comments";
-
-import "./style.css";
+import React, { Component } from 'react';
+import { list as listservice } from '../../services/comments';
+import './style.css';
 
 export default class CommentList extends Component {
   constructor(props) {
@@ -27,26 +26,27 @@ export default class CommentList extends Component {
         <h1>Comments</h1>
         {comments &&
           comments.map(comment => (
-            <div className="w-75 UserComment">
-              <div className="my-auto">
-                {<img
-                  src={comment.image}
-                  alt="User icon"
-                  className="CommentUserIcon my-auto"
-                />}
-                {comment.user.username}
-                {/* {comment.user.createdAt} */}
+            <div
+              className="card mb-3  text-white bg-success "
+              style={{ maxWidth: '540px' }}
+            >
+              <div className="row no-gutters">
+                <div className="col-md-2">
+                  <img className="card-img" src={comment.user.image} />
+                </div>
+                <div className="col-md-8 ml-2">
+                  <h5 className="card-title">{comment.user.name}</h5>
+                  <div className="card-text">
+                    <p>{comment.text}</p>
+                  </div>
+                </div>
               </div>
-              <hr/>
-              <p>{comment.text}</p>
-              <img
-                src={comment.image}
-                alt="Comment pic"
-                className="CommentImg"
-              />
             </div>
           ))}
       </div>
     );
   }
 }
+
+
+

@@ -22,6 +22,7 @@ import SingleEventView from './views/Events/SingleEventView';
 
 import ErrorView from './views/ErrorView';
 
+
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 class App extends Component {

@@ -46,12 +46,13 @@ class CommentEditView extends Component {
   handleFileChange(event) {
     const file = event.target.files[0];
     this.setState({
+      ...this.state,
       image: file
     });
   }
 
   render() {
-    const { text, image } = this.state;
+    const { text } = this.state;
     return (
       <main className="pl-4 ml-4">
         <form onSubmit={this.handleFormSubmission} className="form-signin w-50">

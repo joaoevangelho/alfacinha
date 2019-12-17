@@ -21,19 +21,19 @@ class SearchInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mt-5 MinPageHeight">
         <form>
-          <div className="columns text-center">
-            <div className="column col-4 col-xs-12">
-              <div className="form-group">
-                <div className="col-3 col-sm-12">
+          <div>
+            <div>
+              <div>
+                <div>
                   <label className="form-label" htmlFor="name-form">
                     Name
                   </label>
                 </div>
-                <div className="col-9 col-sm-12">
+                <div className="p-2 bd-highlight">
                   <input
-                    className="form-input"
+                    className="form-control mr-sm-2"
                     name="nameQuery"
                     type="search"
                     id="name-form"
@@ -44,42 +44,45 @@ class SearchInput extends Component {
                 </div>
               </div>
             </div>
-            <div className="column col-4 col-xs-12">
-              <div className="form-group">
-                <div className="col-3 col-sm-12">
-                  <label className="form-label" htmlFor="location">
-                    Location
-                  </label>
-                </div>
-                <div className="col-9 col-sm-12">
-                  <input
-                    className="form-input"
-                    type="search"
-                    id="location"
-                    name="locationQuery"
-                    placeholder="Location"
-                    value={this.props.locationQuery}
-                    onChange={this.props.onChange}
-                  />
+            <div className="d-flex row-flex">
+              <div className="column col-4 col-xs-12">
+                <div className="form-group">
+                  <div className="col-3 col-sm-12">
+                    <label className="form-label" htmlFor="location">
+                      Location
+                    </label>
+                  </div>
+                  <div className="col-9 col-sm-12">
+                    <input
+                      className="form-control mr-sm-2"
+                      type="search"
+                      id="location"
+                      name="locationQuery"
+                      placeholder="Location"
+                      value={this.props.locationQuery}
+                      onChange={this.props.onChange}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="column col-4 col-xs-12">
-              <div className="form-group">
-                <div className="col-3 col-sm-12">
-                  <label className="form-label" htmlFor="average">
-                    Average Cost
-                  </label>
-                </div>
-                <div className="col-9 col-sm-12">
-                  <input
-                    className="form-input"
-                    type="number"
-                    id="average"
-                    name="averageQuery"
-                    value={this.props.averageQuery}
-                    onChange={this.props.onChange}
-                  />
+              <div className="column col-4 col-xs-12">
+                <div className="form-group">
+                  <div className="col-3 col-sm-12">
+                    <label className="form-label" htmlFor="average">
+                      Average Cost
+                    </label>
+                  </div>
+                  <div className="col-9 col-sm-12">
+                    <input
+                      className="form-control mr-sm-2"
+                      type="text"
+                      id="average"
+                      name="averageQuery"
+                      placeholder="0"
+                      value={this.props.averageQuery}
+                      onChange={this.props.onChange}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

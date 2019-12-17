@@ -1,10 +1,6 @@
 import axios from 'axios';
 
 const apiService = axios.create({
-  // Before proxying
-  // baseURL: 'http://localhost:3020/api'
-  // After proxying
-  // baseURL: 'http://localhost:3000/api'
   baseURL: '/api/comment'
 });
 
