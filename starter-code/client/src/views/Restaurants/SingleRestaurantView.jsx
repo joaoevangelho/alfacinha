@@ -8,6 +8,7 @@ import { loadUserInformation as loadUserInformationService } from './../../servi
 import { addToFavorites as addToFavoritesService } from './../../services/authentication';
 
 import './style.css';
+import SimpleMap from '../../components/Map';
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class singleRestaurant extends Component {
                   className="card-img"
                   alt="..."
                 />
+                <SimpleMap />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
@@ -72,7 +74,7 @@ class singleRestaurant extends Component {
                   <p className="card-text">Cuisines: {restaurant.cuisines}</p>
                   <p className="card-text">Type: {restaurant.establishment}</p>
                   <p className="card-text">
-                    Average cost for 2: {restaurant.average_cost_for_two}
+                    Average cost: {restaurant.average_cost_for_two / 2}
                     {restaurant.currency}
                   </p>
                   <p className="card-text">
@@ -124,4 +126,5 @@ class singleRestaurant extends Component {
     );
   }
 }
+
 export default singleRestaurant;
