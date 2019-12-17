@@ -46,7 +46,6 @@
 
 .MinPageHeight {
   min-height: 0.5;
-  background-color: #323940;
 }
 
 h1,
@@ -55,7 +54,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 .App {
