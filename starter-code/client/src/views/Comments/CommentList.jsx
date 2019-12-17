@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { list as listservice } from '../../services/comments';
+import './style.css';
 
 export default class CommentList extends Component {
   constructor(props) {
@@ -25,13 +26,27 @@ export default class CommentList extends Component {
         <h1>LISTVIEW</h1>
         {comments &&
           comments.map(comment => (
-            <div>
-              <p>{comment.user.username}</p>
-              <img src={comment.user.image} />
-              <p>{comment.text}</p>
+            <div
+              className="card mb-3  text-white bg-success "
+              style={{ maxWidth: '540px' }}
+            >
+              <div className="row no-gutters">
+                <div className="col-md-2">
+                  <img className="card-img" src={comment.user.image} />
+                </div>
+                <div className="col-md-8 ml-2">
+                  <h5 className="card-title">{comment.user.name}</h5>
+                  <div className="card-text">
+                    <p>{comment.text}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
       </div>
     );
   }
 }
+
+
+
