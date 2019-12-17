@@ -55,7 +55,7 @@ class CommentEditView extends Component {
     const { text } = this.state;
     return (
       <main className="pl-4 ml-4">
-        <form onSubmit={this.handleFormSubmission} className="form-signin w-50">
+        <form onSubmit={this.handleFormSubmission} className="form-signin w-75">
         <label htmlFor="text" id="txt" className="sr-only">
             Comment
           </label>

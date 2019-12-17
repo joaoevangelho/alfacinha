@@ -27,15 +27,15 @@ export default class CommentList extends Component {
         {comments &&
           comments.map(comment => (
             <div
-              className="card mb-3  text-white bg-success "
-              style={{ maxWidth: '540px' }}
+              className="UserComment card mb-3 text-dark w-75"
             >
               <div className="row no-gutters">
                 <div className="col-md-2">
-                  <img className="card-img" src={comment.user.image} />
+                  <img className="CommentUserIcon" src={comment.image} />
                 </div>
                 <div className="col-md-8 ml-2">
                   <h5 className="card-title">{comment.user.name}</h5>
+                  <img className="CommentImg" src={comment.image} />
                   <div className="card-text">
                     <p>{comment.text}</p>
                   </div>
