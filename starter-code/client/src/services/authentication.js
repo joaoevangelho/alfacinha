@@ -14,7 +14,7 @@ export const logIn = async data => {
 };
 
 export const join = async user => {
-  console.log("DATA ON SERVICE", user);
+  // console.log("DATA ON SERVICE", user);
   const data = new FormData();
   data.append("name", user.name);
   data.append("username", user.username);
@@ -23,7 +23,7 @@ export const join = async user => {
   data.append("password", user.password);
   try {
     const response = await apiAuthenticationService.post(`/join`, data);
-    console.log("RESPONSE DATA!!", response);
+    // console.log("RESPONSE DATA!!", response);
     return response.data.user;
   } catch (error) {
     console.log(error);
@@ -40,9 +40,12 @@ export const loadUserInformation = async () => {
   }
 };
 
-export const addToFavorites = async () => {
+export const addToFavorites = async id => {
+  console.log("this is the res ID", id);
   try {
-    const response = await apiAuthenticationService.get(`/add-to-favorites`);
+    const response = await apiAuthenticationService.get(
+      `/add-to-favorites/${id}`
+    );
     return response.data.user;
   } catch (error) {
     throw error;

@@ -23,7 +23,7 @@ router.post('/create', uploader.single('image'), async (req, res, next) => {
       user: req.session.user,
       image: req.file.url
     });
-    console.log('should be newComment in restaurant js', newComment);
+    // console.log('should be newComment in restaurant js', newComment);
     res.json({ newComment });
   } catch (error) {
     next(error);
@@ -32,13 +32,13 @@ router.post('/create', uploader.single('image'), async (req, res, next) => {
 
 router.get('/list/:id', async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     const comments = await Comments.find({
       restaurant: req.params.id
     })
       .populate('user')
       .exec();
-    console.log(comments);
+    // console.log(comments);
     res.json({ comments });
   } catch (error) {
     next(error);

@@ -1,35 +1,57 @@
-import React, { Component } from 'react';
-import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
-import CommentCreateView from './../Comments/CommentCreateView';
-import CommentList from './../Comments/CommentList';
+import React, { Component } from "react";
+import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato";
+import CommentCreateView from "./../Comments/CommentCreateView";
+import CommentList from "./../Comments/CommentList";
+import Button from "react-bootstrap/Button";
 
-import './style.css';
+import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
+
+import "./style.css";
 
 class singleRestaurant extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurant: null
+      restaurant: null,
+      user: null,
+      favorites: null
     };
+    this.addToFavoritesButton = this.addToFavoritesButton.bind(this)
   }
+
   async componentDidMount() {
     const id = this.props.match.params.id;
-    console.log('singleRest', id);
-
+    // console.log("singleRest", id);
     try {
+      const user = await loadUserInformationService();
       const singleRestaurant = await restaurantApi(id);
       //console.log('response from api', singleRestaurant);
-
       this.setState({
-        restaurant: singleRestaurant
+        restaurant: singleRestaurant,
+        user: user
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push('/error/404');
+      this.props.history.push("/error/404");
     }
   }
+
+  async addToFavoritesButton(event) {
+    event.preventDefault();
+    const favoriteRestaurantId = this.props.match.params.id;
+    console.log("addToFavoritesButton STATE", favoriteRestaurantId);
+    try {
+      await addToFavoritesService(favoriteRestaurantId);
+      // console.log("USER JOINVIEW", user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     const restaurant = this.state.restaurant;
+    const user = this.state.user;
     // const id = this.props.match.params.id;
     //console.log('hello', restaurant);
     return (
@@ -63,7 +85,7 @@ class singleRestaurant extends Component {
                     Contact: {restaurant.phone_numbers}
                   </p>
                   <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{' '}
+                    Zomato Rating{/*  (1-5) */}:{" "}
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
@@ -71,6 +93,16 @@ class singleRestaurant extends Component {
                     Number of votes: {restaurant.user_rating.votes}
                   </p> */}
                   {/* <p className="card-text">On Zomato: {restaurant.url}</p> */}
+                  {user && (
+                    <div>
+                      <Button
+                        onClick={this.addToFavoritesButton}
+                        className="btn MyBtn"
+                      >
+                        Add to Favorites
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -78,7 +110,6 @@ class singleRestaurant extends Component {
         )}
         <div>
           <br />
-          COMENTÁRIOS NOS RESTAURANTES
           <CommentList {...this.props} />
           <CommentCreateView {...this.props} />
           {/* <div

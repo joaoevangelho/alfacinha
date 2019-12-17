@@ -9,8 +9,16 @@ import Image from "react-bootstrap/Image";
 import "./style.css";
 
 class UserProfileView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorites: []
+    };
+  }
+
   render() {
     const user = this.props.user;
+    const favorites = this.props.favorites;
     return (
       <div className="MinPageHeight pt-5 m-5">
         {(user && (
@@ -46,20 +54,21 @@ class UserProfileView extends Component {
                 lead-in to additional content. This content is a little bit
                 longer.
               </Card.Text>
-              <Card.Title className="mx-4 mt-3">My Favorites</Card.Title>
-              <Card.Text className="mx-4">
-                <ul>
-                  <li>
-                    <Link to="#">Bla {user.favorites}</Link>
-                  </li>
-                  <li>
-                    <Link to="#">Bla {user.favorites}</Link>
-                  </li>
-                  <li>
-                    <Link to="#">Bla {user.favorites}</Link>
-                  </li>
-                </ul>
-              </Card.Text>
+
+              {favorites &&
+                favorites.map(favorite => (
+                  <div>
+                    <Card.Title className="mx-4 mt-3">My Favorites</Card.Title>
+                    <Card.Text className="mx-4">
+                      <ul>
+                        <li>
+                          <a href="">{favorite.name}</a>
+                        </li>
+                      </ul>
+                    </Card.Text>
+                  </div>
+                ))}
+
               {/* <Card.Text className="mx-4 mb-2 text-muted">
                 <small>Last updated {user.creationDate}</small>
               </Card.Text> */}

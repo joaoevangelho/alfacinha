@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import Image from 'react-bootstrap/Image';
+import React, { Component } from "react";
+import Image from "react-bootstrap/Image";
 
-import { join as joinService } from '../../services/authentication';
+import { join as joinService } from "../../services/authentication";
 
-import './style.css';
+import "./style.css";
 
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      username: '',
-      email: '',
-      password: '',
+      name: "",
+      username: "",
+      email: "",
+      password: "",
       image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,7 +40,7 @@ class AuthenticationJoinView extends Component {
   async handleFormSubmission(event) {
     event.preventDefault();
     const { email, password, username, name, image } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     try {
       const user = await joinService({
         email,
@@ -49,7 +49,7 @@ class AuthenticationJoinView extends Component {
         name,
         image
       });
-      console.log('USER JOINVIEW', user);
+      // console.log("USER JOINVIEW", user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {
@@ -122,7 +122,13 @@ class AuthenticationJoinView extends Component {
           <label htmlFor="image" className="sr-only">
             Image
           </label>
-          <input type="file" name="image" onChange={this.handleFileChange} />
+          <input
+            type="file"
+            placeholder="Profile Picture"
+            name="image"
+            className="form-control mb-3"
+            onChange={this.handleFileChange}
+          />
           <button className="btn btn-lg MyBtn btn-block mb-5">Join</button>
           {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
         </form>

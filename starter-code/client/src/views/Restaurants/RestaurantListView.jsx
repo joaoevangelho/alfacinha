@@ -38,17 +38,14 @@ class RestaurantListView extends Component {
       [name]: value
     });
   }
-
   filterBySearch(restaurant) {
-    console.log(restaurant);
+    // console.log(restaurant);
     return restaurant.restaurant.name
       .toLowerCase()
       .includes(this.state.nameQuery);
   }
-
   onLoadMore() {
-    console.log("load more");
-
+    // console.log("load more");
     this.setState({
       ...this.state,
       limit: this.state.limit + 10
