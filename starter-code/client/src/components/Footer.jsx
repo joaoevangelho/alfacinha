@@ -22,7 +22,7 @@ class Footer extends Component {
 
               {/* <p className="mx-2 text-secondary">
                 Follow us: */}
-              <div>
+              {/* <div>
                 <a
                   href="https://www.facebook.com/Alfacinha-100341914808752"
                   target="blank"
@@ -38,7 +38,7 @@ class Footer extends Component {
                   target="blank"
                   className="fa fa-twitter mx-1"
                 ></a>
-              </div>
+              </div> */}
               {/* </p> */}
             </div>
           </Nav>
@@ -92,29 +92,3 @@ class Footer extends Component {
 }
 
 export default Footer;
-
-{
-  /* <footer className="footer py-2 bg-dark d-flex justify-content-end">
-        <Nav className="flex-column">
-          <Nav.Link
-            href="https://www.un.org/sustainabledevelopment/"
-            target="blank"
-            className="py-2 pl-4 text-secondary nav-link mr-4"
-          >
-            &copy; 2019 Alfacinha
-          </Nav.Link>
-          					<Nav.Link
-						href="#"
-						className="py-2 pl-4 text-secondary nav-link"
-					>
-						Link Two
-					</Nav.Link>
-					<Nav.Link
-						href="#"
-						className="py-2 pl-4 text-secondary nav-link"
-					>
-						Link Three
-					</Nav.Link>
-        </Nav>
-      </footer> */
-}

@@ -21,17 +21,17 @@ class SearchInput extends Component {
 
   render() {
     return (
-      <div className="mt-5 MinPageHeight">
-        <form>
+      <div className="mt-5">
+        <form className="w-50">
           <div>
             <div>
-              <div>
+              <div className="mb-2 ml-4">
                 <div>
                   <label className="form-label" htmlFor="name-form">
                     Name
                   </label>
                 </div>
-                <div className="p-2 bd-highlight">
+                <div className="bd-highlight">
                   <input
                     className="form-control mr-sm-2"
                     name="nameQuery"

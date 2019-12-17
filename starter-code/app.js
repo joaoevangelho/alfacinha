@@ -14,6 +14,8 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/api/authentication');
 const restaurantsRouter = require('./routes/api/restaurants');
 const commentRouter = require('./routes/api/comment');
+const favoritesRouter = require('./routes/api/favorites');
+const userRouter = require('./routes/api/user');
 
 const app = express();
 
@@ -46,6 +48,8 @@ app.use('/', indexRouter);
 app.use('/api/authentication', authenticationRouter);
 app.use('/api/restaurant', restaurantsRouter);
 app.use('/api/comment', commentRouter);
+app.use('/api/favorites', favoritesRouter);
+app.use('/api/user', userRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

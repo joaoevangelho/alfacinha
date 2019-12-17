@@ -45,7 +45,7 @@
 }
 
 .MinPageHeight {
-  min-height: 100vh;
+  min-height: 75vh;
 }
 
 h1,
@@ -55,8 +55,4 @@ h4,
 h5,
 h6 {
   font-family: 'Overpass', sans-serif;
-}
-
-.App {
-  width: 100vw;
 }

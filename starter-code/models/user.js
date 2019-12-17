@@ -27,12 +27,14 @@ const schema = new mongoose.Schema(
       required: true
     },
     image: {
-      type: String
+      type: String,
+      // required: true,
+      default: '/images/user-default.jpg'
     },
     aboutMe: {
       type: String,
-      minlength: 1,
-      maxlenght: 140
+      // minlength: 1,
+      // maxlenght: 140
     },
     favorites: [
       {

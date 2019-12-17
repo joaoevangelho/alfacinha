@@ -116,7 +116,7 @@ class RestaurantListView extends Component {
 
   render() {
     return (
-      <div>
+      <div className="MinPageHeight m-2 p-2">
         {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (

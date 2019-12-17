@@ -31,11 +31,11 @@ export default class CommentList extends Component {
             >
               <div className="row no-gutters">
                 <div className="col-md-2">
-                  <img className="CommentUserIcon" src={comment.image} />
+                  <img className="CommentUserIcon" src={comment.image} alt="Comment user pic" />
                 </div>
                 <div className="col-md-8 ml-2">
                   <h5 className="card-title">{comment.user.name}</h5>
-                  <img className="CommentImg" src={comment.image} />
+                  <img className="CommentImg" src={comment.image} alt="Comment pic" />
                   <div className="card-text">
                     <p>{comment.text}</p>
                   </div>

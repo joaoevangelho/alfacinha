@@ -8,9 +8,9 @@ router.get('/', (req, res, next) => {
   res.json({ type: 'success', data: { title: 'Hello World' } });
 });
 
-router.get('/user-profile', routeGuard, (req, res, next) => {
-  res.render('user-profile');
-});
+// router.get('/user-profile', routeGuard, (req, res, next) => {
+//   res.render('user-profile');
+// });
 
 router.get('/restaurant-list', routeGuard, (req, res, next) => {
   res.render('restaurant-list');

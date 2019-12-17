@@ -31,7 +31,7 @@ class CommentEditView extends Component {
     const { text, image } = this.state;
     const resId = this.props.match.params.id;
     try {
-      const commentDocument = await createCommentService({
+      /* const commentDocument = */ await createCommentService({
         text,
         image,
         restaurant: resId
