@@ -41,9 +41,21 @@ class RestaurantListView extends Component {
 
   filterBySearch(restaurant) {
     console.log(restaurant);
-    return restaurant.restaurant.name
-      .toLowerCase()
-      .includes(this.state.nameQuery);
+    if (restaurant.restaurant.name && this.state.nameQuery) {
+      return restaurant.restaurant.name
+        .toLowerCase()
+        .includes(this.state.nameQuery);
+    }
+    if (restaurant.restaurant.location.address && this.state.locationQuery) {
+      return restaurant.restaurant.location.address
+        .toLowerCase()
+        .includes(this.state.locationQuery);
+    }
+    if (restaurant.restaurant.average_cost_for_two)
+      return (restaurant.restaurant.average_cost_for_two / 2)
+        .toString()
+        .toLowerCase()
+        .includes(this.state.averageQuery);
   }
 
   onLoadMore() {
@@ -57,15 +69,15 @@ class RestaurantListView extends Component {
 
   renderRestaurants() {
     return this.state.restaurants
-      .filter(filteredRestaurantByName =>
-        this.filterBySearch(filteredRestaurantByName)
+      .filter(filteredRestaurantBySearch =>
+        this.filterBySearch(filteredRestaurantBySearch)
       )
       .slice(0, this.state.limit)
       .map(restaurant => {
         return (
           <div
             key={restaurant.restaurant.id}
-            className="card mb-3"
+            className="card ml-3 mb-5 mr-5"
             style={{ maxWidth: "540px" }}
           >
             <div className="row no-gutters">
@@ -107,7 +119,7 @@ class RestaurantListView extends Component {
 
   render() {
     return (
-      <div className="d-flex flex-wrap mt-5 p-5 MinPageHeight">
+      <div>
         {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (
@@ -115,7 +127,9 @@ class RestaurantListView extends Component {
         )}
         {this.state.restaurants && (
           <div>
-            {this.renderRestaurants()}
+            <div className="d-flex flex-wrap ml-5 mt-5">
+              {this.renderRestaurants()}
+            </div>
             <Button className="MyBtn LogoutBtn mx-2" onClick={this.onLoadMore}>
               Load
             </Button>
