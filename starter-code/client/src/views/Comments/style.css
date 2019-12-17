@@ -1,6 +1,6 @@
 .CommentUserIcon {
-  width: 2em;
-  height: 2em;
+  width: 4em;
+  height: 4em;
   object-fit: cover;
   border-radius: 50%;
   margin-right: 0.5em;
@@ -15,4 +15,5 @@
 .UserComment {
   margin: 1em 0;
   border: 1px solid lightgray;
+  background-color: transparent;
 }
