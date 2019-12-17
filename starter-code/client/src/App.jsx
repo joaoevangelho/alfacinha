@@ -105,7 +105,9 @@ class App extends Component {
               <Route
                 path="/restaurant/:id"
                 exact
-                component={SingleRestaurantView}
+                render={props => (
+                  <SingleRestaurantView {...props} user={this.state.user} />
+                )}
               />
               <Route
                 // path="/:userId"

@@ -8,6 +8,7 @@ import { loadUserInformation as loadUserInformationService } from "./../../servi
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 
 import "./style.css";
+import SimpleMap from "../../components/Map";
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class singleRestaurant extends Component {
       user: null,
       favorites: null
     };
-    this.addToFavoritesButton = this.addToFavoritesButton.bind(this)
+    this.addToFavoritesButton = this.addToFavoritesButton.bind(this);
   }
 
   async componentDidMount() {
@@ -65,6 +66,10 @@ class singleRestaurant extends Component {
                   className="card-img"
                   alt="..."
                 />
+                <SimpleMap
+                  lat={restaurant.location.latitude}
+                  lng={restaurant.location.longitude}
+                />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
@@ -72,7 +77,7 @@ class singleRestaurant extends Component {
                   <p className="card-text">Cuisines: {restaurant.cuisines}</p>
                   <p className="card-text">Type: {restaurant.establishment}</p>
                   <p className="card-text">
-                    Average cost for 2: {restaurant.average_cost_for_two}
+                    Average cost: {restaurant.average_cost_for_two / 2}
                     {restaurant.currency}
                   </p>
                   <p className="card-text">
@@ -111,7 +116,7 @@ class singleRestaurant extends Component {
         <div>
           <br />
           <CommentList {...this.props} />
-          <CommentCreateView {...this.props} />
+          {/* <CommentCreateView {...this.props} /> */}
           {/* <div
             className="fb-comments"
             data-href="https://www.facebook.com/Alfacinha-100341914808752"
@@ -124,4 +129,5 @@ class singleRestaurant extends Component {
     );
   }
 }
+
 export default singleRestaurant;

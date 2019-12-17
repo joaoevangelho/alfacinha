@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-
-import { create as createCommentService } from "./../../services/comments";
+import React, { Component } from 'react';
+import { create as createCommentService } from './../../services/comments';
 
 class CommentEditView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       image: null,
-      text: "",
-      restaurant: ""
+      text: '',
+      restaurant: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -30,6 +29,7 @@ class CommentEditView extends Component {
     event.preventDefault();
     const { text, image } = this.state;
     const resId = this.props.match.params.id;
+
     try {
       /* const commentDocument = */ await createCommentService({
         text,
@@ -37,7 +37,8 @@ class CommentEditView extends Component {
         restaurant: resId
       });
 
-      this.props.history.push(`/restaurant/${resId}`);
+      this.props.onSubmit();
+      // this.props.history.push(`/restaurant/${resId}`);
     } catch (error) {
       console.log(error);
     }
@@ -56,12 +57,12 @@ class CommentEditView extends Component {
     return (
       <main className="pl-4 ml-4">
         <form onSubmit={this.handleFormSubmission} className="form-signin w-75">
-        <label htmlFor="text" id="txt" className="sr-only">
+          <label htmlFor="text" id="txt" className="sr-only">
             Comment
           </label>
           <textarea
             placeholder="Write your comment here"
-            value={text || ""}
+            value={text || ''}
             name="text"
             className="form-control mb-3"
             onChange={this.handleInputChange}
@@ -75,9 +76,7 @@ class CommentEditView extends Component {
             className="form-control mb-3"
             onChange={this.handleFileChange}
           />
-          <button className="btn btn-lg MyBtn btn-block mb-5">
-            Comment
-          </button>
+          <button className="btn btn-lg MyBtn btn-block mb-5">Comment</button>
         </form>
       </main>
     );
