@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
-import CommentCreateView from './../Comments/CommentCreateView';
-import CommentList from './../Comments/CommentList';
-import Button from 'react-bootstrap/Button';
+import React, { Component } from "react";
+import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato";
+import CommentCreateView from "./../Comments/CommentCreateView";
+import CommentList from "./../Comments/CommentList";
+import Button from "react-bootstrap/Button";
 
-import { loadUserInformation as loadUserInformationService } from './../../services/authentication';
-import { addToFavorites as addToFavoritesService } from './../../services/authentication';
+import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 
-import './style.css';
-import SimpleMap from '../../components/Map';
+import "./style.css";
+import SimpleMap from "../../components/Map";
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -34,14 +34,14 @@ class singleRestaurant extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push('/error/404');
+      this.props.history.push("/error/404");
     }
   }
 
   async addToFavoritesButton(event) {
     event.preventDefault();
     const favoriteRestaurantId = this.props.match.params.id;
-    console.log('addToFavoritesButton STATE', favoriteRestaurantId);
+    console.log("addToFavoritesButton STATE", favoriteRestaurantId);
     try {
       await addToFavoritesService(favoriteRestaurantId);
       // console.log("USER JOINVIEW", user);
@@ -66,7 +66,10 @@ class singleRestaurant extends Component {
                   className="card-img"
                   alt="..."
                 />
-                <SimpleMap />
+                <SimpleMap
+                  lat={restaurant.location.latitude}
+                  lng={restaurant.location.longitude}
+                />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
@@ -87,7 +90,7 @@ class singleRestaurant extends Component {
                     Contact: {restaurant.phone_numbers}
                   </p>
                   <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{' '}
+                    Zomato Rating{/*  (1-5) */}:{" "}
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
