@@ -7,7 +7,6 @@
 }
 
 .GreenBg {
-
   /* background-color: #A8B550; */
   background-color: #5cb471;
 }
@@ -46,11 +45,17 @@
 }
 
 .MinPageHeight {
-  min-height: 65vh;
+  min-height: 0.5;
+  background-color: #323940;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Overpass', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Overpass", sans-serif;
 }
 
 .App {
