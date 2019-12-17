@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 // import Carousel from "react-bootstrap/Carousel";
 
-import "./style.css";
+import './style.css';
 
 class UserProfileView extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class UserProfileView extends Component {
 
   render() {
     const user = this.props.user;
+    console.log('should show user props', user);
     const favorites = this.props.favorites;
     return (
       <div className="MinPageHeight pt-5 m-5">

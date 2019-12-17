@@ -22,7 +22,6 @@ import SingleEventView from './views/Events/SingleEventView';
 
 import ErrorView from './views/ErrorView';
 
-
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 class App extends Component {
@@ -110,7 +109,9 @@ class App extends Component {
               <Route
                 path="/restaurant/:id"
                 exact
-                component={SingleRestaurantView}
+                render={props => (
+                  <SingleRestaurantView {...props} user={this.state.user} />
+                )}
               />
               <Route path="/shop/:id" exact component={SingleShopView} />
               <Route path="/event/:id" exact component={SingleEventView} />
