@@ -46,7 +46,8 @@ class App extends Component {
         loaded: true
       });
     } catch (error) {
-      console.log('IS THIS IT?', error);
+      console.log(error);
+      // console.log('IS THIS IT?', error);
     }
   }
 

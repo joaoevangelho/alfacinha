@@ -29,8 +29,7 @@ class AuthenticationLogInView extends Component {
     const { username, password } = this.state;
     try {
       const user = await logInService({ username, password });
-      console.log(user);
-
+      // console.log(user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {

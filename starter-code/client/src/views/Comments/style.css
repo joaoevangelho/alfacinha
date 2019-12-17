@@ -1,6 +1,18 @@
-/* .card-img {
-  height: 4em;
-  width: 4em;
-  margin-left: 10px;
-  margin-top: 5px;
-} */
+.CommentUserIcon {
+  width: 2em;
+  height: 2em;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+
+.CommentImg {
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+}
+
+.UserComment {
+  margin: 1em 0;
+  border: 1px solid lightgray;
+}
