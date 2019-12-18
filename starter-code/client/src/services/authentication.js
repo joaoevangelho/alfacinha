@@ -19,6 +19,7 @@ export const join = async user => {
   data.append("name", user.name);
   data.append("username", user.username);
   data.append("email", user.email);
+  data.append("aboutMe", user.aboutMe);
   data.append("image", user.image);
   data.append("password", user.password);
   try {

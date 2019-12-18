@@ -76,12 +76,7 @@ class UserProfileView extends Component {
                 sm={12}
                 className="d-flex justify-content-start align-items-center"
               >
-                <p className="text-left">
-                  {user.aboutMe}
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
+                <p className="text-left">{user.aboutMe}</p>
               </Col>
             </Row>
             <Row className="my-1">
@@ -99,7 +94,7 @@ class UserProfileView extends Component {
               >
                 <ul className="text-right">
                   {userFavorites.map(userFavorite => {
-                    return (<li className="text-right">{userFavorite}</li>)
+                    return <li className="text-right">{userFavorite}</li>;
                   })}
                 </ul>
                 {/* <p className="text-right">

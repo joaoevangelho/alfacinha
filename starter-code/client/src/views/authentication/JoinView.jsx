@@ -11,6 +11,7 @@ class AuthenticationJoinView extends Component {
     this.state = {
       name: "",
       username: "",
+      aboutMe: "",
       email: "",
       password: "",
       image: null
@@ -39,7 +40,7 @@ class AuthenticationJoinView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password, username, name, image } = this.state;
+    const { email, password, username, name, image, aboutMe } = this.state;
     // console.log(this.state);
     try {
       const user = await joinService({
@@ -47,7 +48,8 @@ class AuthenticationJoinView extends Component {
         password,
         username,
         name,
-        image
+        image,
+        aboutMe
       });
       // console.log("USER JOINVIEW", user);
       this.props.changeAuthenticationStatus(user);
@@ -83,14 +85,14 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           />
-          <label htmlFor="name" className="sr-only">
-            Name
+          <label htmlFor="password" className="sr-only">
+            Password
           </label>
           <input
-            type="name"
-            placeholder="Name"
-            value={this.state.name}
-            name="name"
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            name="password"
             className="form-control mb-3"
             onChange={this.handleInputChange}
             required
@@ -107,18 +109,30 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           />
-          <label htmlFor="password" className="sr-only">
-            Password
+          <label htmlFor="name" className="sr-only">
+            Name
           </label>
           <input
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            name="password"
+            type="name"
+            placeholder="Name"
+            value={this.state.name}
+            name="name"
             className="form-control mb-3"
             onChange={this.handleInputChange}
             required
           />
+          <label htmlFor="name" className="sr-only">
+            About Me
+          </label>
+          <textarea
+            type="text"
+            placeholder="Write something here"
+            value={this.state.aboutMe}
+            name="aboutMe"
+            className="form-control mb-3"
+            onChange={this.handleInputChange}
+            required
+          ></textarea>
           <label htmlFor="image" className="sr-only">
             Image
           </label>

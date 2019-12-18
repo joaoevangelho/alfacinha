@@ -7,7 +7,7 @@ const User = require("./../../models/user");
 const uploader = require("./../../middleware/multer-configuration");
 
 router.post("/join", uploader.single("image"), async (req, res, next) => {
-  const { username, name, email, password } = req.body;
+  const { username, name, email, password, aboutMe } = req.body;
   // console.log(`this should show req.file(route)`, req.file);
   try {
     /*  const imageFile = await Image.create(req.file); */
@@ -17,7 +17,8 @@ router.post("/join", uploader.single("image"), async (req, res, next) => {
       name,
       email,
       passwordHash: hash,
-      image: req.file.url
+      image: req.file.url,
+      aboutMe
     });
     req.session.user = user._id;
     res.json({

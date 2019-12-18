@@ -3,10 +3,10 @@
 const { Router } = require("express");
 const router = new Router();
 const User = require("./../../models/user");
+const Restaurants = require("./../../models/Restaurants");
 
 router.get("/add-to-favorites/:restaurantId", async (req, res, next) => {
   const userId = req.session.user;
-  console.log('PARAAAAAMS', req.params);
   console.log("AQUIIII", req.params.restaurantId);
   const restaurantId = req.params.restaurantId;
   // console.log("IS THERE A USER HERE", userId);
@@ -14,8 +14,10 @@ router.get("/add-to-favorites/:restaurantId", async (req, res, next) => {
     res.json({});
   } else {
     try {
+      const restaurantData = await Restaurants.findById(restaurantId).exec();
       const user = await User.findByIdAndUpdate(userId, {
-        $push: { favorites: restaurantId }
+        $push: { favorites: restaurantData }
+        // $push: { favorites: restaurantId }
       }).exec();
       if (!user) throw new Error("there's no user logged in");
       res.json({
