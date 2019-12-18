@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
 import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 
 import "./style.css";
@@ -14,7 +15,8 @@ class singleRestaurant extends Component {
     super(props);
     this.state = {
       restaurant: null,
-      user: null,
+      user: this.props.user,
+      // user: null,
       favorites: null
     };
     this.addToFavoritesButton = this.addToFavoritesButton.bind(this);
@@ -24,12 +26,12 @@ class singleRestaurant extends Component {
     const id = this.props.match.params.id;
     // console.log("singleRest", id);
     try {
-      const user = await loadUserInformationService();
+      // const user = await loadUserInformationService();
       const singleRestaurant = await restaurantApi(id);
       //console.log('response from api', singleRestaurant);
       this.setState({
         restaurant: singleRestaurant,
-        user: user
+        user: this.props.user
       });
     } catch (error) {
       console.log(error);
@@ -47,7 +49,7 @@ class singleRestaurant extends Component {
       name,
       location,
       image
-    }
+    };
     console.log(
       "addToFavoritesButton STATE",
       favoriteRestaurantId,
@@ -113,19 +115,25 @@ class singleRestaurant extends Component {
                   {/* <p className="card-text">On Zomato: {restaurant.url}</p> */}
                   {user && (
                     <div>
-                      <Button
-                        onClick={event => {
-                          this.addToFavoritesButton(
-                            event,
-                            restaurant.name,
-                            restaurant.location.address,
-                            restaurant.featured_image
-                          );
-                        }}
-                        className="btn MyBtn"
-                      >
-                        Add to Favorites
-                      </Button>
+                      {(!this.props.user.favorites.id && (
+                        <Button
+                          onClick={event => {
+                            this.addToFavoritesButton(event, restaurant.name);
+                          }}
+                          className="btn MyBtn"
+                        >
+                          Remove from Favorites
+                        </Button>
+                      )) || (
+                        <Button
+                          onClick={event => {
+                            this.addToFavoritesButton(event, restaurant.name);
+                          }}
+                          className="btn MyBtn"
+                        >
+                          Add to Favorites
+                        </Button>
+                      )}
                     </div>
                   )}
                 </div>

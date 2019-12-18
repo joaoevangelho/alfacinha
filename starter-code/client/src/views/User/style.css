@@ -52,3 +52,15 @@
   object-fit: cover;
   padding-top: 1em;
 }
+
+.UserProfileEditImg {
+  width: 10em;
+}
+
+.UserProfileEditForm {
+  width: 30em;
+}
+
+.UserProfileEditBtn {
+  max-width: 6em;
+}

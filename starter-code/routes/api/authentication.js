@@ -63,7 +63,7 @@ router.post('/login', async (req, res, next) => {
 
 router.get('/loggedin', async (req, res, next) => {
   const userId = req.session.user;
-  // console.log('oiiiiiiii');
+  console.log('oiiiiiiii');
   if (!userId) {
     res.json({});
   } else {

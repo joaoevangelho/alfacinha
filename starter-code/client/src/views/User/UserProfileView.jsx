@@ -100,6 +100,7 @@ class UserProfileView extends Component {
                         <Link to={`/restaurant/${userFavorite.resId}`}>
                           {userFavorite.name}
                         </Link>
+
                         {userFavorite.location}
                         <img
                           src={userFavorite.image}

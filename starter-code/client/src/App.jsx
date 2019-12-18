@@ -38,12 +38,21 @@ class App extends Component {
       this
     );
     this.verifyAuthentication = this.verifyAuthentication.bind(this);
+    this.loadUser = this.loadUser.bind(this);
   }
 
   async componentDidMount() {
     try {
-      const user = await loadUserInformationService();
+      await this.loadUser();
+    } catch (error) {
+      console.log(error);
+      // console.log('IS THIS IT?', error);
+    }
+  }
 
+  async loadUser() {
+    try {
+      const user = await loadUserInformationService();
       this.setState({
         user,
         loaded: true
@@ -104,7 +113,23 @@ class App extends Component {
                 path="/restaurant/:id"
                 exact
                 render={props => (
-                  <SingleRestaurantView {...props} user={this.state.user} />
+                  <SingleRestaurantView
+                    {...props}
+                    user={this.state.user}
+                    loadUser={this.loadUser}
+                  />
+                )}
+              />
+              <Route
+                path="/user-profile/edit"
+                render={props => (
+                  <UserEditProfileView
+                    {...props}
+                    user={this.state.user}
+                    loadUser={this.loadUser}
+
+                    // component={UserEditProfileView}
+                  />
                 )}
               />
               <Route
@@ -112,22 +137,12 @@ class App extends Component {
                 // exact
                 // component={UserProfileView}
                 // path="/user-profile"
-                path="/:userId"
+                path="/user-profile"
                 render={props => (
                   <UserProfileView {...props} user={this.state.user} />
                 )}
               />
-              <Route
-                path="/:userId/edit"
-                render={props => (
-                  <UserEditProfileView
-                    {...props}
-                    user={this.state.user}
 
-                    // component={UserEditProfileView}
-                  />
-                )}
-              />
               <Route path="/shop/:id" exact component={SingleShopView} />
               <Route path="/event/:id" exact component={SingleEventView} />
               <Redirect to="/error/404" />
