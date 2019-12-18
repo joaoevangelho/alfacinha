@@ -4,10 +4,10 @@ import CommentList from "./../Comments/CommentList";
 import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
-import { loadUserInformation as loadUserInformationService } from './../../services/authentication';
-import { addToFavorites as addToFavoritesService } from './../../services/authentication';
+import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 
-import './style.css';
+import "./style.css";
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -33,17 +33,30 @@ class singleRestaurant extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push('/error/404');
+      this.props.history.push("/error/404");
     }
   }
 
   async addToFavoritesButton(event, name) {
     event.preventDefault();
     const favoriteRestaurantId = this.props.match.params.id;
-
-    console.log('addToFavoritesButton STATE', favoriteRestaurantId, name);
+    const location = this.state.restaurant.location.address;
+    const image = this.state.restaurant.featured_image;
+    const data = {
+      favoriteRestaurantId,
+      name,
+      location,
+      image
+    }
+    console.log(
+      "addToFavoritesButton STATE",
+      favoriteRestaurantId,
+      name,
+      location,
+      image
+    );
     try {
-      await addToFavoritesService(favoriteRestaurantId, name);
+      await addToFavoritesService(data);
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
@@ -90,7 +103,7 @@ class singleRestaurant extends Component {
                     Contact: {restaurant.phone_numbers}
                   </p>
                   <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{' '}
+                    Zomato Rating{/*  (1-5) */}:{" "}
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
@@ -102,7 +115,12 @@ class singleRestaurant extends Component {
                     <div>
                       <Button
                         onClick={event => {
-                          this.addToFavoritesButton(event, restaurant.name);
+                          this.addToFavoritesButton(
+                            event,
+                            restaurant.name,
+                            restaurant.location.address,
+                            restaurant.featured_image
+                          );
                         }}
                         className="btn MyBtn"
                       >

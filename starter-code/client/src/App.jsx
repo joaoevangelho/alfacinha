@@ -43,7 +43,6 @@ class App extends Component {
   async componentDidMount() {
     try {
       const user = await loadUserInformationService();
-      console.log("USEERRRRRRRRRRRRRRRRRRRRRRRRRRR", user);
 
       this.setState({
         user,
@@ -51,7 +50,6 @@ class App extends Component {
       });
     } catch (error) {
       console.log(error);
-      // console.log('IS THIS IT?', error);
     }
   }
 

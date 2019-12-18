@@ -11,7 +11,6 @@ class SearchInput extends Component {
   }
 
   componentDidMount() {
-    console.log("PROPS SEARCH ", this.props);
     this.setState({
       nameQuery: this.props.nameQuery,
       locationQuery: this.props.locationQuery,
@@ -21,12 +20,12 @@ class SearchInput extends Component {
 
   render() {
     return (
-      <div className="mt-5">
-        <form className="w-50">
-          <div>
-            <div>
-              <div className="mb-2 ml-4">
-                <div>
+      <div className="search-restaurants">
+        <form>
+          <div className="d-flex row-flex">
+            <div className="column col-4 col-xs-12">
+              <div className="form-group">
+                <div className="col-3 col-sm-12">
                   <label className="form-label" htmlFor="name-form">
                     Name
                   </label>
@@ -44,45 +43,44 @@ class SearchInput extends Component {
                 </div>
               </div>
             </div>
-            <div className="d-flex row-flex">
-              <div className="column col-4 col-xs-12">
-                <div className="form-group">
-                  <div className="col-3 col-sm-12">
-                    <label className="form-label" htmlFor="location">
-                      Location
-                    </label>
-                  </div>
-                  <div className="col-9 col-sm-12">
-                    <input
-                      className="form-control mr-sm-2"
-                      type="search"
-                      id="location"
-                      name="locationQuery"
-                      placeholder="Location"
-                      value={this.props.locationQuery}
-                      onChange={this.props.onChange}
-                    />
-                  </div>
+
+            <div className="column col-4 col-xs-12">
+              <div className="form-group">
+                <div className="col-3 col-sm-12">
+                  <label className="form-label" htmlFor="location">
+                    Location
+                  </label>
+                </div>
+                <div className="col-9 col-sm-12">
+                  <input
+                    className="form-control mr-sm-2"
+                    type="search"
+                    id="location"
+                    name="locationQuery"
+                    placeholder="Location"
+                    value={this.props.locationQuery}
+                    onChange={this.props.onChange}
+                  />
                 </div>
               </div>
-              <div className="column col-4 col-xs-12">
-                <div className="form-group">
-                  <div className="col-3 col-sm-12">
-                    <label className="form-label" htmlFor="average">
-                      Average Cost
-                    </label>
-                  </div>
-                  <div className="col-9 col-sm-12">
-                    <input
-                      className="form-control mr-sm-2"
-                      type="text"
-                      id="average"
-                      name="averageQuery"
-                      placeholder="0"
-                      value={this.props.averageQuery}
-                      onChange={this.props.onChange}
-                    />
-                  </div>
+            </div>
+            <div className="column col-4 col-xs-12">
+              <div className="form-group">
+                <div className="col-3 col-sm-12">
+                  <label className="form-label" htmlFor="average">
+                    Average Cost
+                  </label>
+                </div>
+                <div className="col-9 col-sm-12">
+                  <input
+                    className="form-control mr-sm-2"
+                    type="text"
+                    id="average"
+                    name="averageQuery"
+                    placeholder="0"
+                    value={this.props.averageQuery}
+                    onChange={this.props.onChange}
+                  />
                 </div>
               </div>
             </div>

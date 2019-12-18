@@ -37,7 +37,6 @@ export default class CommentList extends Component {
     console.log(this.props);
     const comments = this.state.commentList;
     const user = this.props.user;
-    console.log("should show user props", user);
 
     return (
       <div className="pl-4 ml-4">

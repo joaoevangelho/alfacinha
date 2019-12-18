@@ -116,11 +116,11 @@ class RestaurantListView extends Component {
 
   render() {
     return (
-      <div className="MinPageHeight m-2 p-2">
+      <div className="MinPageHeight">
         {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (
-          <ReactLoading type={"bars"} color={"white"} />
+          <ReactLoading className="loading" type={"bars"} color={"white"} />
         )}
         {this.state.restaurants && (
           <div>
