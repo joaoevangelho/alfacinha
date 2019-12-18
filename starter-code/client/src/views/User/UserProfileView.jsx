@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 // import Carousel from "react-bootstrap/Carousel";
 
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { loadUserInformation as loadUserInformationService } from './../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class UserProfileView extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class UserProfileView extends Component {
   async componentDidMount() {
     const id = this.props.match.params.id;
     // const id = this.props.user._id;
-    console.log("SHOW ME THE IDDDD", id);
+    console.log('SHOW ME THE IDDDD', id);
     try {
       const user = await loadUserInformationService(id);
       this.setState({
@@ -31,13 +31,13 @@ class UserProfileView extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push("/error/404");
+      this.props.history.push('/error/404');
     }
   }
 
   render() {
     const user = this.state.user;
-    console.log("SHOW ME THE PROPS", this.props.user._id);
+    console.log('SHOW ME THE PROPS', this.props.user._id);
     const id = this.props.match.params.id;
     const userFavorites = this.state.user.favorites;
     return (
@@ -94,9 +94,16 @@ class UserProfileView extends Component {
               >
                 <ul className="text-right">
                   {userFavorites.map(userFavorite => {
-                    return <li className="text-right">{userFavorite}</li>;
+                    return (
+                      <li className="text-right">
+                        <Link to={`/restaurant/${userFavorite.resId}`}>
+                          {userFavorite.name}
+                        </Link>
+                      </li>
+                    );
                   })}
                 </ul>
+
                 {/* <p className="text-right">
                   This is a wider card with supporting text below as a natural
                   lead-in to additional content. This content is a little bit

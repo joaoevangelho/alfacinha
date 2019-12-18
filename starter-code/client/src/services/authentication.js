@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const apiAuthenticationService = axios.create({
-  baseURL: "/api/authentication"
+  baseURL: '/api/authentication'
 });
 
 export const logIn = async data => {
@@ -41,13 +41,13 @@ export const loadUserInformation = async () => {
   }
 };
 
-export const addToFavorites = async id => {
-  console.log("this is the res ID", id);
+export const addToFavorites = async (id, name) => {
   try {
-    const response = await apiAuthenticationService.get(
-      `/add-to-favorites/${id}`
+    const response = await apiAuthenticationService.post(
+      `/add-to-favorites/${id}/${name}`
     );
-    return response.data.user;
+    console.log('this is the res ID', id, name);
+    return response;
   } catch (error) {
     throw error;
   }
