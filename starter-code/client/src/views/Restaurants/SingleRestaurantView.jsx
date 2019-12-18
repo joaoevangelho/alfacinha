@@ -58,8 +58,7 @@ class singleRestaurant extends Component {
       image
     );
     try {
-      await addToFavoritesService(data);
-      await this.props.loadUser();
+      await addToFavoritesService(favoriteRestaurantId, name, location, image);
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
