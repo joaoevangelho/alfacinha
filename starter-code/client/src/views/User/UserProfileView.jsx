@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 // import Carousel from "react-bootstrap/Carousel";
 
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 
 import "./style.css";
 
@@ -21,13 +21,15 @@ class UserProfileView extends Component {
   }
 
   async componentDidMount() {
-    const id = this.props.match.params.id;
+    // const id = this.props.match.params.id;
+    const id = this.props.user
+    console.log('heyyy',this.props)
     // const id = this.props.user._id;
     console.log("SHOW ME THE IDDDD", id);
     try {
-      const user = await loadUserInformationService(id);
+      // const user = await loadUserInformationService(id);
       this.setState({
-        user
+        user: this.props.user
       });
     } catch (error) {
       console.log(error);
@@ -37,9 +39,10 @@ class UserProfileView extends Component {
 
   render() {
     const user = this.state.user;
-    console.log("SHOW ME THE PROPS", this.props.user._id);
-    const id = this.props.match.params.id;
-    const userFavorites = this.state.user.favorites;
+    //console.log("SHOW ME THE PROPS", this.props.user._id);
+    //const id = this.props.match.params.id;
+   const userFavorites = this.state.user.favorites;
+   const id = this.state.user._id;
     return (
       <div className="MinPageHeight my-5 mx-5 justify-content-center UserProfileBg">
         {(user && (
@@ -131,7 +134,7 @@ class UserProfileView extends Component {
                 sm={12}
                 className="d-flex justify-content-start align-items-center"
               >
-                <Link className="btn MyBtn" to={`/${id}/edit`}>
+                <Link className="btn MyBtn" to={`/user-profile/edit`}>
                   Edit Profile
                 </Link>
               </Col>
