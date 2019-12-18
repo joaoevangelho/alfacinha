@@ -4,7 +4,7 @@ import CommentList from "./../Comments/CommentList";
 import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 
@@ -59,6 +59,7 @@ class singleRestaurant extends Component {
     );
     try {
       await addToFavoritesService(data);
+      await this.props.loadUser();
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
@@ -115,17 +116,7 @@ class singleRestaurant extends Component {
                   {/* <p className="card-text">On Zomato: {restaurant.url}</p> */}
                   {user && (
                     <div>
-                      {(!this.props.user.favorites.id && (
-                        <Button
-                          onClick={event => {
-                            this.addToFavoritesButton(event, restaurant.name);
-                          }}
-                          className="btn MyBtn"
-                        >
-                          Remove from Favorites
-                        </Button>
-                      )) || (
-                        <Button
+                      <Button
                           onClick={event => {
                             this.addToFavoritesButton(event, restaurant.name);
                           }}
@@ -133,7 +124,6 @@ class singleRestaurant extends Component {
                         >
                           Add to Favorites
                         </Button>
-                      )}
                     </div>
                   )}
                 </div>

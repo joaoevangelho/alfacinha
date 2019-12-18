@@ -140,7 +140,7 @@ class UserProfileView extends Component {
                 sm={12}
                 className="d-flex justify-content-start align-items-center"
               >
-                <Link className="btn MyBtn" to={`/${id}/edit`}>
+                <Link className="btn MyBtn" to={`/user-profile/edit`}>
                   Edit Profile
                 </Link>
               </Col>
