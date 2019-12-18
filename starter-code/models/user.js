@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema(
   {
@@ -36,11 +36,7 @@ const schema = new mongoose.Schema(
       // minlength: 1,
       // maxlenght: 140
     },
-    favorites: [
-      {
-        type: Number
-      }
-    ]
+    favorites: [{ name: String, resId: Number }]
     /*  image: [{
     type: mongoose.Types.ObjectId,
     ref: 'Image'
@@ -48,10 +44,10 @@ const schema = new mongoose.Schema(
   },
   {
     timestamps: {
-      createdAt: "creationDate",
-      updatedAt: "updateDate"
+      createdAt: 'creationDate',
+      updatedAt: 'updateDate'
     }
   }
 );
 
-module.exports = mongoose.model("User", schema);
+module.exports = mongoose.model('User', schema);
