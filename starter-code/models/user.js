@@ -32,7 +32,7 @@ const schema = new mongoose.Schema(
       default: '/images/user-default.jpg'
     },
     aboutMe: {
-      type: String,
+      type: String
       // minlength: 1,
       // maxlenght: 140
     },

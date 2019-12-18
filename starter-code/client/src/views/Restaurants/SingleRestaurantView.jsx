@@ -3,6 +3,7 @@ import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato
 import CommentCreateView from "./../Comments/CommentCreateView";
 import CommentList from "./../Comments/CommentList";
 import Button from "react-bootstrap/Button";
+import MapBox from "./../../components/MapBox";
 
 import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
@@ -66,7 +67,7 @@ class singleRestaurant extends Component {
                   className="card-img"
                   alt="..."
                 />
-                <SimpleMap
+                <MapBox
                   lat={restaurant.location.latitude}
                   lng={restaurant.location.longitude}
                 />

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { list as listservice } from '../../services/comments';
-import './style.css';
-import CommentCreateView from './CommentCreateView';
+import React, { Component } from "react";
+import { list as listservice } from "../../services/comments";
+import "./style.css";
+import CommentCreateView from "./CommentCreateView";
 
 export default class CommentList extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class CommentList extends Component {
   }
 
   async onSubmit() {
-    console.log('CLICKED');
+    console.log("CLICKED");
     this.setState({ commentList: !this.state.commentList });
     const resid = this.props.match.params.id;
     // console.log('RES ID: ', resid);
@@ -37,7 +37,7 @@ export default class CommentList extends Component {
     console.log(this.props);
     const comments = this.state.commentList;
     const user = this.props.user;
-    console.log('should show user props', user);
+    console.log("should show user props", user);
 
     return (
       <div className="pl-4 ml-4">
@@ -51,7 +51,13 @@ export default class CommentList extends Component {
                 </div>
                 <div className="col-md-8 ml-2">
                   <h5 className="card-title">{comment.user.name}</h5>
-                  <img className="CommentImg" src={comment.image} alt="Comment pic" />
+                  {comment.image && (
+                    <img
+                      className="CommentImg"
+                      src={comment.image}
+                      alt="Comment pic"
+                    />
+                  )}
                   <div className="card-text">
                     <p>{comment.text}</p>
                   </div>
