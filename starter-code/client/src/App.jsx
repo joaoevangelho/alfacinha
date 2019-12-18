@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-import Homepage from "./views/Homepage/Homepage";
+import Homepage from './views/Homepage/Homepage';
 
-import AuthenticationLoginView from "./views/Authentication/LogInView";
-import AuthenticationJoinView from "./views/Authentication/JoinView";
+import AuthenticationLoginView from './views/Authentication/LogInView';
+import AuthenticationJoinView from './views/Authentication/JoinView';
 
-import UserProfileView from "./views/User/UserProfileView";
-import UserEditProfileView from "./views/User/UserEditProfileView";
+import UserProfileView from './views/User/UserProfileView';
+import UserEditProfileView from './views/User/UserEditProfileView';
 
-import RestaurantListView from "./views/Restaurants/RestaurantListView";
-import SingleRestaurantView from "./views/Restaurants/SingleRestaurantView";
+import RestaurantListView from './views/Restaurants/RestaurantListView';
+import SingleRestaurantView from './views/Restaurants/SingleRestaurantView';
 
-import ShopListView from "./views/Shops/ShopListView";
-import SingleShopView from "./views/Shops/SingleShopView";
+import ShopListView from './views/Shops/ShopListView';
+import SingleShopView from './views/Shops/SingleShopView';
 
-import EventListView from "./views/Events/EventListView";
-import SingleEventView from "./views/Events/SingleEventView";
+import EventListView from './views/Events/EventListView';
+import SingleEventView from './views/Events/SingleEventView';
 
-import ErrorView from "./views/ErrorView";
+import ErrorView from './views/ErrorView';
 
-import { loadUserInformation as loadUserInformationService } from "./services/authentication";
+import { loadUserInformation as loadUserInformationService } from './services/authentication';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const user = await loadUserInformationService();
-      console.log("USEERRRRRRRRRRRRRRRRRRRRRRRRRRR", user);
+      console.log('USEERRRRRRRRRRRRRRRRRRRRRRRRRRR', user);
 
       this.setState({
         user,
