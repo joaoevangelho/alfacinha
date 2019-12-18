@@ -20,14 +20,13 @@ export const join = async user => {
   data.append("username", user.username);
   data.append("email", user.email);
   data.append("aboutMe", user.aboutMe);
-  data.append("image", user.image);
+  // data.append("image", user.image);
   data.append("password", user.password);
   try {
     const response = await apiAuthenticationService.post(`/join`, data);
     // console.log("RESPONSE DATA!!", response);
     return response.data.user;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
