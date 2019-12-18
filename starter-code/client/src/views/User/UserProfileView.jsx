@@ -96,18 +96,7 @@ class UserProfileView extends Component {
                 <div>
                   {userFavorites.map(userFavorite => {
                     return (
-                      // <li className="text-right">
-                      //   <Link to={`/restaurant/${userFavorite.resId}`}>
-                      //     {userFavorite.name}
-                      //   </Link>
-
-                      //   {userFavorite.location}
-                      //   <img
-                      //     src={userFavorite.image}
-                      //     style={{ width: "18em" }}
-                      //   />
-                      // </li>
-                      <div className="card" style={{ width: "18rem" }}>
+                      <div className="card" style={{ width: "10rem" }}>
                         <img
                           className="card-img-top"
                           src={userFavorite.image}
