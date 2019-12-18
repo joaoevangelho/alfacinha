@@ -8,7 +8,6 @@ export const list = async resid => {
   try {
     const response = await apiService.get(`/list/${resid}`);
     const comments = response.data.comments;
-    console.log('RESPONSE IN SERVICE', response.data);
     return comments;
   } catch (error) {
     throw error;

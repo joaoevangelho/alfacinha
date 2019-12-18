@@ -53,14 +53,12 @@ class App extends Component {
   async loadUser() {
     try {
       const user = await loadUserInformationService();
-      console.log("USEERRRRRRRRRRRRRRRRRRRRRRRRRRR", user);
       this.setState({
         user,
         loaded: true
       });
     } catch (error) {
       console.log(error);
-      // console.log('IS THIS IT?', error);
     }
   }
 
@@ -115,11 +113,10 @@ class App extends Component {
                 path="/restaurant/:id"
                 exact
                 render={props => (
-                  <SingleRestaurantView 
-                  {...props} 
-                  user={this.state.user} 
-                  loadUser={this.loadUser}
-
+                  <SingleRestaurantView
+                    {...props}
+                    user={this.state.user}
+                    loadUser={this.loadUser}
                   />
                 )}
               />

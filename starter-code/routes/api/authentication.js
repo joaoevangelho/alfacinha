@@ -85,12 +85,14 @@ router.post('/logout', (req, res, next) => {
   res.json({});
 });
 
-router.post('/add-to-favorites/:restaurantId/:name', async (req, res, next) => {
+router.post('/add-to-favorites/:restaurantId', async (req, res, next) => {
   const userId = req.session.user;
-  const resName = req.params.name;
-  console.log('AQUIIII', req.params.restaurantId);
-  console.log('RES NAME: ', resName);
   const restaurantId = req.params.restaurantId;
+  const {
+    name,
+    location,
+    image
+  } = req.body
   // console.log("IS THERE A USER HERE", userId);
   if (!userId) {
     res.json({});
@@ -99,7 +101,9 @@ router.post('/add-to-favorites/:restaurantId/:name', async (req, res, next) => {
       const user = await User.findByIdAndUpdate(userId, {
         $push: {
           favorites: {
-            name: resName,
+            name,
+            location,
+            image,
             resId: restaurantId
           }
         }
@@ -110,6 +114,7 @@ router.post('/add-to-favorites/:restaurantId/:name', async (req, res, next) => {
         message: "there's a user logged in"
       });
     } catch (error) {
+      console.log(error)
       next(error);
     }
   }

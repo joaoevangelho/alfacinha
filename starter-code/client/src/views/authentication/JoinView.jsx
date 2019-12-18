@@ -42,7 +42,6 @@ class AuthenticationJoinView extends Component {
   async handleFormSubmission(event) {
     event.preventDefault();
     const { email, password, username, name, image, aboutMe } = this.state;
-    // console.log(this.state);
     try {
       const user = await joinService({
         email,
@@ -52,7 +51,6 @@ class AuthenticationJoinView extends Component {
         image,
         aboutMe
       });
-      // console.log("USER JOINVIEW", user);
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {
@@ -64,7 +62,6 @@ class AuthenticationJoinView extends Component {
   render() {
     // const user = this.state.user;
     return (
-      
       <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
         <form
           onSubmit={this.handleFormSubmission}
@@ -145,8 +142,8 @@ class AuthenticationJoinView extends Component {
             name="image"
             className="form-control mb-3"
             onChange={this.handleFileChange}
-            />
-            
+          />
+
           {this.state.error && (
             <div class="alert alert-danger" role="alert">
               Ops.. Email or username already exist!

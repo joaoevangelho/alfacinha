@@ -3,7 +3,7 @@
 }
 
 .TransparentBg {
-  background-color: #659B5E;
+  background-color: #659b5e;
   /* background-color: rgb(92, 180, 113); */
   /* background-color: rgba(92, 180, 113, 0.2); */
   /* background-color: transparent; */
@@ -13,7 +13,7 @@
 }
 
 .NavBarTxt {
-  color: #C5CF88;
+  color: #c5cf88;
   /* color: white; */
   font-weight: bold;
 }
@@ -70,4 +70,10 @@
   font-size: 24px;
   color: #555;
   right: 18px;
+}
+.search-restaurants {
+  background-color: #c5cf88;
+  padding-top: 5em;
+  padding-bottom: 1em;
+  padding-right: 1.5em;
 }
