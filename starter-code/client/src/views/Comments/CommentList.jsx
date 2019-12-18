@@ -45,7 +45,11 @@ export default class CommentList extends Component {
             <div className="UserComment card mb-3 text-dark w-75">
               <div className="row no-gutters">
                 <div className="col-md-2">
-                  <img className="CommentUserIcon" src={user.image} alt="userIcon" />
+                  <img
+                    className="CommentUserIcon"
+                    src={comment.user.image}
+                    alt="userIcon"
+                  />
                 </div>
                 <div className="col-md-8 ml-2">
                   <h5 className="card-title">{comment.user.name}</h5>

@@ -93,23 +93,40 @@ class UserProfileView extends Component {
                 sm={12}
                 className="d-flex justify-content-end align-items-center"
               >
-                <ul className="text-right">
+                <div>
                   {userFavorites.map(userFavorite => {
                     return (
-                      <li className="text-right">
-                        <Link to={`/restaurant/${userFavorite.resId}`}>
-                          {userFavorite.name}
-                        </Link>
+                      // <li className="text-right">
+                      //   <Link to={`/restaurant/${userFavorite.resId}`}>
+                      //     {userFavorite.name}
+                      //   </Link>
 
-                        {userFavorite.location}
+                      //   {userFavorite.location}
+                      //   <img
+                      //     src={userFavorite.image}
+                      //     style={{ width: "18em" }}
+                      //   />
+                      // </li>
+                      <div className="card" style={{ width: "18rem" }}>
                         <img
+                          className="card-img-top"
                           src={userFavorite.image}
-                          style={{ width: "18em" }}
+                          alt="Card image cap"
                         />
-                      </li>
+                        <div className="card-body">
+                          <h5 className="card-title">{userFavorite.name}</h5>
+                          <p className="card-text">{userFavorite.location}</p>
+                          <Link
+                            className="btn btn-primary"
+                            to={`/restaurant/${userFavorite.resId}`}
+                          >
+                            Details
+                          </Link>
+                        </div>
+                      </div>
                     );
                   })}
-                </ul>
+                </div>
 
                 {/* <p className="text-right">
                   This is a wider card with supporting text below as a natural
