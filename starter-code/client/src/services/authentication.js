@@ -9,6 +9,7 @@ export const logIn = async data => {
     const response = await apiAuthenticationService.post(`/login`, data);
     return response.data.user;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -27,6 +28,7 @@ export const join = async user => {
     // console.log("RESPONSE DATA!!", response);
     return response.data.user;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -36,6 +38,7 @@ export const loadUserInformation = async () => {
     const response = await apiAuthenticationService.get(`/loggedin`);
     return response.data.user;
   } catch (error) {
+    console.log('WHAT IS HAPPENING', error);
     throw error;
   }
 };
@@ -48,6 +51,7 @@ export const addToFavorites = async (id, name) => {
     console.log('this is the res ID', id, name);
     return response;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -56,6 +60,7 @@ export const logOut = async () => {
   try {
     await apiAuthenticationService.post(`/logout`);
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
