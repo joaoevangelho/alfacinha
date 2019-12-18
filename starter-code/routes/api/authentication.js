@@ -1,13 +1,21 @@
 'use strict';
 
-const { Router } = require('express');
+const {
+  Router
+} = require('express');
 const router = new Router();
 const bcryptjs = require('bcryptjs');
 const User = require('./../../models/user');
 const uploader = require('./../../middleware/multer-configuration');
 
 router.post("/join", uploader.single("image"), async (req, res, next) => {
-  const { username, name, email, password, aboutMe } = req.body;
+  const {
+    username,
+    name,
+    email,
+    password,
+    aboutMe
+  } = req.body;
   // console.log(`this should show req.file(route)`, req.file);
   try {
     /*  const imageFile = await Image.create(req.file); */
@@ -17,7 +25,6 @@ router.post("/join", uploader.single("image"), async (req, res, next) => {
       name,
       email,
       passwordHash: hash,
-      image: req.file.url,
       aboutMe
     });
     req.session.user = user._id;
@@ -26,13 +33,15 @@ router.post("/join", uploader.single("image"), async (req, res, next) => {
       message: 'user successfully created'
     });
   } catch (error) {
-    console.log('JOIN ERROR', error);
     next(error);
   }
 });
 
 router.post('/login', async (req, res, next) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password
+  } = req.body;
   try {
     const user = await User.findOne({
       username
@@ -46,7 +55,6 @@ router.post('/login', async (req, res, next) => {
       message: 'user successfully signed in'
     });
   } catch (error) {
-    console.log('LOGIN ERROR', error);
     next(error);
   }
 });
@@ -90,7 +98,10 @@ router.post('/add-to-favorites/:restaurantId/:name', async (req, res, next) => {
     try {
       const user = await User.findByIdAndUpdate(userId, {
         $push: {
-          favorites: { name: resName, resId: restaurantId }
+          favorites: {
+            name: resName,
+            resId: restaurantId
+          }
         }
       }).exec();
       if (!user) throw new Error("there's no user logged in");
@@ -99,7 +110,6 @@ router.post('/add-to-favorites/:restaurantId/:name', async (req, res, next) => {
         message: "there's a user logged in"
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

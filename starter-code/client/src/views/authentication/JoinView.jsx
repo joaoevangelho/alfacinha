@@ -14,7 +14,8 @@ class AuthenticationJoinView extends Component {
       aboutMe: "",
       email: "",
       password: "",
-      image: null
+      image: null,
+      error: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
@@ -55,6 +56,7 @@ class AuthenticationJoinView extends Component {
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {
+      this.setState({ error: true });
       console.log(error);
     }
   }
@@ -62,6 +64,7 @@ class AuthenticationJoinView extends Component {
   render() {
     // const user = this.state.user;
     return (
+      
       <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
         <form
           onSubmit={this.handleFormSubmission}
@@ -73,6 +76,18 @@ class AuthenticationJoinView extends Component {
             src="/images/alfacinha-logo1.png"
             alt=""
           />
+          <label htmlFor="name" className="sr-only">
+            Name
+          </label>
+          <input
+            type="name"
+            placeholder="Name"
+            value={this.state.name}
+            name="name"
+            className="form-control mb-3"
+            onChange={this.handleInputChange}
+            required
+          />
           <label htmlFor="email" className="sr-only">
             Email
           </label>
@@ -81,18 +96,6 @@ class AuthenticationJoinView extends Component {
             placeholder="Email"
             value={this.state.email}
             name="email"
-            className="form-control mb-3"
-            onChange={this.handleInputChange}
-            required
-          />
-          <label htmlFor="password" className="sr-only">
-            Password
-          </label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            name="password"
             className="form-control mb-3"
             onChange={this.handleInputChange}
             required
@@ -109,14 +112,14 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           />
-          <label htmlFor="name" className="sr-only">
-            Name
+          <label htmlFor="password" className="sr-only">
+            Password
           </label>
           <input
-            type="name"
-            placeholder="Name"
-            value={this.state.name}
-            name="name"
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            name="password"
             className="form-control mb-3"
             onChange={this.handleInputChange}
             required
@@ -142,7 +145,13 @@ class AuthenticationJoinView extends Component {
             name="image"
             className="form-control mb-3"
             onChange={this.handleFileChange}
-          />
+            />
+            
+          {this.state.error && (
+            <div class="alert alert-danger" role="alert">
+              Ops.. Email or username already exist!
+            </div>
+          )}
           <button className="btn btn-lg MyBtn btn-block mb-5">Join</button>
           {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
         </form>

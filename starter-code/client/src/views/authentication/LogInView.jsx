@@ -10,7 +10,8 @@ class AuthenticationLogInView extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -33,6 +34,7 @@ class AuthenticationLogInView extends Component {
       this.props.changeAuthenticationStatus(user);
       this.props.history.push(`/`);
     } catch (error) {
+      this.setState({ error: true });
       console.log(error);
     }
   }
@@ -76,6 +78,12 @@ class AuthenticationLogInView extends Component {
             onChange={this.handleInputChange}
             required
           />
+          {this.state.error && (
+            <div class="alert alert-danger" role="alert">
+            Validation failed! <br /> Check username and password
+            and try again.
+          </div>
+          )}
           <button className="btn btn-lg MyBtn btn-block mb-5">Log In</button>
           {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
         </form>
