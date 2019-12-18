@@ -2,12 +2,12 @@
 
 const { Router } = require('express');
 const router = new Router();
-const User = require("./../../models/user");
-const Restaurants = require("./../../models/Restaurants");
+const User = require('./../../models/user');
+const Restaurants = require('./../../models/restaurants');
 
-router.get("/add-to-favorites/:restaurantId", async (req, res, next) => {
+router.get('/add-to-favorites/:restaurantId', async (req, res, next) => {
   const userId = req.session.user;
-  console.log("AQUIIII", req.params.restaurantId);
+  console.log('AQUIIII', req.params.restaurantId);
   const restaurantId = req.params.restaurantId;
   // console.log("IS THERE A USER HERE", userId);
   if (!userId) {
