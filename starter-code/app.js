@@ -19,6 +19,7 @@ const userRouter = require('./routes/api/user');
 
 const app = express();
 
+app.use(express.static(join(__dirname, 'client/build')));
 app.use(logger('dev'));
 
 //app.use(express.urlencoded());
@@ -44,12 +45,16 @@ app.use(
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 app.use('/api/authentication', authenticationRouter);
 app.use('/api/restaurant', restaurantsRouter);
 app.use('/api/comment', commentRouter);
 app.use('/api/favorites', favoritesRouter);
 app.use('/api/user', userRouter);
+
+app.get('*', (req, res, next) => {
+  res.sendFile(join(__dirname, 'client/build/index.html'));
+});
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
