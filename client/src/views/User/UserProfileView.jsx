@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 // import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 // import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
 
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { loadUserInformation as loadUserInformationService } from './../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class UserProfileView extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class UserProfileView extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push("/error/404");
+      this.props.history.push('/error/404');
     }
   }
 
@@ -121,7 +121,7 @@ class UserProfileView extends Component {
                     <div>
                       {userFavorites.map(userFavorite => {
                         return (
-                          <div className="card" style={{ width: "10rem" }}>
+                          <div className="card" style={{ width: '10rem' }}>
                             <img
                               className="card-img-top"
                               src={userFavorite.image}
@@ -161,7 +161,7 @@ class UserProfileView extends Component {
               </Col>
             </Row>
           </Container>
-        )) || ( <p>There's no user logged in...</p> )}
+        )) || <p>There's no user logged in...</p>}
       </div>
     );
   }

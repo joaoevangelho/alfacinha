@@ -18,6 +18,8 @@ class CommentEditView extends Component {
     const resId = this.props.match.params.id;
     const name = event.target.name;
     const value = event.target.value;
+    console.log(name, value);
+
     this.setState({
       ...this.state,
       [name]: value,
@@ -38,6 +40,9 @@ class CommentEditView extends Component {
       });
 
       this.props.onSubmit();
+      this.setState({
+        text: ''
+      });
       // this.props.history.push(`/restaurant/${resId}`);
     } catch (error) {
       console.log(error);

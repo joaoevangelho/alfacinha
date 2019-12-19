@@ -16,7 +16,7 @@ router.post('/create', uploader.single('image'), async (req, res, next) => {
       restaurant,
       text,
       user: req.session.user,
-      image: req.file && req.file.url || ''
+      image: (req.file && req.file.url) || ''
     });
     // console.log('should be newComment in restaurant js', newComment);
     res.json({ newComment });
@@ -40,4 +40,17 @@ router.get('/list/:id', async (req, res, next) => {
   }
 });
 
+router.delete('/delete/:commentId', async (req, res, next) => {
+  // console.log('AQUIIII', req.params.restaurantId);
+  //const restaurantId = req.params.restaurantId;
+  const commentId = req.params.commentId;
+  console.log('COMMENT ID', commentId);
+  try {
+    await Comments.deleteOne({ _id: commentId }).exec();
+    res.json({});
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 module.exports = router;

@@ -14,31 +14,31 @@ export const list = async resid => {
   }
 };
 
-// export const load = async id => {
-//   try {
-//     const response = await apiService.get(`/${id}`);
-//     const comment = response.data.comment;
-//     return comment;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const load = async resid => {
+  try {
+    const response = await apiService.get(`/${resid}`);
+    const comment = response.data.comment;
+    return comment;
+  } catch (error) {
+    throw error;
+  }
+};
 
-// export const edit = async (id, comment) => {
-//   try {
-//     await apiService.patch(`/${id}`, comment);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const edit = async (resid, comment) => {
+  try {
+    await apiService.patch(`/${resid}`, comment);
+  } catch (error) {
+    throw error;
+  }
+};
 
-// export const remove = async id => {
-//   try {
-//     await apiService.delete(`/${id}`);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const remove = async commentId => {
+  try {
+    await apiService.delete(`/delete/${commentId}`);
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const create = async comment => {
   const data = new FormData();

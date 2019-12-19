@@ -1,9 +1,12 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react';
 
-import Image from "react-bootstrap/Image";
+import Image from 'react-bootstrap/Image';
 
-import { edit as editUserService } from "./../../services/user";
-// import { remove as removeUserService } from "./../../services/user";
+import { edit as editUserService } from './../../services/user';
+// import {
+//   edit as editUserService,
+//   remove as removeUserService
+// } from './../../services/user';
 
 class UserEditProfileView extends Component {
   constructor(props) {
@@ -43,7 +46,7 @@ class UserEditProfileView extends Component {
 
   handleFileChange(event) {
     console.dir(event.target.files);
-    console.log("WHAT UUUUUP", event.target.files);
+    console.log('WHAT UUUUUP', event.target.files);
     const file = event.target.files[0];
     this.setState({
       image: file
@@ -65,17 +68,18 @@ class UserEditProfileView extends Component {
     }
   }
 
-/*   async onDeleteTrigger() {
-    const id = this.state.user._id;
-    // const id = this.props.match.params.id;
-    try {
-      await removeUserService(id);
-      // await this.props.loadUser();
-      this.props.history.push(`/`);
-    } catch (error) {
-      console.log(error);
-    }
-  } */
+  //   async onDeleteTrigger() {
+  // //    const id = this.state.user._id;
+  //     //console.log('user id delete', id);
+  //     // const id = this.props.match.params.id;
+  //     try {
+  //       await removeUserService(id);
+  //       // await this.props.loadUser();
+  //       // this.props.history.push(`/`);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
 
   render() {
     // console.log("i am in the edit view", this.state.user);
@@ -107,7 +111,7 @@ class UserEditProfileView extends Component {
               <input
                 type="text"
                 placeholder="Name"
-                value={user.name || ""}
+                value={user.name || ''}
                 className="form-control mb-3"
                 name="name"
                 onChange={this.handleInputChange}
@@ -119,7 +123,7 @@ class UserEditProfileView extends Component {
               <input
                 type="email"
                 placeholder="Email"
-                value={user.email || ""}
+                value={user.email || ''}
                 className="form-control mb-3"
                 name="email"
                 onChange={this.handleInputChange}
@@ -131,7 +135,7 @@ class UserEditProfileView extends Component {
               <textarea
                 type="text"
                 placeholder="About Me"
-                value={user.aboutMe || ""}
+                value={user.aboutMe || ''}
                 className="form-control mb-3"
                 name="aboutMe"
                 onChange={this.handleInputChange}
@@ -140,12 +144,12 @@ class UserEditProfileView extends Component {
               <button className="btn MyBtn w-50 mb-2">Edit user</button>
               <br />
             </form>
-              <button
-                className="btn MyBtn w-50 mb-2"
-                onClick={this.onDeleteTrigger}
-              >
-                Delete user
-              </button>
+            <button
+              className="btn MyBtn w-50 mb-2"
+              onClick={this.onDeleteTrigger}
+            >
+              Delete user
+            </button>
           </Fragment>
         )}
       </main>

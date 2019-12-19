@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato";
-import CommentList from "./../Comments/CommentList";
-import Button from "react-bootstrap/Button";
-import MapBox from "./../../components/MapBox";
+import React, { Component } from 'react';
+import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
+import CommentList from './../Comments/CommentList';
+import Button from 'react-bootstrap/Button';
+import MapBox from './../../components/MapBox';
 
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
-import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
+import { addToFavorites as addToFavoritesService } from './../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class singleRestaurant extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push("/error/404");
+      this.props.history.push('/error/404');
     }
   }
 
@@ -51,7 +51,7 @@ class singleRestaurant extends Component {
     //   image
     // };
     console.log(
-      "addToFavoritesButton STATE",
+      'addToFavoritesButton STATE',
       favoriteRestaurantId,
       name,
       location,
@@ -69,7 +69,7 @@ class singleRestaurant extends Component {
     const restaurant = this.state.restaurant;
     const user = this.state.user;
 
-    console.log("props user", this.props.user);
+    //console.log("props user", this.props.user);
     // const id = this.props.match.params.id;
     //console.log('hello', restaurant);
     return (
@@ -107,7 +107,7 @@ class singleRestaurant extends Component {
                     Contact: {restaurant.phone_numbers}
                   </p>
                   <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{" "}
+                    Zomato Rating{/*  (1-5) */}:{' '}
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
