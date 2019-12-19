@@ -64,3 +64,5 @@ yarn-error.log*
 node_modules
 
 client/build
+
+.vscode
