@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 import { removeFromFavorites as removeFromFavoritesService } from "./../../services/authentication";
 

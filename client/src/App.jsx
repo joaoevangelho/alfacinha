@@ -19,8 +19,8 @@ import SingleRestaurantView from './views/Restaurants/SingleRestaurantView';
 import ShopListView from './views/Shops/ShopListView';
 import SingleShopView from './views/Shops/SingleShopView';
 
-import EventListView from './views/Events/EventListView';
-import SingleEventView from './views/Events/SingleEventView';
+// import EventListView from './views/Events/EventListView';
+// import SingleEventView from './views/Events/SingleEventView';
 
 import ErrorView from './views/ErrorView';
 
@@ -108,7 +108,7 @@ class App extends Component {
                 component={RestaurantListView}
               />
               <Route path="/shop-list" exact component={ShopListView} />
-              <Route path="/event-list" exact component={EventListView} />
+              {/* <Route path="/event-list" exact component={EventListView} /> */}
               <Route
                 path="/restaurant/:id"
                 exact
@@ -155,7 +155,7 @@ class App extends Component {
               />
 
               <Route path="/shop/:id" exact component={SingleShopView} />
-              <Route path="/event/:id" exact component={SingleEventView} />
+              {/* <Route path="/event/:id" exact component={SingleEventView} /> */}
               <Redirect to="/error/404" />
             </Switch>
           )}

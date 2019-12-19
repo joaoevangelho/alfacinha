@@ -24,9 +24,9 @@ router.get('/show-list', routeGuard, (req, res, next) => {
   res.render('show-list');
 });
 
-router.get('/event-list', routeGuard, (req, res, next) => {
-  res.render('event-list');
-});
+// router.get('/event-list', routeGuard, (req, res, next) => {
+//   res.render('event-list');
+// });
 
 // router.get('/single-restaurant', routeGuard, (req, res, next) => {
 //   res.render('restaurant-list');

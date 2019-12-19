@@ -31,7 +31,7 @@ class ShopsSection extends Component {
               <Image
                 className="HomepageCenterImg"
                 fluid
-                src="/images/shops9.jpg"
+                src="/images/shops4.jpg"
                 alt="BrandLogo"
               />
             </Col>

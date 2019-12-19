@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Shop from '../../components/Shop';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import SearchInput from '../../components/SearchInput';
 
 // import './style.css';

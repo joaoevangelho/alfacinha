@@ -38,6 +38,7 @@ class RestaurantListView extends Component {
       [name]: value
     });
   }
+  
   filterBySearch(restaurant) {
     console.log('restasdsarsr', restaurant);
     if (restaurant.restaurant.name && this.state.nameQuery) {
@@ -56,6 +57,7 @@ class RestaurantListView extends Component {
         .toLowerCase()
         .includes(this.state.averageQuery);
   }
+
   onLoadMore() {
     // console.log("load more");
     this.setState({

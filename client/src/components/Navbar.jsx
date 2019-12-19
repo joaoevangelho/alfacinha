@@ -85,13 +85,13 @@ class NavBar extends Component {
             >
               Shops
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               as={Link}
               className="mx-2 text-white"
-              /* href="#events" */ to="/event-list"
+              to="/event-list"
             >
               Events
-            </Nav.Link>
+            </Nav.Link> */}
 
             {/* <NavDropdown title="What are you looking for?" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#restaurants">Restaurants</NavDropdown.Item>

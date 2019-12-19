@@ -3,7 +3,7 @@ import HeroViewSection from "./HeroViewSection";
 import AboutSection from "./AboutSection";
 import RestaurantsSection from "./RestaurantsSection";
 import ShopsSection from "./ShopsSection";
-import EventsSection from "./EventsSection";
+// import EventsSection from "./EventsSection";
 // import ContactSection from "./ContactSection";
 
 import "./style.css";
@@ -16,7 +16,7 @@ class Homepage extends Component {
         <AboutSection />
         <RestaurantsSection />
         <ShopsSection />
-        <EventsSection />
+        {/* <EventsSection /> */}
       </Fragment>
     );
   }

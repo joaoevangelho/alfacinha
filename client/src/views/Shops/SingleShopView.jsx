@@ -23,7 +23,7 @@ class SingleShopView extends Component {
   }
 
   render() {
-    const shopName = this.props.match.params.name;
+    // const shopName = this.props.match.params.name;
     const shop = this.state.shop;
     //const location = this.state.shop;
     //console.log('lcoation ->', location);
