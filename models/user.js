@@ -28,7 +28,7 @@ const schema = new mongoose.Schema({
   image: {
     type: String,
     // required: true,
-    default: '/images/user-default.jpg'
+    default: '/images/user-default1.jpg'
   },
   aboutMe: {
     type: String

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
+import { BrowserRouter, Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -26,6 +25,7 @@ import SingleEventView from './views/Events/SingleEventView';
 import ErrorView from './views/ErrorView';
 
 import { loadUserInformation as loadUserInformationService } from './services/authentication';
+const NavBarWithRouter = withRouter(Navbar);
 
 class App extends Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          {<Navbar
+          {<NavBarWithRouter
             user={this.state.user}
             changeAuthenticationStatus={this.changeAuthenticationStatus}
           />}

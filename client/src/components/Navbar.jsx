@@ -15,7 +15,27 @@ import { logOut as logOutService } from './../services/authentication';
 class NavBar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      expanded: false
+    };
+    
     this.onLogOutTrigger = this.onLogOutTrigger.bind(this);
+    this.handleToggleMenu = this.handleToggleMenu.bind(this);
+
+  }
+
+  handleToggleMenu() {
+    this.setState({
+      expanded: !this.state.expanded
+    });
+  }
+
+  componentDidUpdate(previousProps) {
+    if (previousProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        expanded: false
+      });
+    }
   }
 
   async onLogOutTrigger() {
@@ -30,6 +50,7 @@ class NavBar extends Component {
     const user = this.props.user;
     return (
       <Navbar
+      expanded={this.state.expanded}
         collapseOnSelect
         expand="lg"
         fixed="top"
@@ -47,7 +68,7 @@ class NavBar extends Component {
             alt="BrandLogo"
           />
         </Nav.Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle onClick={this.handleToggleMenu} aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link
