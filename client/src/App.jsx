@@ -76,10 +76,10 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Navbar
+          {<Navbar
             user={this.state.user}
             changeAuthenticationStatus={this.changeAuthenticationStatus}
-          />
+          />}
           {this.state.loaded && (
             <Switch>
               <Route

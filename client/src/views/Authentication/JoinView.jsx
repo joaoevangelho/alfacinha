@@ -126,7 +126,7 @@ class AuthenticationJoinView extends Component {
           </label>
           <textarea
             type="text"
-            placeholder="Write something here"
+            placeholder="Write something about yourself here"
             value={this.state.aboutMe}
             name="aboutMe"
             className="form-control mb-3"

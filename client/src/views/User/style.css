@@ -1,7 +1,6 @@
 .UserProfileBg {
   background-color: lightgray;
   border: 1px solid lightgray;
-
 }
 
 .UserProfileImg {
@@ -53,14 +52,15 @@
   padding-top: 1em;
 }
 
-.UserProfileEditImg {
+.EditViewImg {
   width: 10em;
 }
 
-.UserProfileEditForm {
+.EditViewForm {
   width: 30em;
 }
 
-.UserProfileEditBtn {
-  max-width: 6em;
+.EditViewBtn {
+  max-width: 16em;
+
 }

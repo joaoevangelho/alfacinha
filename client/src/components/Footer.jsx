@@ -11,7 +11,45 @@ class Footer extends Component {
     return (
       <footer className="footer py-2 bg-dark">
         <Row className="d-flex justify-content-between align-items-center">
-          <Nav className="flex-column ml-3">
+          <Nav className="flex-column text-left mx-3 my-2">
+            {/* <Nav.Link
+              href="#"
+              target="blank"
+              className="py-2 pl-4 text-secondary nav-link"
+            >
+              Go Green
+            </Nav.Link> */}
+            <Nav.Item className="py-2 px-3 text-secondary">Useful Links:</Nav.Item>
+            <Nav.Link
+              href="#"
+              target="blank"
+              className="py-1 px-3 text-secondary nav-link"
+            >
+              Link Two
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              target="blank"
+              className="py-1 px-3 text-secondary nav-link"
+            >
+              Link Three
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              target="blank"
+              className="py-1 px-3 text-secondary nav-link"
+            >
+              Link Three
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              target="blank"
+              className="py-1 px-3 text-secondary nav-link"
+            >
+              Link Three
+            </Nav.Link>
+          </Nav>
+          <Nav className="flex-column py-2 mx-3">
             <div className="text-center">
               <Image
                 fluid
@@ -22,7 +60,7 @@ class Footer extends Component {
 
               {/* <p className="mx-2 text-secondary">
                 Follow us: */}
-              {/* <div>
+              <div>
                 <a
                   href="https://www.facebook.com/Alfacinha-100341914808752"
                   target="blank"
@@ -38,53 +76,17 @@ class Footer extends Component {
                   target="blank"
                   className="fa fa-twitter mx-1"
                 ></a>
-              </div> */}
+              </div>
               {/* </p> */}
             </div>
           </Nav>
-          {/* <Nav className="flex-column text-right mx-1">
-            <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Go Green
-            </Nav.Link>
-            <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Link Two
-            </Nav.Link>
-            <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Link Three
-            </Nav.Link>
-            <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Link Three
-            </Nav.Link>
-            <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Link Three
-            </Nav.Link>
-          </Nav> */}
-          <Nav className="flex-column mr-5 text-right">
+
+          {/* <Nav className="flex-column mr-5 text-right">
             <Nav.Item>
               <p className="text-secondary">Have any suggestions?</p>
               <Button className="MyBtn">Contact Us</Button>
             </Nav.Item>
-          </Nav>
+          </Nav> */}
         </Row>
       </footer>
     );

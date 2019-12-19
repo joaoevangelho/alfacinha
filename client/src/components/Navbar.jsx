@@ -34,15 +34,16 @@ class NavBar extends Component {
         expand="lg"
         fixed="top"
         // bg="dark"
-        className="TransparentBg"
-        variant="dark"
+        className="TransparentBg font-weight-bold"
+        // variant="dark"
         // variant="light"
       >
         <Nav.Link as={Link} to="/">
           <Image
             className="LogoImg"
             fluid
-            src="/images/alfacinha-logo2.png"
+            src="/images/logo1.png"
+            // src="/images/alfacinha-logo2.png"
             alt="BrandLogo"
           />
         </Nav.Link>
@@ -51,21 +52,21 @@ class NavBar extends Component {
           <Nav className="mr-auto">
             <Nav.Link
               as={Link}
-              className="mx-2"
+              className="mx-2 text-white"
               /* href="#restaurants" */ to="/restaurant-list"
             >
               Restaurants
             </Nav.Link>
             <Nav.Link
               as={Link}
-              className="mx-2"
+              className="mx-2 text-white"
               /* href="#shops" */ to="/shop-list"
             >
               Shops
             </Nav.Link>
             <Nav.Link
               as={Link}
-              className="mx-2"
+              className="mx-2 text-white"
               /* href="#events" */ to="/event-list"
             >
               Events
@@ -83,7 +84,7 @@ class NavBar extends Component {
           {(user && (
             <Fragment>
               <Nav className="ml-auto">
-                <Nav.Link as={Link} className="mx-2" to="/user-profile">
+                <Nav.Link as={Link} className="mx-2 text-white" to="/user-profile">
                   My Profile
                 </Nav.Link>
                 {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
@@ -101,10 +102,10 @@ class NavBar extends Component {
             </Fragment>
           )) || (
             <Nav className="ml-auto">
-              <Nav.Link as={Link} className="mx-2" to="/login">
+              <Nav.Link as={Link} className="mx-2 text-white" to="/login">
                 Log In
               </Nav.Link>
-              <Nav.Link as={Link} className="mx-2" to="/join">
+              <Nav.Link as={Link} className="mx-2 text-white" to="/join">
                 Join
               </Nav.Link>
             </Nav>

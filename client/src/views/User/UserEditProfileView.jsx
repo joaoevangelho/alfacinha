@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-
 import Image from "react-bootstrap/Image";
 
 import { edit as editUserService } from "./../../services/user";
@@ -65,7 +64,7 @@ class UserEditProfileView extends Component {
     }
   }
 
-/*   async onDeleteTrigger() {
+  /*   async onDeleteTrigger() {
     const id = this.state.user._id;
     // const id = this.props.match.params.id;
     try {
@@ -82,73 +81,78 @@ class UserEditProfileView extends Component {
     // console.log("user image", this.state.user.image);
     const user = this.state.user;
     return (
-      <main className="MinPageHeight m-5 p-5">
-        {user && (
-          <Fragment>
-            <Image fluid src={user.image} className="UserProfileEditImg mb-3" />
-            <form
-              onSubmit={this.handleFormSubmission}
-              className="form-signin w-50"
-            >
-              <label htmlFor="image" className="sr-only">
-                Image
-              </label>
-              <input
-                type="file"
-                placeholder="image"
-                className="form-control mb-3"
-                name="image"
-                onChange={this.handleFileChange}
-                // required
-              />
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Name"
-                value={user.name || ""}
-                className="form-control mb-3"
-                name="name"
-                onChange={this.handleInputChange}
-                required
-              />
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Email"
-                value={user.email || ""}
-                className="form-control mb-3"
-                name="email"
-                onChange={this.handleInputChange}
-                required
-              />
-              <label htmlFor="aboutMe" className="sr-only">
-                About Me
-              </label>
-              <textarea
-                type="text"
-                placeholder="About Me"
-                value={user.aboutMe || ""}
-                className="form-control mb-3"
-                name="aboutMe"
-                onChange={this.handleInputChange}
-                required
-              ></textarea>
-              <button className="btn MyBtn w-50 mb-2">Edit user</button>
-              <br />
-            </form>
-              <button
-                className="btn MyBtn w-50 mb-2"
-                onClick={this.onDeleteTrigger}
+      <Fragment>
+        <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
+          {user && (
+            <Fragment>
+              <form
+                onSubmit={this.handleFormSubmission}
+                className="form-signin EditViewForm"
               >
-                Delete user
-              </button>
-          </Fragment>
-        )}
-      </main>
+                <Image
+                  fluid
+                  src={user.image}
+                  className="EditViewImg mb-3"
+                />
+                <label htmlFor="image" className="sr-only">
+                  Image
+                </label>
+                <input
+                  type="file"
+                  placeholder="image"
+                  className="form-control mb-3"
+                  name="image"
+                  onChange={this.handleFileChange}
+                  // required
+                />
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={user.name || ""}
+                  className="form-control mb-3"
+                  name="name"
+                  onChange={this.handleInputChange}
+                  required
+                />
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={user.email || ""}
+                  className="form-control mb-3"
+                  name="email"
+                  onChange={this.handleInputChange}
+                  required
+                />
+                <label htmlFor="aboutMe" className="sr-only">
+                  About Me
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="About Me"
+                  value={user.aboutMe || ""}
+                  className="form-control mb-3"
+                  name="aboutMe"
+                  onChange={this.handleInputChange}
+                  required
+                ></textarea>
+                <button className="btn MyBtn EditViewBtn mb-2">Save profile</button>
+                <br />
+              </form>
+            </Fragment>
+          )}
+        </main>
+        <div className="mx-5 my-2 text-center d-flex justify-content-center">
+          <button className="btn MyBtn EditViewBtn mb-2" onClick={this.onDeleteTrigger}>
+            Delete account
+          </button>
+        </div>
+      </Fragment>
     );
   }
 }

@@ -3,13 +3,14 @@
 }
 
 .TransparentBg {
-  background-color: #659B5E;
+  background-color: rgb(52, 58, 64, 0.4);
   /* background-color: rgb(92, 180, 113); */
   /* background-color: rgba(92, 180, 113, 0.2); */
   /* background-color: transparent; */
   /* -webkit-transition: background-color 0.2s linear; */
   /* transition: background-color 0.2s linear; */
   /* min-height: 80px; */
+  color: white;
 }
 
 .NavBarTxt {
@@ -76,4 +77,10 @@
   padding-top: 5em;
   padding-bottom: 1em;
   padding-right: 1.5em;
+}
+
+.navbar-toggler-icon {
+  /* background-color: white; */
+  /* font-style: italic; */
+  /* width: 10em; */
 }

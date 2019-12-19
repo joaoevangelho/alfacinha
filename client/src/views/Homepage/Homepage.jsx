@@ -17,7 +17,6 @@ class Homepage extends Component {
         <RestaurantsSection />
         <ShopsSection />
         <EventsSection />
-        {/* <ContactSection /> */}
       </Fragment>
     );
   }

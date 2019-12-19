@@ -120,7 +120,7 @@ class RestaurantListView extends Component {
         {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (
-          <ReactLoading className="loading" type={"bars"} color={"white"} />
+          <ReactLoading className="mx-auto mt-5" type={"bars"} color={"white"} />
         )}
         {this.state.restaurants && (
           <div>
