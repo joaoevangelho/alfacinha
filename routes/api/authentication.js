@@ -25,7 +25,9 @@ router.post("/join", uploader.single("image"), async (req, res, next) => {
       name,
       email,
       passwordHash: hash,
+      // image: req.file.url,
       aboutMe
+
     });
     req.session.user = user._id;
     res.json({

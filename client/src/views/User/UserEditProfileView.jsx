@@ -10,6 +10,7 @@ class UserEditProfileView extends Component {
     super(props);
     this.state = {
       user: this.props.user
+      // image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
@@ -54,7 +55,7 @@ class UserEditProfileView extends Component {
     const user = this.state.user;
     const image = this.state.image;
     const id = this.state.user._id;
-    console.log("ID HERE", id);
+    // console.log("ID HERE", id);
     try {
       await editUserService(id, user, image);
       await this.props.loadUser();
@@ -77,8 +78,8 @@ class UserEditProfileView extends Component {
   } */
 
   render() {
-    console.log("i am in the edit view", this.state.user);
-    console.log("user image", this.state.user.image);
+    // console.log("i am in the edit view", this.state.user);
+    // console.log("user image", this.state.user.image);
     const user = this.state.user;
     return (
       <main className="MinPageHeight m-5 p-5">

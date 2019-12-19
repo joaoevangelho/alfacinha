@@ -15,7 +15,7 @@ const apiUserService = axios.create({
 }; */
 
 export const edit = async (id, user, image) => {
-  console.log("USER INFO ON SERVICE", user.image);
+  // console.log("USER INFO ON SERVICE", user.image);
   const data = new FormData();
   data.append("name", user.name);
   data.append("email", user.email);
@@ -24,10 +24,10 @@ export const edit = async (id, user, image) => {
   try {
     const response = await apiUserService.patch(`/user-profile/edit`, data);
     // console.log("RESPONSE DATA!!", response);
+    // console.log('WHO DIIIIS', response.data.user.image);
     return response.data.user;
   } catch (error) {
     console.log(error);
-
     throw error;
   }
 };

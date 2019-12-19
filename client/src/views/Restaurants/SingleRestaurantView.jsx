@@ -44,12 +44,12 @@ class singleRestaurant extends Component {
     const favoriteRestaurantId = this.props.match.params.id;
     const location = this.state.restaurant.location.address;
     const image = this.state.restaurant.featured_image;
-    const data = {
-      favoriteRestaurantId,
-      name,
-      location,
-      image
-    };
+    // const data = {
+    //   favoriteRestaurantId,
+    //   name,
+    //   location,
+    //   image
+    // };
     console.log(
       "addToFavoritesButton STATE",
       favoriteRestaurantId,

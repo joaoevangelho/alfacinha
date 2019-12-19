@@ -8,7 +8,7 @@ const uploader = require("./../../middleware/multer-configuration");
 router.get("/user-profile/edit", async (req, res, next) => {
   // console.log('WHY ARE YOU UNDEFINED?', req.params);
   // console.log('WHY ARE YOU UNDEFINED?', req.body);
-  console.log("WHY ARE YOU UNDEFINED?", req.session.user);
+  // console.log("WHY ARE YOU UNDEFINED?", req.session.user);
   const userId = req.session.user;
   try {
     const user = await User.findById(userId).exec();
@@ -27,17 +27,16 @@ router.patch(
       name,
       email,
       aboutMe
+      // image: req.file && req.file.url || ''
     };
     if (req.file) data.image = req.file.url;
     const userId = req.session.user;
-
     console.log("~USER ID~", userId);
     console.log("~REQ BODYY~", req.body);
     console.log("~REQ FILE~", req.file);
-
     try {
       const user = await User.findByIdAndUpdate(userId, data).exec();
-      console.log(user);
+      // console.log(user);
       res.json({ user, message: "user successfully edited" });
     } catch (error) {
       console.log(error);

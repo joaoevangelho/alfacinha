@@ -33,8 +33,8 @@ class NavBar extends Component {
         collapseOnSelect
         expand="lg"
         fixed="top"
-        bg="dark"
-        // className="TransparentBg"
+        // bg="dark"
+        className="TransparentBg"
         variant="dark"
         // variant="light"
       >

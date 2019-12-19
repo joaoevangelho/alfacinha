@@ -35,8 +35,7 @@ export default class CommentList extends Component {
   render() {
     console.log(this.props);
     const comments = this.state.commentList;
-    const user = this.props.user;
-
+    // const user = this.props.user;
     return (
       <div className="pl-4 ml-4">
         <h1>Comments</h1>

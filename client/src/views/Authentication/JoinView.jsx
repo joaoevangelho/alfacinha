@@ -14,11 +14,11 @@ class AuthenticationJoinView extends Component {
       aboutMe: "",
       email: "",
       password: "",
-      image: null,
+      // image: null,
       error: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFileChange = this.handleFileChange.bind(this);
+    // this.handleFileChange = this.handleFileChange.bind(this);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
   }
 
@@ -31,24 +31,24 @@ class AuthenticationJoinView extends Component {
     });
   }
 
-  handleFileChange(event) {
-    console.dir(event.target.files);
-    const file = event.target.files[0];
-    this.setState({
-      image: file
-    });
-  }
+  // handleFileChange(event) {
+  //   console.dir(event.target.files);
+  //   const file = event.target.files[0];
+  //   this.setState({
+  //     image: file
+  //   });
+  // }
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password, username, name, image, aboutMe } = this.state;
+    const { email, password, username, name, /* image, */ aboutMe } = this.state;
     try {
       const user = await joinService({
         email,
         password,
         username,
         name,
-        image,
+        // image,
         aboutMe
       });
       this.props.changeAuthenticationStatus(user);
@@ -133,7 +133,7 @@ class AuthenticationJoinView extends Component {
             onChange={this.handleInputChange}
             required
           ></textarea>
-          <label htmlFor="image" className="sr-only">
+          {/* <label htmlFor="image" className="sr-only">
             Image
           </label>
           <input
@@ -142,7 +142,7 @@ class AuthenticationJoinView extends Component {
             name="image"
             className="form-control mb-3"
             onChange={this.handleFileChange}
-          />
+          /> */}
 
           {this.state.error && (
             <div class="alert alert-danger" role="alert">

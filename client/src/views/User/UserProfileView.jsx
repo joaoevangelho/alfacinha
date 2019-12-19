@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -17,13 +17,13 @@ class UserProfileView extends Component {
     this.state = {
       user: this.props.user
     };
-    console.log(this.state.user);
+    // console.log(this.state.user);
   }
 
   async componentDidMount() {
     const id = this.props.match.params.id;
     // const id = this.props.user._id;
-    console.log("SHOW ME THE IDDDD", id);
+    // console.log("SHOW ME THE IDDDD", id);
     try {
       const user = await loadUserInformationService(id);
       this.setState({
@@ -37,10 +37,10 @@ class UserProfileView extends Component {
 
   render() {
     const user = this.state.user;
-    console.log("SHOW ME THE PROPS", this.props.user._id);
-    const id = this.props.match.params.id;
+    // console.log("SHOW ME THE PROPS", this.props.user._id);
+    // const id = this.props.match.params.id;
     const userFavorites = this.state.user.favorites;
-    console.log("favorites", userFavorites);
+    // console.log("favorites", userFavorites);
     return (
       <div className="MinPageHeight my-5 mx-5 justify-content-center UserProfileBg">
         {(user && (
@@ -80,50 +80,75 @@ class UserProfileView extends Component {
                 <p className="text-left">{user.aboutMe}</p>
               </Col>
             </Row>
-            <Row className="my-1">
-              <Col
-                sm={12}
-                className="d-flex justify-content-end align-items-center"
-              >
-                <h4 className="text-left">My Favorites</h4>
-              </Col>
-            </Row>
-            <Row className="my-1">
-              <Col
-                sm={12}
-                className="d-flex justify-content-end align-items-center"
-              >
-                <div>
-                  {userFavorites.map(userFavorite => {
-                    return (
-                      <div className="card" style={{ width: "10rem" }}>
-                        <img
-                          className="card-img-top"
-                          src={userFavorite.image}
-                          alt="Card image cap"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">{userFavorite.name}</h5>
-                          <p className="card-text">{userFavorite.location}</p>
-                          <Link
-                            className="btn btn-primary"
-                            to={`/restaurant/${userFavorite.resId}`}
-                          >
-                            Details
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+            {(userFavorites.length === 0 && (
+              <Fragment>
+                <Row className="my-1">
+                  <Col
+                    sm={12}
+                    className="d-flex justify-content-end align-items-center"
+                  >
+                    <h4 className="text-left">My Favorites</h4>
+                  </Col>
+                </Row>
+                <Row className="my-1">
+                  <Col
+                    sm={12}
+                    className="d-flex justify-content-end align-items-center"
+                  >
+                    <p>
+                      You have no favorites yet. Browse through our lists to
+                      find places you like!
+                    </p>
+                  </Col>
+                </Row>
+              </Fragment>
+            )) || (
+              <div>
+                <Row className="my-1">
+                  <Col
+                    sm={12}
+                    className="d-flex justify-content-end align-items-center"
+                  >
+                    <h4 className="text-left">My Favorites</h4>
+                  </Col>
+                </Row>
+                <Row className="my-1">
+                  <Col
+                    sm={12}
+                    className="d-flex justify-content-end align-items-center"
+                  >
+                    <div>
+                      {userFavorites.map(userFavorite => {
+                        return (
+                          <div className="card" style={{ width: "10rem" }}>
+                            <img
+                              className="card-img-top"
+                              src={userFavorite.image}
+                              alt="CardPicCap"
+                            />
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {userFavorite.name}
+                              </h5>
+                              <p className="card-text">
+                                {userFavorite.location}
+                              </p>
+                              <Link
+                                className="btn btn-primary"
+                                to={`/restaurant/${userFavorite.resId}`}
+                              >
+                                Details
+                              </Link>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            )}
 
-                {/* <p className="text-right">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p> */}
-              </Col>
-            </Row>
             <Row className="my-1">
               <Col
                 sm={12}
@@ -135,7 +160,7 @@ class UserProfileView extends Component {
               </Col>
             </Row>
           </Container>
-        )) || <p>There's no user logged in...</p>}
+        )) || ( <p>There's no user logged in...</p> )}
       </div>
     );
   }
