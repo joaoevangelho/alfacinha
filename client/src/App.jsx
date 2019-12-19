@@ -121,6 +121,17 @@ class App extends Component {
                 )}
               />
               <Route
+                path="/shop-list/:name"
+                exact
+                render={props => (
+                  <SingleShopView
+                    {...props}
+                    user={this.state.user}
+                    loadUser={this.loadUser}
+                  />
+                )}
+              />
+              <Route
                 path="/user-profile/edit"
                 render={props => (
                   <UserEditProfileView

@@ -16,6 +16,10 @@ router.get('/restaurant-list', routeGuard, (req, res, next) => {
   res.render('restaurant-list');
 });
 
+router.get('/shop-list', routeGuard, (req, res, next) => {
+  res.render('shop-list');
+});
+
 router.get('/show-list', routeGuard, (req, res, next) => {
   res.render('show-list');
 });
