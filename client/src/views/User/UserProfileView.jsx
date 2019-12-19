@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 // import Card from "react-bootstrap/Card";
-=======
->>>>>>> 5bc324ab79f23746a05a60fc1d494fa32f0f5c23
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
