@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  join
-} = require('path');
+const { join } = require('path');
 const express = require('express');
 const createError = require('http-errors');
 const connectMongo = require('connect-mongo');
@@ -35,10 +33,10 @@ app.use(
     cookie: {
       maxAge: 60 * 60 * 24 * 15,
       sameSite: 'lax',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
+      httpOnly: true
+      //secure: process.env.NODE_ENV === 'production'
     },
-    store: new(connectMongo(expressSession))({
+    store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
