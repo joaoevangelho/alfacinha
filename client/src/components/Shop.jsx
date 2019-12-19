@@ -23,7 +23,7 @@ class Shop extends Component {
               <Link to={`/shop-list/${name}`}>
                 <h5 className="card-title">{name}</h5>
               </Link>
-              <p className="card-text">Location: {location}</p>
+              <p className="card-text">Address: {location}</p>
               <p className="card-text">
                 <small className="text-muted">Contact: {contacts}</small>
               </p>

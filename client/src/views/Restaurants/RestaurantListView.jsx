@@ -39,7 +39,7 @@ class RestaurantListView extends Component {
     });
   }
   filterBySearch(restaurant) {
-    console.log(restaurant);
+    console.log('restasdsarsr', restaurant);
     if (restaurant.restaurant.name && this.state.nameQuery) {
       return restaurant.restaurant.name
         .toLowerCase()
