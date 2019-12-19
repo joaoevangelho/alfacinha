@@ -76,10 +76,12 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          {<Navbar
-            user={this.state.user}
-            changeAuthenticationStatus={this.changeAuthenticationStatus}
-          />}
+          {
+            <Navbar
+              user={this.state.user}
+              changeAuthenticationStatus={this.changeAuthenticationStatus}
+            />
+          }
           {this.state.loaded && (
             <Switch>
               <Route
@@ -114,6 +116,17 @@ class App extends Component {
                 exact
                 render={props => (
                   <SingleRestaurantView
+                    {...props}
+                    user={this.state.user}
+                    loadUser={this.loadUser}
+                  />
+                )}
+              />
+              <Route
+                path="/shop-list/:name"
+                exact
+                render={props => (
+                  <SingleShopView
                     {...props}
                     user={this.state.user}
                     loadUser={this.loadUser}
