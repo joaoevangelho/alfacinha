@@ -1,15 +1,22 @@
-import React, { Component } from "react";
-import { list as listservice } from "../../services/comments";
-import "./style.css";
-import CommentCreateView from "./CommentCreateView";
+import React, { Component } from 'react';
+//import { Link } from 'react-router-dom';
+import {
+  list as listservice,
+  remove as removeCommentService
+} from '../../services/comments';
+import './style.css';
+import CommentCreateView from './CommentCreateView';
 
 export default class CommentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentList: []
+      commentList: [],
+      showForm: true
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDeleteTrigger = this.onDeleteTrigger.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   async componentDidMount() {
@@ -22,8 +29,8 @@ export default class CommentList extends Component {
   }
 
   async onSubmit() {
-    console.log("CLICKED");
-    this.setState({ commentList: !this.state.commentList });
+    console.log('CLICKED');
+    // this.setState({ commentList: !this.state.commentList });
     const resid = this.props.match.params.id;
     // console.log('RES ID: ', resid);
     const list = await listservice(resid);
@@ -32,10 +39,29 @@ export default class CommentList extends Component {
     });
   }
 
+  async onDeleteTrigger(commentId) {
+    const resid = this.props.match.params.id;
+    try {
+      await removeCommentService(commentId);
+      const list = await listservice(resid);
+      this.setState({
+        commentList: list
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  toggleForm() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  }
+
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     const comments = this.state.commentList;
-    // const user = this.props.user;
+
     return (
       <div className="pl-4 ml-4">
         <h1>Comments</h1>
@@ -62,10 +88,14 @@ export default class CommentList extends Component {
                   <div className="card-text">
                     <p>{comment.text}</p>
                   </div>
+                  <button onClick={() => this.onDeleteTrigger(comment._id)}>
+                    Delete Comment
+                  </button>
                 </div>
               </div>
             </div>
           ))}
+
         <CommentCreateView {...this.props} onSubmit={this.onSubmit} />
       </div>
     );

@@ -7,7 +7,7 @@ const zomatoApi = axios.create({
   }
 });
 
-export const listRestaurants = async function () {
+export const listRestaurants = async function() {
   try {
     const response1 = await zomatoApi.get(
       '/search?entity_id=82&entity_type=city&start=1&count=20&cuisines=308'
@@ -31,13 +31,8 @@ export const listRestaurants = async function () {
     const array4 = response4.data.restaurants;
     const array5 = response5.data.restaurants;
 
-    const newArray = [...array1,
-      ...array2,
-      ...array3,
-      ...array4,
-      ...array5
-    ]
-    return newArray
+    const newArray = [...array1, ...array2, ...array3, ...array4, ...array5];
+    return newArray;
   } catch (error) {
     console.log('There was an error from ZOMATO API');
     throw error;
@@ -48,7 +43,7 @@ export const loadRestaurant = async id => {
   try {
     const response = await zomatoApi.get(`/restaurant?res_id=${id}`);
     const singleRestaurant = response.data;
-    console.log(response.data);
+    //console.log(response.data);
 
     return singleRestaurant;
   } catch (error) {

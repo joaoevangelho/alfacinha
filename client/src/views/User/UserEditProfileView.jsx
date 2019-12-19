@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from "react";
 import Image from "react-bootstrap/Image";
 
-import { edit as editUserService } from "./../../services/user";
-// import { remove as removeUserService } from "./../../services/user";
+import { edit as editUserService } from './../../services/user';
+// import {
+//   edit as editUserService,
+//   remove as removeUserService
+// } from './../../services/user';
 
 class UserEditProfileView extends Component {
   constructor(props) {
@@ -42,7 +45,7 @@ class UserEditProfileView extends Component {
 
   handleFileChange(event) {
     console.dir(event.target.files);
-    console.log("WHAT UUUUUP", event.target.files);
+    console.log('WHAT UUUUUP', event.target.files);
     const file = event.target.files[0];
     this.setState({
       image: file
@@ -64,17 +67,18 @@ class UserEditProfileView extends Component {
     }
   }
 
-  /*   async onDeleteTrigger() {
-    const id = this.state.user._id;
-    // const id = this.props.match.params.id;
-    try {
-      await removeUserService(id);
-      // await this.props.loadUser();
-      this.props.history.push(`/`);
-    } catch (error) {
-      console.log(error);
-    }
-  } */
+  //   async onDeleteTrigger() {
+  // //    const id = this.state.user._id;
+  //     //console.log('user id delete', id);
+  //     // const id = this.props.match.params.id;
+  //     try {
+  //       await removeUserService(id);
+  //       // await this.props.loadUser();
+  //       // this.props.history.push(`/`);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
 
   render() {
     // console.log("i am in the edit view", this.state.user);
