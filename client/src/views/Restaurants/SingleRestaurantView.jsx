@@ -7,6 +7,7 @@ import MapBox from './../../components/MapBox';
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from './../../services/authentication';
+import { removeFromFavorites as removeFromFavoritesService } from './../../services/authentication';
 
 import './style.css';
 
@@ -20,36 +21,53 @@ class singleRestaurant extends Component {
       favorites: null
     };
     this.addToFavoritesButton = this.addToFavoritesButton.bind(this);
+    this.removeFromFavoritesButton = this.removeFromFavoritesButton.bind(this);
   }
 
   async componentDidMount() {
     const id = this.props.match.params.id;
     // console.log("singleRest", id);
+    const arrFavId = [];
+    const favoritesId = this.props.user.favorites.map(favorite => {
+      arrFavId.push(favorite.resId);
+    });
     try {
       // const user = await loadUserInformationService();
       const singleRestaurant = await restaurantApi(id);
       //console.log('response from api', singleRestaurant);
       this.setState({
         restaurant: singleRestaurant,
-        user: this.props.user
+        user: this.props.user,
+        restId: arrFavId
       });
+      console.log('ARRAY ID', arrFavId);
     } catch (error) {
       console.log(error);
       this.props.history.push('/error/404');
     }
   }
 
+  compareFavoriteId() {
+    const arrFavId = this.state.restId;
+    const restId = this.props.match.params.id * 1;
+    let comparing = false;
+    console.log('REST ID', restId);
+    console.log('ARR ID', arrFavId);
+    for (let i = 0; i < arrFavId.length; i++) {
+      console.log('Both', restId, arrFavId[i]);
+      if (arrFavId[i] === restId) {
+        console.log('Ids,', arrFavId);
+        comparing = true;
+      }
+    }
+    return comparing;
+  }
+
   async addToFavoritesButton(event, name) {
-    event.preventDefault();
+    // event.preventDefault();
     const favoriteRestaurantId = this.props.match.params.id;
     const location = this.state.restaurant.location.address;
     const image = this.state.restaurant.featured_image;
-    // const data = {
-    //   favoriteRestaurantId,
-    //   name,
-    //   location,
-    //   image
-    // };
     console.log(
       'addToFavoritesButton STATE',
       favoriteRestaurantId,
@@ -62,6 +80,25 @@ class singleRestaurant extends Component {
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async removeFromFavoritesButton() {
+    // event.preventDefault();
+    const favoriteRestaurantId = this.props.match.params.id;
+    console.log('removeFromFavoriteButton STATE', favoriteRestaurantId);
+    try {
+      await removeFromFavoritesService(favoriteRestaurantId);
+      // console.log("USER JOINVIEW", user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // only update chart if the data has changed
+    if (prevProps.user !== this.state.user) {
+      console.log('user has been changed');
     }
   }
 
@@ -113,10 +150,10 @@ class singleRestaurant extends Component {
                   </p>
                   {user && (
                     <div>
-                      {(this.props.user.favorites[0] && (
+                      {(this.compareFavoriteId() && (
                         <Button
                           onClick={event => {
-                            this.addToFavoritesButton(event, restaurant.name);
+                            this.removeFromFavoritesButton();
                           }}
                           className="btn MyBtn"
                         >
@@ -140,8 +177,8 @@ class singleRestaurant extends Component {
           </div>
         )}
         <div>
+          {user && <CommentList {...this.props} />}
           <br />
-          <CommentList {...this.props} />
           {/* <CommentCreateView {...this.props} /> */}
           {/* <div
             className="fb-comments"

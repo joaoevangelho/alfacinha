@@ -1,6 +1,8 @@
 'use strict';
 
-const { join } = require('path');
+const {
+  join
+} = require('path');
 const express = require('express');
 const createError = require('http-errors');
 const connectMongo = require('connect-mongo');
@@ -14,7 +16,6 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/api/authentication');
 const restaurantsRouter = require('./routes/api/restaurants');
 const commentRouter = require('./routes/api/comment');
-const favoritesRouter = require('./routes/api/favorites');
 const userRouter = require('./routes/api/user');
 
 const app = express();
@@ -36,7 +37,7 @@ app.use(
       httpOnly: true
       //secure: process.env.NODE_ENV === 'production'
     },
-    store: new (connectMongo(expressSession))({
+    store: new(connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
       ttl: 60 * 60 * 24
     })
@@ -49,7 +50,6 @@ app.use('/api', indexRouter);
 app.use('/api/authentication', authenticationRouter);
 app.use('/api/restaurant', restaurantsRouter);
 app.use('/api/comment', commentRouter);
-app.use('/api/favorites', favoritesRouter);
 app.use('/api/user', userRouter);
 
 app.get('*', (req, res, next) => {
