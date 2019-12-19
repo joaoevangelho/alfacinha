@@ -14,18 +14,18 @@ const apiUserService = axios.create({
   }
 }; */
 
-export const edit = async (id, user, image) => {
-  // console.log("USER INFO ON SERVICE", user.image);
+export const edit = async (user) => {
+  console.log("USER INFO ON SERVICE", user);
   const data = new FormData();
   data.append('name', user.name);
   data.append('email', user.email);
   data.append('aboutMe', user.aboutMe);
   data.append('image', user.image);
   try {
-    const response = await apiUserService.patch(`/user-profile/edit`, data);
-    // console.log("RESPONSE DATA!!", response);
+    await apiUserService.patch(`/user-profile/edit`, data);
+    //console.log("RESPONSE DATA!!", data);
     // console.log('WHO DIIIIS', response.data.user.image);
-    return response.data.user;
+    //return response.data.user;
   } catch (error) {
     console.log(error);
     throw error;
@@ -43,4 +43,3 @@ export const remove = async userId => {
     throw error;
   }
 };
-

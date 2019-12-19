@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
-// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 import { removeFromFavorites as removeFromFavoritesService } from "./../../services/authentication";
 
@@ -18,7 +18,8 @@ class singleRestaurant extends Component {
       restaurant: null,
       user: this.props.user,
       // user: null,
-      favorites: null
+      favorites: null,
+      update: false
     };
     this.addToFavoritesButton = this.addToFavoritesButton.bind(this);
     this.removeFromFavoritesButton = this.removeFromFavoritesButton.bind(this);
@@ -79,6 +80,10 @@ class singleRestaurant extends Component {
     );
     try {
       await addToFavoritesService(favoriteRestaurantId, name, location, image);
+      this.setState({
+        update: !this.state.update
+      });
+
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
@@ -91,11 +96,25 @@ class singleRestaurant extends Component {
     console.log("removeFromFavoriteButton STATE", favoriteRestaurantId);
     try {
       await removeFromFavoritesService(favoriteRestaurantId);
+      this.setState({
+        update: !this.state.update
+      });
       // console.log("USER JOINVIEW", user);
     } catch (error) {
       console.log(error);
     }
   }
+
+  // async componentDidUpdate(prevProps, prevState) {
+  //   console.log("PROPS", this.props);
+  //   console.log("revious state", prevState.update);
+  //   console.log("current state", this.state.update);
+  //   if (prevState.update !== this.state.update) {
+  //     console.log("UPDATE!");
+  //     this.props.loadUser();
+  //     this.compareFavoriteId();
+  //   }
+  // }
 
   render() {
     const restaurant = this.state.restaurant;
@@ -145,7 +164,7 @@ class singleRestaurant extends Component {
                   </p>
                   {user && (
                     <div>
-                      {(this.compareFavoriteId() && (
+                      {(this.state.update && (
                         <Button
                           onClick={event => {
                             this.removeFromFavoritesButton();
@@ -165,6 +184,27 @@ class singleRestaurant extends Component {
                         </Button>
                       )}
                     </div>
+                    // <div>
+                    //   {(this.compareFavoriteId() && (
+                    //     <Button
+                    //       onClick={event => {
+                    //         this.removeFromFavoritesButton();
+                    //       }}
+                    //       className="btn MyBtn"
+                    //     >
+                    //       Remove from Favorites
+                    //     </Button>
+                    //   )) || (
+                    //     <Button
+                    //       onClick={event => {
+                    //         this.addToFavoritesButton(event, restaurant.name);
+                    //       }}
+                    //       className="btn MyBtn"
+                    //     >
+                    //       Add to Favorites
+                    //     </Button>
+                    //   )}
+                    // </div>
                   )}
                 </div>
               </div>

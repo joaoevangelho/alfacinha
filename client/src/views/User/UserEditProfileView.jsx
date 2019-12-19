@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Image from "react-bootstrap/Image";
 
-import { edit as editUserService } from './../../services/user';
+import { edit as editUserService } from "./../../services/user";
 // import {
 //   edit as editUserService,
 //   remove as removeUserService
@@ -11,8 +11,11 @@ class UserEditProfileView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
-      // image: null
+      user: this.props.user,
+      name: "",
+      email: "",
+      aboutMe: "",
+      image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
@@ -45,8 +48,9 @@ class UserEditProfileView extends Component {
 
   handleFileChange(event) {
     console.dir(event.target.files);
-    console.log('WHAT UUUUUP', event.target.files);
+    console.log("WHAT UUUUUP", event.target.files);
     const file = event.target.files[0];
+    console.log(file);
     this.setState({
       image: file
     });
@@ -54,12 +58,16 @@ class UserEditProfileView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const user = this.state.user;
-    const image = this.state.image;
-    const id = this.state.user._id;
+    // const user = this.state.user;
+    const editedUser = {
+      name: this.state.name,
+      email: this.state.email,
+      aboutMe: this.state.aboutMe,
+      image: this.state.image
+    };
     // console.log("ID HERE", id);
     try {
-      await editUserService(id, user, image);
+      await editUserService(editedUser);
       await this.props.loadUser();
       this.props.history.push(`/user-profile`);
     } catch (error) {
@@ -93,11 +101,7 @@ class UserEditProfileView extends Component {
                 onSubmit={this.handleFormSubmission}
                 className="form-signin EditViewForm"
               >
-                <Image
-                  fluid
-                  src={user.image}
-                  className="EditViewImg mb-3"
-                />
+                <Image fluid src={user.image} className="EditViewImg mb-3" />
                 <label htmlFor="image" className="sr-only">
                   Image
                 </label>
@@ -119,7 +123,6 @@ class UserEditProfileView extends Component {
                   className="form-control mb-3"
                   name="name"
                   onChange={this.handleInputChange}
-                  required
                 />
                 <label htmlFor="email" className="sr-only">
                   Email
@@ -131,7 +134,6 @@ class UserEditProfileView extends Component {
                   className="form-control mb-3"
                   name="email"
                   onChange={this.handleInputChange}
-                  required
                 />
                 <label htmlFor="aboutMe" className="sr-only">
                   About Me
@@ -143,16 +145,20 @@ class UserEditProfileView extends Component {
                   className="form-control mb-3"
                   name="aboutMe"
                   onChange={this.handleInputChange}
-                  required
                 ></textarea>
-                <button className="btn MyBtn EditViewBtn mb-2">Save profile</button>
+                <button className="btn MyBtn EditViewBtn mb-2">
+                  Save profile
+                </button>
                 <br />
               </form>
             </Fragment>
           )}
         </main>
         <div className="mx-5 my-2 text-center d-flex justify-content-center">
-          <button className="btn MyBtn EditViewBtn mb-2" onClick={this.onDeleteTrigger}>
+          <button
+            className="btn MyBtn EditViewBtn mb-2"
+            onClick={this.onDeleteTrigger}
+          >
             Delete account
           </button>
         </div>
