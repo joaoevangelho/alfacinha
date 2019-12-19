@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Shop from '../../components/Shop';
 import { Link } from 'react-router-dom';
-import './style.css';
+// import './style.css';
 
 import { listShops } from './../../services/shops';
 
@@ -22,7 +22,7 @@ class ListShopView extends Component {
       });
   }
 
-  render() {
+  renderShops() {
     const shops = this.state.shops;
     console.log('whats this', shops);
 
@@ -33,6 +33,17 @@ class ListShopView extends Component {
         </div>
       );
     });
+  }
+
+  render() {
+    return (
+      <div className="MinPageHeight">
+        <div>
+          <div className="d-flex flex-wrap ml-5 mt-5">{this.renderShops()}</div>
+        </div>
+        )}
+      </div>
+    );
   }
 }
 
