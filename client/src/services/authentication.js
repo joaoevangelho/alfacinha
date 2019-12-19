@@ -54,6 +54,15 @@ export const addToFavorites = async (id, name, location, image) => {
   }
 };
 
+export const removeFromFavorites = async (id) => {
+  try {
+    const response = await apiAuthenticationService.post(`/remove-from-favorites/${id}`);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const logOut = async () => {
   try {
     await apiAuthenticationService.post(`/logout`);
