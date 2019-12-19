@@ -60,8 +60,10 @@ class CommentEditView extends Component {
   render() {
     const { text } = this.state;
     return (
-      <main className="pl-4 ml-4">
-        <form onSubmit={this.handleFormSubmission} className="form-signin w-75">
+      <main className="text-center d-flex justify-content-start">
+      {/* <main className="text-center d-flex justify-content-start"> */}
+      {/* <main className="pl-4 ml-4"> */}
+        <form onSubmit={this.handleFormSubmission} className="form-signin CommentForm">
           <label htmlFor="text" id="txt" className="sr-only">
             Comment
           </label>

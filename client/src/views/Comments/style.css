@@ -1,14 +1,15 @@
 .CommentUserIcon {
-  width: 4em;
-  height: 4em;
+  width: 2.5em;
+  height: inherit;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
   margin-right: 0.5em;
 }
 
 .CommentImg {
-  width: 10em;
-  height: 10em;
+  width: 6em;
+  height: 6em;
+  border-radius: 5%;
   object-fit: cover;
 }
 
@@ -16,4 +17,12 @@
   margin: 1em 0;
   border: 1px solid lightgray;
   background-color: transparent;
+}
+
+.CommentForm {
+  width: 30em;
+}
+
+.DeleteCommentBtn {
+  max-width: 10em;
 }

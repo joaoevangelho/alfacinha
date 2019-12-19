@@ -101,7 +101,16 @@ class UserEditProfileView extends Component {
                 onSubmit={this.handleFormSubmission}
                 className="form-signin EditViewForm"
               >
-                <Image fluid src={user.image} className="EditViewImg mb-3" />
+                <div className="mb-4">
+                  <p>
+                    <Image
+                      fluid
+                      src={user.image}
+                      className="EditViewImg m-0 p-0"
+                    />
+                  </p>
+                  <p className="EditViewImgCaption">Current profile image</p>
+                </div>
                 <label htmlFor="image" className="sr-only">
                   Image
                 </label>
@@ -146,22 +155,22 @@ class UserEditProfileView extends Component {
                   name="aboutMe"
                   onChange={this.handleInputChange}
                 ></textarea>
-                <button className="btn MyBtn EditViewBtn mb-2">
-                  Save profile
+                <button className="btn MyBtn EditViewBtn mb-5 w-100">
+                  Save changes
                 </button>
                 <br />
               </form>
             </Fragment>
           )}
         </main>
-        <div className="mx-5 my-2 text-center d-flex justify-content-center">
+        {/* <div className="mx-5 my-2 text-center d-flex justify-content-center">
           <button
             className="btn MyBtn EditViewBtn mb-2"
             onClick={this.onDeleteTrigger}
           >
             Delete account
           </button>
-        </div>
+        </div> */}
       </Fragment>
     );
   }

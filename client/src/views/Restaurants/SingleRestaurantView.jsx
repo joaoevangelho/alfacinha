@@ -126,7 +126,8 @@ class singleRestaurant extends Component {
     return (
       <div className="MinPageHeight mt-4 pt-4">
         {restaurant && (
-          <div className="SingleRestaurantCard card m-5 p-5">
+          // <div className="SingleRestaurantCard card">
+          <div className="SingleRestaurantCard card mt-3 mx-2">
             <div className="row no-gutters">
               <div className="col-md-4">
                 <img
@@ -213,15 +214,6 @@ class singleRestaurant extends Component {
         )}
         <div>
           {user && <CommentList {...this.props} />}
-          <br />
-          {/* <CommentCreateView {...this.props} /> */}
-          {/* <div
-            className="fb-comments"
-            data-href="https://www.facebook.com/Alfacinha-100341914808752"
-            data-width=""
-            data-numposts="10"
-          ></div> */}
-          <br />
         </div>
       </div>
     );

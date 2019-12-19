@@ -54,13 +54,13 @@
 
 .EditViewImg {
   width: 10em;
+  border-radius: 5%;
 }
 
 .EditViewForm {
   width: 30em;
 }
 
-.EditViewBtn {
-  max-width: 16em;
-
+.EditViewImgCaption {
+  line-height: 0.5em;
 }
