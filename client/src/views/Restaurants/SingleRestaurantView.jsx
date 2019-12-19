@@ -44,19 +44,6 @@ class singleRestaurant extends Component {
     const favoriteRestaurantId = this.props.match.params.id;
     const location = this.state.restaurant.location.address;
     const image = this.state.restaurant.featured_image;
-    const data = {
-      favoriteRestaurantId,
-      name,
-      location,
-      image
-    };
-    console.log(
-      "addToFavoritesButton STATE",
-      favoriteRestaurantId,
-      name,
-      location,
-      image
-    );
     try {
       await addToFavoritesService(favoriteRestaurantId, name, location, image);
       // console.log("USER JOINVIEW", user);
@@ -68,6 +55,8 @@ class singleRestaurant extends Component {
   render() {
     const restaurant = this.state.restaurant;
     const user = this.state.user;
+
+    console.log("props user", this.props.user);
     // const id = this.props.match.params.id;
     //console.log('hello', restaurant);
     return (
@@ -109,13 +98,19 @@ class singleRestaurant extends Component {
                     {restaurant.user_rating.aggregate_rating} (
                     {restaurant.user_rating.rating_text})
                   </p>
-                  {/* <p className="card-text">
-                    Number of votes: {restaurant.user_rating.votes}
-                  </p> */}
-                  {/* <p className="card-text">On Zomato: {restaurant.url}</p> */}
                   {user && (
                     <div>
-                      <Button
+                      {(this.props.user.favorites[0] && (
+                        <Button
+                          onClick={event => {
+                            this.addToFavoritesButton(event, restaurant.name);
+                          }}
+                          className="btn MyBtn"
+                        >
+                          Remove from Favorites
+                        </Button>
+                      )) || (
+                        <Button
                           onClick={event => {
                             this.addToFavoritesButton(event, restaurant.name);
                           }}
@@ -123,6 +118,7 @@ class singleRestaurant extends Component {
                         >
                           Add to Favorites
                         </Button>
+                      )}
                     </div>
                   )}
                 </div>

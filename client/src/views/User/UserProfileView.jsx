@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 // import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/Button";
 
 import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 
@@ -96,7 +96,7 @@ class UserProfileView extends Component {
                 <div>
                   {userFavorites.map(userFavorite => {
                     return (
-                      <div className="card" style={{ width: "10rem" }}>
+                      <div className="card" style={{ width: "15rem" }}>
                         <img
                           className="card-img-top"
                           src={userFavorite.image}
@@ -111,6 +111,9 @@ class UserProfileView extends Component {
                           >
                             Details
                           </Link>
+                          <Button className="btn MyBtn">
+                            Remove from favorites
+                          </Button>
                         </div>
                       </div>
                     );
