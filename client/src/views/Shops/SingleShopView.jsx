@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import Shop from '../../components/Shop';
 
-import "./style.css";
+import { listShops } from './../../services/shops';
 
 class SingleShopView extends Component {
   render() {
     return (
-      <div className="MinPageHeight m-5 p-5">
-        <h1>SingleShopView</h1>
+      <div>
+        <h1>Single Product</h1>
       </div>
     );
   }

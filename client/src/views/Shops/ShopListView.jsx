@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
+import Shop from '../../components/Shop';
 
-import "./style.css";
+import { listShops } from './../../services/shops';
 
-class ShopListView extends Component {
+class ListShopView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      shops: []
+    };
+    listShops()
+      .then(shops => {
+        this.setState({
+          shops: shops
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   render() {
+    const shops = this.state.shops;
     return (
-      <div className="MinPageHeight m-5 p-5">
-        <h1>ShopListView</h1>
-        
+      <div>
+        <h1>Shop List</h1>
+        <div className="product-list">
+          {shops.map(shop => {
+            return <Shop key={shop.name} {...shop} />;
+          })}
+        </div>
       </div>
-    )
+    );
   }
 }
 
-export default ShopListView;
+export default ListShopView;
