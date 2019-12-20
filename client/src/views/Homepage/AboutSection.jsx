@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react';
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
-import Carousel from "react-bootstrap/Carousel";
-import Image from "react-bootstrap/Image";
+import Carousel from 'react-bootstrap/Carousel';
+import Image from 'react-bootstrap/Image';
 
-import "./style.css";
+import './style.css';
 
 class AboutSection extends Component {
   render() {
@@ -25,13 +25,13 @@ class AboutSection extends Component {
           <Carousel.Item className="AboutCarouselBgLayer2">
             <div className="row m-4 p-3">
               <div className="col-sm-2"></div>
-              <div className="col-sm-8">
-                <h5>
+              <div className="col-sm-4">
+                <h6>
                   10 THINGS YOU CAN DO TO HELP SAVE OUR PLANET
                   <small>
                     <sup>[1]</sup>
                   </small>
-                </h5>
+                </h6>
                 <ol className="AboutList mb-3 pl-5">
                   <li>Eat Sustainably</li>
                   <li>Reduce your waste</li>
@@ -53,6 +53,14 @@ class AboutSection extends Component {
                     [1] Source - WWF
                   </a>
                 </small>
+              </div>
+              <div className="col-sm-4">
+                <Image
+                  fluid
+                  className="CarouselImg"
+                  src="/images/lastpic.jpg"
+                  alt="Third slide"
+                />
               </div>
               <div className="col-sm-2"></div>
             </div>
@@ -77,7 +85,6 @@ class AboutSection extends Component {
                 />
               </div>
               <div className="col-sm-2"></div>
-
             </div>
           </Carousel.Item>
         </Carousel>
