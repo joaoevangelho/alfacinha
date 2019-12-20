@@ -102,11 +102,7 @@ class SingleShopView extends Component {
             })}
           </div>
         )}
-        <div>
-          {user && <CommentList {...this.props} />}
-          <br />
-          <br />
-        </div>
+        
       </div>
     );
   }
