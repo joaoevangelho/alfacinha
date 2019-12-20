@@ -8,7 +8,7 @@
 
 .AlfacinhaTitleText {
   font-family: "Amatic SC", cursive;
-  font-size: 18vw;
+  font-size: 20vw;
   font-weight: 700;
 }
 
@@ -37,8 +37,9 @@
 
 .CarouselImg {
   height: 15em;
-  width: 10em;
+  width: 20em;
   object-fit: cover;
+  border-radius: 5%;
 }
 
 .ReadMoreBtn {

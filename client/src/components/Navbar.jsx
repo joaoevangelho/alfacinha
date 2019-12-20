@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 
 // import { Link } from "react-router-dom";
 
-import './style.css';
+import "./style.css";
 
-import { logOut as logOutService } from './../services/authentication';
+import { logOut as logOutService } from "./../services/authentication";
 
 class NavBar extends Component {
   constructor(props) {
@@ -18,10 +18,9 @@ class NavBar extends Component {
     this.state = {
       expanded: false
     };
-    
+
     this.onLogOutTrigger = this.onLogOutTrigger.bind(this);
     this.handleToggleMenu = this.handleToggleMenu.bind(this);
-
   }
 
   handleToggleMenu() {
@@ -50,12 +49,12 @@ class NavBar extends Component {
     const user = this.props.user;
     return (
       <Navbar
-      expanded={this.state.expanded}
+        expanded={this.state.expanded}
         collapseOnSelect
         expand="lg"
         fixed="top"
         // bg="dark"
-        className="TransparentBg font-weight-bold"
+        className="TransparentBg"
         // variant="dark"
         // variant="light"
       >
@@ -68,22 +67,25 @@ class NavBar extends Component {
             alt="BrandLogo"
           />
         </Nav.Link>
-        <Navbar.Toggle onClick={this.handleToggleMenu} aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          onClick={this.handleToggleMenu}
+          aria-controls="responsive-navbar-nav"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link
               as={Link}
-              className="mx-2 text-white"
+              className="mx-2 text-dark font-weight-bold NavLinksText"
               /* href="#restaurants" */ to="/restaurant-list"
             >
-              Restaurants
+              RESTAURANTS
             </Nav.Link>
             <Nav.Link
               as={Link}
-              className="mx-2 text-white"
+              className="mx-2 text-dark font-weight-bold NavLinksText"
               /* href="#shops" */ to="/shop-list"
             >
-              Shops
+              SHOPS
             </Nav.Link>
             {/* <Nav.Link
               as={Link}
@@ -105,7 +107,11 @@ class NavBar extends Component {
           {(user && (
             <Fragment>
               <Nav className="ml-auto">
-                <Nav.Link as={Link} className="mx-2 text-white" to="/user-profile">
+                <Nav.Link
+                  as={Link}
+                  className="mx-2 text-white font-weight-bold NavLinksText"
+                  to="/user-profile"
+                >
                   My Profile
                 </Nav.Link>
                 {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
@@ -113,20 +119,28 @@ class NavBar extends Component {
                 </Nav.Link> */}
                 <Button
                   as={Link}
-                  className="MyBtn LogoutBtn mx-2"
+                  className="MyBtn LogoutBtn font-weight-bold NavLinksText"
                   onClick={this.onLogOutTrigger}
                   to="/"
                 >
-                  Log Out
+                  LOG OUT
                 </Button>
               </Nav>
             </Fragment>
           )) || (
             <Nav className="ml-auto">
-              <Nav.Link as={Link} className="mx-2 text-white" to="/login">
+              <Nav.Link
+                as={Link}
+                className="mx-2 text-dark font-weight-bold NavLinksText"
+                to="/login"
+              >
                 Log In
               </Nav.Link>
-              <Nav.Link as={Link} className="mx-2 text-white" to="/join">
+              <Nav.Link
+                as={Link}
+                className="mx-2 text-dark font-weight-bold NavLinksText"
+                to="/join"
+              >
                 Join
               </Nav.Link>
             </Nav>

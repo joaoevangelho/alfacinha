@@ -26,6 +26,7 @@ class UserProfileView extends Component {
     // const id = this.props.user._id;
     // console.log("SHOW ME THE IDDDD", id);
     try {
+      window.scrollTo(0, 0);
       const user = await loadUserInformationService(id);
       this.setState({
         user

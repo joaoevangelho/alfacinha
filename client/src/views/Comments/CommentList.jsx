@@ -24,6 +24,7 @@ export default class CommentList extends Component {
   }
 
   async componentDidMount() {
+    window.scrollTo(0, 0);
     const resid = this.props.match.params.id;
     // console.log('RES ID: ', resid);
     const list = await listservice(resid);

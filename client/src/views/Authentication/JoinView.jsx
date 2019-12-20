@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
+import React, { Component } from 'react';
+import Image from 'react-bootstrap/Image';
 
-import { join as joinService } from "../../services/authentication";
+import { join as joinService } from '../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class AuthenticationJoinView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      username: "",
-      aboutMe: "",
-      email: "",
-      password: "",
+      name: '',
+      username: '',
+      aboutMe: '',
+      email: '',
+      password: '',
       // image: null,
       error: false
     };
@@ -41,7 +41,13 @@ class AuthenticationJoinView extends Component {
 
   async handleFormSubmission(event) {
     event.preventDefault();
-    const { email, password, username, name, /* image, */ aboutMe } = this.state;
+    const {
+      email,
+      password,
+      username,
+      name,
+      /* image, */ aboutMe
+    } = this.state;
     try {
       const user = await joinService({
         email,
@@ -60,6 +66,8 @@ class AuthenticationJoinView extends Component {
   }
 
   render() {
+    window.scrollTo(0, 0);
+
     // const user = this.state.user;
     return (
       <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
