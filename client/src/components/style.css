@@ -78,12 +78,6 @@
   padding-right: 1.5em;
 }
 
-.navbar-toggler-icon {
-  /* background-color: white; */
-  /* font-style: italic; */
-  /* width: 10em; */
-}
-
 .SingleRestaurantCard {
   background-color: transparent;
   /* border: 1px solid red; */
@@ -116,4 +110,7 @@
   border: 1px solid red;
 }
 
-
+.NavLinksText {
+  font-family: "Amatic SC", cursive;
+  font-size: 1.5em;
+}
