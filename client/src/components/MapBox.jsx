@@ -27,10 +27,10 @@ class MapBox extends Component {
     });
 
     this.map.addControl(new mapboxgl.NavigationControl());
-    this.marker = new mapboxgl.Marker({ color: "blue" })
+    this.marker = new mapboxgl.Marker({ color: "green" })
       .setLngLat([lng, lat])
       .addTo(this.map);
-    this.markerRestaurant = new mapboxgl.Marker({ color: "green" })
+    this.markerRestaurant = new mapboxgl.Marker({ color: "purple" })
 
       .setLngLat([this.props.lng, this.props.lat])
       .addTo(this.map);
