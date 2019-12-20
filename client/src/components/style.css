@@ -83,34 +83,18 @@
   /* border: 1px solid red; */
 }
 
-.BgHack {
-  background-color: rgb(187, 187, 104);
-  border: 1px solid red;
-}
-
-.CardImg {
-  height: 12em;
-  object-fit: cover;
-  border-radius: 50%;
-  background-color: #343a40;
-  padding: 1em;
-  border: 1px solid red;
-}
-
-.Card {
-  margin: 3em;
-  border-color: #343a40;
-  color: white;
-  border: 1px solid red;
-}
-
-.CardBody {
-  background-color: #343a40;
-  height: 100%;
-  border: 1px solid red;
-}
-
 .NavLinksText {
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amatic SC', cursive;
   font-size: 1.5em;
+}
+
+.height-card-shop {
+  height: 15em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-title {
+  text-decoration: none;
+  color: rgba(177, 174, 174, 0.842);
 }

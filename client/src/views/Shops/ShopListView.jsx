@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Shop from "../../components/Shop";
+import React, { Component } from 'react';
+import Shop from '../../components/Shop';
 // import { Link } from 'react-router-dom';
-import SearchInput from "../../components/SearchInput";
+import SearchInput from '../../components/SearchInput';
 
-// import './style.css';
+import './style.css';
 
-import { listShops } from "./../../services/shops";
+import { listShops } from './../../services/shops';
 
 class ListShopView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       shops: [],
-      nameQuery: "",
-      locationQuery: ""
+      nameQuery: '',
+      locationQuery: ''
     };
 
     listShops()
@@ -47,23 +47,22 @@ class ListShopView extends Component {
 
   filterBySearch(shop) {
     // console.log("shop", shop);
-    if (this.state.nameQuery !== "" || this.state.locationQuery !== "") {
+    if (this.state.nameQuery !== '' || this.state.locationQuery !== '') {
       if (shop.name && this.state.nameQuery) {
-        console.log("lalalala", shop);
+        console.log('lalalala', shop);
         return shop.name.toLowerCase().includes(this.state.nameQuery);
       }
       if (shop.location && this.state.locationQuery) {
         return shop.location.toLowerCase().includes(this.state.locationQuery);
       }
-    }
-    else {
-      return shop.location.toLowerCase()
+    } else {
+      return shop.location.toLowerCase();
     }
   }
 
   renderShops() {
     const shops = this.state.shops;
-    console.log("whats this", shops);
+    console.log('whats this', shops);
     return shops
       .filter(filteredShopBySearch => this.filterBySearch(filteredShopBySearch))
       .map(shop => {
@@ -76,7 +75,7 @@ class ListShopView extends Component {
   }
 
   render() {
-    console.log("this render shops", this.renderShops());
+    console.log('this render shops', this.renderShops());
     return (
       <div className="MinPageHeight">
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />

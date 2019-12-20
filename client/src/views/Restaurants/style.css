@@ -9,6 +9,10 @@
   object-fit: cover;
 }
 
+body {
+  background-color: #ca895f;
+}
+
 /* 
 .CardImg {
   height: 12em;
