@@ -6,10 +6,11 @@ import MapBox from "./../../components/MapBox";
 import Button from "react-bootstrap/Button";
 
 class SingleShopView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      shop: []
+      shop: [],
+      user: this.props.user
     };
 
     listShops()
@@ -26,9 +27,9 @@ class SingleShopView extends Component {
   }
 
   render() {
-    const shopName = this.props.match.params.name;
+    // const shopName = this.props.match.params.name;
     const shop = this.state.shop;
-    const user = this.props.user;
+    const user = this.state.user;
     //const location = this.state.shop;
     //console.log('lcoation ->', location);
     //console.log('shop info', shop);
@@ -56,7 +57,11 @@ class SingleShopView extends Component {
                         className="card-img"
                         alt="Shop Green"
                       />
-                      <MapBox lat="38.729287" lng="-9.144255" />
+                      <MapBox
+                        className="mt-5"
+                        lat="38.729287"
+                        lng="-9.144255"
+                      />
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">

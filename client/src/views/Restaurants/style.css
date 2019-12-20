@@ -1,11 +1,15 @@
 .SingleRestaurantCard {
   background-color: transparent;
+  max-width: 35em;
 }
 
-.BgHack {
-  background-color: rgb(187, 187, 104);
+.SingleRestImg {
+  width: 15em;
+  height: 10em;
+  object-fit: cover;
 }
 
+/* 
 .CardImg {
   height: 12em;
   object-fit: cover;
@@ -24,3 +28,4 @@
   background-color: #343a40;
   height: 100%;
 }
+ */

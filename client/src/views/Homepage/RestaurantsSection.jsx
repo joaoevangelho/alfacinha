@@ -24,9 +24,11 @@ class RestaurantsSection extends Component {
             <Col sm={4} className="text-left p-3">
               <h5 className="ml-5">RESTAURANTS</h5>
               <p className="text-justify mx-5">
-                Browse through a list of cool places to eat vegetarian food, wether you're in
-                the mood for a snack, a quick meal at lunch break or a nice
-                dinner with friends.
+                Reducing meat consumption is good for our health and for the
+                environment, so why not give new flavors a try? Find a list of
+                restaurants with lots of tasty vegetarian and vegan options,
+                wether you're in the mood for a snack, a quick meal at lunch
+                break or a nice dinner with friends.
               </p>
               <Link to="/restaurant-list">
                 <Button className="ReadMoreBtn w-50 mx-5">READ MORE</Button>

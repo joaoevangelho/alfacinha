@@ -4,7 +4,7 @@ const apiUserService = axios.create({
   baseURL: '/api/user'
 });
 
-/* export const load = async userId => {
+export const load = async userId => {
   try {
     const response = await apiUserService.get(`/${userId}`);
     const user = response.data.user;
@@ -12,7 +12,7 @@ const apiUserService = axios.create({
   } catch (error) {
     throw error;
   }
-}; */
+};
 
 export const edit = async (user) => {
   console.log("USER INFO ON SERVICE", user);

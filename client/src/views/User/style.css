@@ -1,6 +1,6 @@
 .UserProfileBg {
-  background-color: lightgray;
-  border: 1px solid lightgray;
+  background-color: #ca895f;
+  border: 1px solid #ca895f;
 }
 
 .UserProfileImg {
@@ -54,13 +54,26 @@
 
 .EditViewImg {
   width: 10em;
+  height: 10em;
+  object-fit: cover;
+  border-radius: 5%;
 }
 
 .EditViewForm {
   width: 30em;
 }
 
-.EditViewBtn {
-  max-width: 16em;
+.EditViewImgCaption {
+  line-height: 0.5em;
+}
 
+.AlfacinhaFont {
+  font-family: "Amatic SC", cursive;
+  font-size: 3em;
+}
+
+.AboutList {
+  
+  margin: 0;
+  padding: 0;
 }

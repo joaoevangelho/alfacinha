@@ -1,19 +1,47 @@
 .CommentUserIcon {
-  width: 4em;
-  height: 4em;
+  width: 1.8em;
+  height: 1.8em;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
   margin-right: 0.5em;
 }
 
+.UserPicUsername {
+  height: 2em;
+  border-bottom: 1px solid lightgray;
+}
+
 .CommentImg {
-  width: 10em;
-  height: 10em;
+  width: 6em;
+  height: 6em;
+  border-radius: 5%;
   object-fit: cover;
+  padding: 0.5em;
 }
 
 .UserComment {
-  margin: 1em 0;
+  margin: 0;
   border: 1px solid lightgray;
   background-color: transparent;
+}
+
+.CommentForm {
+  width: 30em;
+}
+
+.DeleteCommentBtn {
+  max-width: 10em;
+  margin-bottom: 1em;
+}
+
+.CommentListW {
+  max-width: 30em;
+  /* margin: 0;
+  padding: 0; */
+}
+
+.CommentTxt {
+  margin: 0;
+  padding: 0.3em 0.6em 0 0.6em;
+
 }

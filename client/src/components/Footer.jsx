@@ -12,43 +12,43 @@ class Footer extends Component {
       <footer className="footer py-2 bg-dark">
         <Row className="d-flex justify-content-between align-items-center">
           <Nav className="flex-column text-left mx-3 my-2">
-            {/* <Nav.Link
-              href="#"
-              target="blank"
-              className="py-2 pl-4 text-secondary nav-link"
-            >
-              Go Green
-            </Nav.Link> */}
             <Nav.Item className="py-2 px-3 text-secondary">
               Useful Links:
             </Nav.Item>
             <Nav.Link
-              href="#"
+              href="https://www.worldwildlife.org/"
               target="blank"
               className="py-1 px-3 text-secondary nav-link"
             >
-              Link Two
+              World Wide Fund
             </Nav.Link>
             <Nav.Link
-              href="#"
+              href="https://veggiefest.pt/"
               target="blank"
               className="py-1 px-3 text-secondary nav-link"
             >
-              Link Three
+              Veggie Fest
             </Nav.Link>
             <Nav.Link
-              href="#"
+              href="https://www.peta.org/"
               target="blank"
               className="py-1 px-3 text-secondary nav-link"
             >
-              Link Three
+              PeTA
             </Nav.Link>
             <Nav.Link
-              href="#"
+              href="https://www.leapingbunny.org/"
               target="blank"
               className="py-1 px-3 text-secondary nav-link"
             >
-              Link Three
+              Leaping Bunny
+            </Nav.Link>
+            <Nav.Link
+              href="https://www.crueltyfreeinternational.org/"
+              target="blank"
+              className="py-1 px-3 text-secondary nav-link"
+            >
+              Cruelty Free International
             </Nav.Link>
           </Nav>
           <Nav className="flex-column py-2 mx-3">

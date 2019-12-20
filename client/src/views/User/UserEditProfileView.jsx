@@ -11,7 +11,7 @@ class UserEditProfileView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user,
+      // user: this.props.user,
       name: "",
       email: "",
       aboutMe: "",
@@ -23,26 +23,22 @@ class UserEditProfileView extends Component {
     // this.onDeleteTrigger = this.onDeleteTrigger.bind(this);
   }
 
-  /* async componentDidMount() {
-    console.log(this.props);
-    try {
-      const user = await loadUserService();
-      this.setState({
-        user
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  } */
+  async componentDidMount() {
+    console.log(this.props.user);
+    this.setState({
+      name: this.props.user.name,
+      email: this.props.user.email,
+      aboutMe: this.props.user.aboutMe,
+      image: this.props.user.image
+    });
+  }
 
   handleInputChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      user: {
-        ...this.state.user,
-        [name]: value
-      }
+      ...this.state,
+      [name]: value
     });
   }
 
@@ -52,6 +48,8 @@ class UserEditProfileView extends Component {
     const file = event.target.files[0];
     console.log(file);
     this.setState({
+      ...this.state,
+
       image: file
     });
   }
@@ -91,7 +89,7 @@ class UserEditProfileView extends Component {
   render() {
     // console.log("i am in the edit view", this.state.user);
     // console.log("user image", this.state.user.image);
-    const user = this.state.user;
+    const user = this.state;
     return (
       <Fragment>
         <main className="pt-5 mt-5 mx-5 text-center d-flex justify-content-center">
@@ -101,7 +99,16 @@ class UserEditProfileView extends Component {
                 onSubmit={this.handleFormSubmission}
                 className="form-signin EditViewForm"
               >
-                <Image fluid src={user.image} className="EditViewImg mb-3" />
+                <div className="mb-4">
+                  <p>
+                    <Image
+                      fluid
+                      src={user.image}
+                      className="EditViewImg m-0 p-0"
+                    />
+                  </p>
+                  <p className="EditViewImgCaption">Current profile image</p>
+                </div>
                 <label htmlFor="image" className="sr-only">
                   Image
                 </label>
@@ -146,22 +153,22 @@ class UserEditProfileView extends Component {
                   name="aboutMe"
                   onChange={this.handleInputChange}
                 ></textarea>
-                <button className="btn MyBtn EditViewBtn mb-2">
-                  Save profile
+                <button className="btn MyBtn EditViewBtn mb-5 w-100">
+                  Save changes
                 </button>
                 <br />
               </form>
             </Fragment>
           )}
         </main>
-        <div className="mx-5 my-2 text-center d-flex justify-content-center">
+        {/* <div className="mx-5 my-2 text-center d-flex justify-content-center">
           <button
             className="btn MyBtn EditViewBtn mb-2"
             onClick={this.onDeleteTrigger}
           >
             Delete account
           </button>
-        </div>
+        </div> */}
       </Fragment>
     );
   }

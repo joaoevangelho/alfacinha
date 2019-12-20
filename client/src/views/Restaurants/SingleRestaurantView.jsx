@@ -5,11 +5,12 @@ import Button from "react-bootstrap/Button";
 import MapBox from "./../../components/MapBox";
 
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
-import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
+// import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
 import { removeFromFavorites as removeFromFavoritesService } from "./../../services/authentication";
 
 import "./style.css";
+import { Fragment } from "react";
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -113,76 +114,82 @@ class singleRestaurant extends Component {
     // const id = this.props.match.params.id;
     //console.log('hello', restaurant);
     return (
-      <div className="MinPageHeight mt-4 pt-4">
-        {restaurant && (
-          <div className="SingleRestaurantCard card m-5 p-5">
-            <div className="row no-gutters">
-              <div className="col-md-4">
-                <img
-                  src={restaurant.featured_image}
-                  className="card-img"
-                  alt="..."
-                />
+      <div className="MinPageHeight mt-4 pt-4 mx-2">
+        <div className="row">
+          {restaurant && (
+            // <div className="SingleRestaurantCard card">
+            <Fragment>
+              <div className="SingleRestaurantCard card my-3 mx-4 p-0 no-gutters col-md-6 d-flex justify-content-center">
+                {/* <div className="row no-gutters"> */}
+                {/* <div className="col-md-6"> */}
+                <div>
+                  <div className="card-body">
+                    <h5 className="card-title">{restaurant.name}</h5>
+                    <img
+                      src={restaurant.featured_image}
+                      fluid
+                      className="card-image SingleRestImg m-0 p-0"
+                      alt="..."
+                    />
+                    <p className="card-text">Cuisines: {restaurant.cuisines}</p>
+                    <p className="card-text">
+                      Type: {restaurant.establishment}
+                    </p>
+                    <p className="card-text">
+                      Average cost: {restaurant.average_cost_for_two / 2}
+                      {restaurant.currency}
+                    </p>
+                    <p className="card-text">
+                      Neighborhood: {restaurant.location.locality_verbose}
+                    </p>
+                    <p className="card-text">
+                      Address: {restaurant.location.address}
+                    </p>
+                    <p className="card-text">
+                      Contact: {restaurant.phone_numbers}
+                    </p>
+                    <p className="card-text">
+                      Zomato Rating{/*  (1-5) */}:{" "}
+                      {restaurant.user_rating.aggregate_rating} (
+                      {restaurant.user_rating.rating_text})
+                    </p>
+                    {user && (
+                      <div>
+                        {(this.state.update && (
+                          <Button
+                            onClick={event => {
+                              this.removeFromFavoritesButton();
+                            }}
+                            className="btn MyBtn"
+                          >
+                            Remove from Favorites
+                          </Button>
+                        )) || (
+                          <Button
+                            onClick={event => {
+                              this.addToFavoritesButton(event, restaurant.name);
+                            }}
+                            className="btn MyBtn"
+                          >
+                            Add to Favorites
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              {/* </div> */}
+              <div className="col-md-6 mx-2 my-3">
                 <MapBox
+                  className="SingleRestMap ml-5"
                   lat={restaurant.location.latitude}
                   lng={restaurant.location.longitude}
                 />
+                {user && <CommentList {...this.props} />}
               </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{restaurant.name}</h5>
-                  <p className="card-text">Cuisines: {restaurant.cuisines}</p>
-                  <p className="card-text">Type: {restaurant.establishment}</p>
-                  <p className="card-text">
-                    Average cost: {restaurant.average_cost_for_two / 2}
-                    {restaurant.currency}
-                  </p>
-                  <p className="card-text">
-                    Neighborhood: {restaurant.location.locality_verbose}
-                  </p>
-                  <p className="card-text">
-                    Address: {restaurant.location.address}
-                  </p>
-                  <p className="card-text">
-                    Contact: {restaurant.phone_numbers}
-                  </p>
-                  <p className="card-text">
-                    Zomato Rating{/*  (1-5) */}:{" "}
-                    {restaurant.user_rating.aggregate_rating} (
-                    {restaurant.user_rating.rating_text})
-                  </p>
-                  {user && (
-                    <div>
-                      {(this.state.update && (
-                        <Button
-                          onClick={event => {
-                            this.removeFromFavoritesButton();
-                          }}
-                          className="btn MyBtn"
-                        >
-                          Remove from Favorites
-                        </Button>
-                      )) || (
-                        <Button
-                          onClick={event => {
-                            this.addToFavoritesButton(event, restaurant.name);
-                          }}
-                          className="btn MyBtn"
-                        >
-                          Add to Favorites
-                        </Button>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-        <div>
-          {user && <CommentList {...this.props} />}
-          <br />
-          <br />
+            </Fragment>
+          )}
         </div>
       </div>
     );

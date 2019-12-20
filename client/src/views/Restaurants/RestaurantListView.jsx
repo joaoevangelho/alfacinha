@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { listRestaurants } from "../../services/restaurantZomato";
-import SearchInput from "../../components/SearchInput";
-import { Link } from "react-router-dom";
-import ReactLoading from "react-loading";
+import React, { Component } from 'react';
+import { listRestaurants } from '../../services/restaurantZomato';
+import SearchInput from '../../components/SearchInput';
+import { Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
-import "./style.css";
-import Button from "react-bootstrap/Button";
+import './style.css';
+import Button from 'react-bootstrap/Button';
 
 class RestaurantListView extends Component {
   constructor(props) {
@@ -14,9 +14,9 @@ class RestaurantListView extends Component {
       loadingState: false,
       restaurants: null,
       limit: 15,
-      nameQuery: "",
-      locationQuery: "",
-      averageQuery: ""
+      nameQuery: '',
+      locationQuery: '',
+      averageQuery: ''
     };
     this.onLoadMore = this.onLoadMore.bind(this);
     this.handleOnInputChange = this.handleOnInputChange.bind(this);
@@ -38,8 +38,9 @@ class RestaurantListView extends Component {
       [name]: value
     });
   }
+  
   filterBySearch(restaurant) {
-    console.log(restaurant);
+    console.log('restasdsarsr', restaurant);
     if (restaurant.restaurant.name && this.state.nameQuery) {
       return restaurant.restaurant.name
         .toLowerCase()
@@ -56,6 +57,7 @@ class RestaurantListView extends Component {
         .toLowerCase()
         .includes(this.state.averageQuery);
   }
+
   onLoadMore() {
     // console.log("load more");
     this.setState({
@@ -75,7 +77,7 @@ class RestaurantListView extends Component {
           <div
             key={restaurant.restaurant.id}
             className="card ml-3 mb-5 mr-5"
-            style={{ maxWidth: "540px" }}
+            style={{ maxWidth: '540px' }}
           >
             <div className="row no-gutters">
               <div className="col-md-4">
@@ -97,7 +99,7 @@ class RestaurantListView extends Component {
                     Location: {restaurant.restaurant.location.address}
                   </p>
                   <p className="card-text">
-                    Average Cost:{" "}
+                    Average Cost:{' '}
                     {restaurant.restaurant.average_cost_for_two / 2}
                     {restaurant.restaurant.currency}
                   </p>
@@ -120,7 +122,11 @@ class RestaurantListView extends Component {
         {/* <SearchInput {...this.state} onChange={this.handleOnInputChange} /> */}
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />
         {!this.state.restaurants && (
-          <ReactLoading className="mx-auto mt-5" type={"bars"} color={"white"} />
+          <ReactLoading
+            className="mx-auto mt-5"
+            type={'bars'}
+            color={'white'}
+          />
         )}
         {this.state.restaurants && (
           <div>

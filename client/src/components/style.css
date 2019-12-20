@@ -3,9 +3,8 @@
 }
 
 .TransparentBg {
-  background-color: rgb(52, 58, 64, 0.4);
-  /* background-color: rgb(92, 180, 113); */
-  /* background-color: rgba(92, 180, 113, 0.2); */
+  background-color: rgb(101, 155, 94, 0.7);
+  /* background-color: rgb(52, 58, 64, 0.4); */
   /* background-color: transparent; */
   /* -webkit-transition: background-color 0.2s linear; */
   /* transition: background-color 0.2s linear; */
@@ -84,3 +83,37 @@
   /* font-style: italic; */
   /* width: 10em; */
 }
+
+.SingleRestaurantCard {
+  background-color: transparent;
+  /* border: 1px solid red; */
+}
+
+.BgHack {
+  background-color: rgb(187, 187, 104);
+  border: 1px solid red;
+}
+
+.CardImg {
+  height: 12em;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #343a40;
+  padding: 1em;
+  border: 1px solid red;
+}
+
+.Card {
+  margin: 3em;
+  border-color: #343a40;
+  color: white;
+  border: 1px solid red;
+}
+
+.CardBody {
+  background-color: #343a40;
+  height: 100%;
+  border: 1px solid red;
+}
+
+
