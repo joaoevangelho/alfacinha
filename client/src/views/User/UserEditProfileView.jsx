@@ -58,7 +58,7 @@ class UserEditProfileView extends Component {
   async handleFormSubmission(event) {
     event.preventDefault();
     // const user = this.state.user;
-    const editedUser = {
+    let editedUser = {
       name: this.state.name,
       email: this.state.email,
       aboutMe: this.state.aboutMe,

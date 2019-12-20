@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './style.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 
 class Shop extends Component {
   render() {
+    // const id = this.props.id;
     window.scrollTo(0, 0);
     const name = this.props.name;
     const image = this.props.image;
@@ -13,7 +14,7 @@ class Shop extends Component {
       <div
         key={name}
         className="card ml-3 mb-5 mr-5 "
-        style={{ maxWidth: '540px' }}
+        style={{ maxWidth: "540px" }}
       >
         <div className="row no-gutters">
           <div className="col-md-4">

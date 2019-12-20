@@ -40,7 +40,7 @@ const schema = new mongoose.Schema({
     resId: Number,
     location: String,
     image: String
-  }]
+  }],
   /*  image: [{
     type: mongoose.Types.ObjectId,
     ref: 'Image'

@@ -3,7 +3,7 @@ import mapboxgl from "mapbox-gl/dist/mapbox-gl"; // NEW
 import "mapbox-gl/dist/mapbox-gl.css"; // Import of Mapbox CSS
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiZ3RjYXJtb25hIiwiYSI6ImNrMzc1dmxnNTAyb3kzaG5vZmhhazYzcTAifQ.pn8VB17KBKKfWtOmPo7kWQ";
+  "pk.eyJ1Ijoicm9kcmlnb3Zib3JiYSIsImEiOiJjazRiNnBhdnUwNmcxM21zYnpjcm91dDVjIn0.4ypldccV7spwy7_sjvH1Tw";
 
 class MapBox extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class MapBox extends Component {
   initMap(lng, lat) {
     this.map = new mapboxgl.Map({
       container: this.mapRef.current, // container id
-      style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+      style: "mapbox://styles/rodrigovborba/ck4e0d6ce18vq1dprjmowvqqk", // stylesheet location
       center: [lng, lat], // starting position [lng, lat]
       zoom: 11 // starting zoom
     });
@@ -54,7 +54,11 @@ class MapBox extends Component {
 
   render() {
     return (
-      <div className="mapbox" ref={this.mapRef} style={{ height: 300, width: 350 }}></div>
+      <div
+        className="mapbox"
+        ref={this.mapRef}
+        style={{ height: 300, width: 350 }}
+      ></div>
     );
   }
 }
