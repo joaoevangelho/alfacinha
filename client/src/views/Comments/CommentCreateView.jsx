@@ -18,7 +18,7 @@ class CommentEditView extends Component {
     const resId = this.props.match.params.id;
     const name = event.target.name;
     const value = event.target.value;
-    console.log(name, value);
+    // console.log(name, value);
 
     this.setState({
       ...this.state,

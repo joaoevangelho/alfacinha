@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import {
   list as listservice,
   remove as removeCommentService
-} from "../../services/comments";
+} from '../../services/comments';
 // import Button from "react-bootstrap/Button";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
 
-import "./style.css";
-import CommentCreateView from "./CommentCreateView";
+import './style.css';
+import CommentCreateView from './CommentCreateView';
 
 export default class CommentList extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export default class CommentList extends Component {
   }
 
   async onSubmit() {
-    console.log("CLICKED");
+    // console.log('CLICKED');
     // this.setState({ commentList: !this.state.commentList });
     const resid = this.props.match.params.id;
     // console.log('RES ID: ', resid);
@@ -67,7 +67,7 @@ export default class CommentList extends Component {
   render() {
     const comments = this.state.commentList;
 
-    console.log("COMMENTS IN LIST", comments);
+    // console.log("COMMENTS IN LIST", comments);
     return (
       <div className="MinPageHeight mt-3 pr-2 CommentListW">
         {/* <div className="MinPageHeight mt-4 pt-4"> */}
@@ -87,9 +87,7 @@ export default class CommentList extends Component {
                     {/* </div>
                
 <div className="col-sm-8 d-flex justify-content-start"> */}
-                    <p className="my-auto">
-                      {comment.user.name} <small>{comment.user.username}</small>
-                    </p>
+                    <p className="my-auto">{comment.user.name}</p>
                   </div>
                 </div>
                 <div className="mb-0 pb-0">

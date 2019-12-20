@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 
 import './style.css';

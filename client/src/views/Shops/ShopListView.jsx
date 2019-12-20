@@ -49,7 +49,7 @@ class ListShopView extends Component {
     // console.log("shop", shop);
     if (this.state.nameQuery !== '' || this.state.locationQuery !== '') {
       if (shop.name && this.state.nameQuery) {
-        console.log('lalalala', shop);
+        // console.log('lalalala', shop);
         return shop.name.toLowerCase().includes(this.state.nameQuery);
       }
       if (shop.location && this.state.locationQuery) {
@@ -62,7 +62,7 @@ class ListShopView extends Component {
 
   renderShops() {
     const shops = this.state.shops;
-    console.log('whats this', shops);
+    // console.log('whats this', shops);
     return shops
       .filter(filteredShopBySearch => this.filterBySearch(filteredShopBySearch))
       .map(shop => {
@@ -75,7 +75,7 @@ class ListShopView extends Component {
   }
 
   render() {
-    console.log('this render shops', this.renderShops());
+    // console.log('this render shops', this.renderShops());
     return (
       <div className="MinPageHeight">
         <SearchInput {...this.state} onChange={this.handleOnInputChange} />

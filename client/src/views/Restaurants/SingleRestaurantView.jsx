@@ -46,7 +46,7 @@ class singleRestaurant extends Component {
         user: this.props.user,
         restId: arrFavId
       });
-      console.log('ARRAY ID', arrFavId);
+      // console.log('ARRAY ID', arrFavId);
     } catch (error) {
       console.log(error);
       this.props.history.push('/error/404');
@@ -57,12 +57,12 @@ class singleRestaurant extends Component {
     const arrFavId = this.state.restId;
     const restId = this.props.match.params.id * 1;
     let comparing = false;
-    console.log('REST ID', restId);
-    console.log('ARR ID', arrFavId);
+    // console.log('REST ID', restId);
+    // console.log('ARR ID', arrFavId);
     for (let i = 0; i < arrFavId.length; i++) {
       console.log('Both', restId, arrFavId[i]);
       if (arrFavId[i] === restId) {
-        console.log('Ids,', arrFavId);
+        // console.log('Ids,', arrFavId);
         comparing = true;
       }
     }
@@ -74,13 +74,13 @@ class singleRestaurant extends Component {
     const favoriteRestaurantId = this.props.match.params.id;
     const location = this.state.restaurant.location.address;
     const image = this.state.restaurant.featured_image;
-    console.log(
-      'addToFavoritesButton STATE',
-      favoriteRestaurantId,
-      name,
-      location,
-      image
-    );
+    // console.log(
+    //   'addToFavoritesButton STATE',
+    //   favoriteRestaurantId,
+    //   name,
+    //   location,
+    //   image
+    // );
     try {
       await addToFavoritesService(favoriteRestaurantId, name, location, image);
       this.setState({
@@ -96,7 +96,7 @@ class singleRestaurant extends Component {
   async removeFromFavoritesButton() {
     // event.preventDefault();
     const favoriteRestaurantId = this.props.match.params.id;
-    console.log('removeFromFavoriteButton STATE', favoriteRestaurantId);
+    // console.log('removeFromFavoriteButton STATE', favoriteRestaurantId);
     try {
       await removeFromFavoritesService(favoriteRestaurantId);
       this.setState({

@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //import Shop from '../../components/Shop';
-import { listShops } from "./../../services/shops";
-import CommentList from "./../Comments/CommentList";
-import MapBox from "./../../components/MapBox";
-import Button from "react-bootstrap/Button";
+import { listShops } from './../../services/shops';
+import CommentList from './../Comments/CommentList';
+import MapBox from './../../components/MapBox';
 
 class SingleShopView extends Component {
   constructor(props) {
@@ -33,8 +32,8 @@ class SingleShopView extends Component {
     //const location = this.state.shop;
     //console.log('lcoation ->', location);
     //console.log('shop info', shop);
-    console.log("check props", this.props);
-    console.log("check if shop-->", this.state.shop);
+    // console.log('check props', this.props);
+    // console.log('check if shop-->', this.state.shop);
 
     return (
       <div>
