@@ -47,7 +47,7 @@ class UserProfileView extends Component {
       <div className="MinPageHeight justify-content-center UserProfileBg">
         {(user && (
           <Container>
-            <Row className="mb-5">
+            <Row className="mb-5 py-5">
               <Col
                 sm={5}
                 className="d-flex justify-content-start align-items-center"
@@ -61,10 +61,12 @@ class UserProfileView extends Component {
               </Col>
               <Col
                 sm={7}
-                className="d-flex justify-content-end align-items-end"
+                className="d-flex justify-content-start align-items-start"
               >
                 <div>
-                  <h2 className="text-left font-weight-bold AlfacinhaFont">{user.name}</h2>
+                  <h2 className="text-left font-weight-bold AlfacinhaFont">
+                    {user.name}
+                  </h2>
                   <p className="text-left">({user.username})</p>
                   <h6 className="text-left font-weight-bold">About Me</h6>
                   <p className="text-left">{user.aboutMe}</p>
@@ -83,7 +85,7 @@ class UserProfileView extends Component {
                 <Row className="my-1">
                   <Col
                     sm={12}
-                    className="d-flex justify-content-end align-items-center"
+                    className="d-flex justify-content-start align-items-center"
                   >
                     <h4 className="text-left">My Favorites</h4>
                   </Col>
@@ -91,7 +93,7 @@ class UserProfileView extends Component {
                 <Row className="my-1">
                   <Col
                     sm={12}
-                    className="d-flex justify-content-end align-items-center"
+                    className="d-flex justify-content-start align-items-center"
                   >
                     <p>
                       You have no favorites yet. Browse through our lists to
@@ -105,7 +107,7 @@ class UserProfileView extends Component {
                 <Row className="my-1">
                   <Col
                     sm={12}
-                    className="d-flex justify-content-end align-items-center"
+                    className="d-flex justify-content-start align-items-center"
                   >
                     <h4 className="text-left">My Favorites</h4>
                   </Col>
@@ -113,30 +115,36 @@ class UserProfileView extends Component {
                 <Row className="my-1">
                   <Col
                     sm={12}
-                    className="d-flex justify-content-end align-items-center"
+                    className="d-flex justify-content-start align-items-center"
                   >
                     <div>
                       {userFavorites.map(userFavorite => {
                         return (
-                          <div className="card row" style={{ width: "10rem" }}>
-                            <img
-                              className="card-img-top"
-                              src={userFavorite.image}
-                              alt="CardPicCap"
-                            />
-                            <div className="card-body">
-                              <h5 className="card-title">
-                                {userFavorite.name}
-                              </h5>
-                              <p className="card-text">
-                                {userFavorite.location}
-                              </p>
-                              <Link
-                                className="btn btn-primary"
-                                to={`/restaurant/${userFavorite.resId}`}
-                              >
-                                Details
-                              </Link>
+                          <div className="card mb-3">
+                            <div class="row no-gutters">
+                              <div class="col-md-4">
+                                <img
+                                  className="card-img"
+                                  src={userFavorite.image}
+                                  alt="CardPicCap"
+                                />
+                              </div>
+                              <div class="col-md-8">
+                                <div className="card-body">
+                                  <h5 className="card-title">
+                                    {userFavorite.name}
+                                  </h5>
+                                  <p className="card-text">
+                                    {userFavorite.location}
+                                  </p>
+                                  <Link
+                                    className="btn btn-primary"
+                                    to={`/restaurant/${userFavorite.resId}`}
+                                  >
+                                    Details
+                                  </Link>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         );

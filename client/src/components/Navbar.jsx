@@ -109,7 +109,7 @@ class NavBar extends Component {
               <Nav className="ml-auto">
                 <Nav.Link
                   as={Link}
-                  className="mx-2 text-white font-weight-bold NavLinksText"
+                  className="mx-2 text-dark font-weight-bold NavLinksText"
                   to="/user-profile"
                 >
                   My Profile

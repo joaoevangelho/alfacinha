@@ -39,10 +39,11 @@
 } */
 
 .FavoritesCard {
-  margin-top: 1em;
-  margin-left: 1em;
-  width: 12em;
-  height: 15em;
+  background-color: transparent;
+  /* margin-top: 1em;
+  margin-left: 1em; */
+  /* width: 80em;
+  height: 10em; */
 }
 
 .FavoritesImg {
@@ -76,4 +77,8 @@
   
   margin: 0;
   padding: 0;
+}
+
+.ProfileRow {
+  max-height: 22em;
 }
