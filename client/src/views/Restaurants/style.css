@@ -33,3 +33,18 @@ body {
   height: 100%;
 }
  */
+
+ .RestaurantsCard {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: transparent; */
+  /* margin-top: 1em;
+  margin-left: 1em; */
+  /* width: 80em;
+  height: 10em; */
+}
+
+.RestaurantsImg {
+  width: 12em;
+  height: 17em;
+  object-fit: cover;
+}

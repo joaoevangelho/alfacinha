@@ -88,13 +88,12 @@
   font-size: 1.5em;
 }
 
-.height-card-shop {
-  height: 15em;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
+
+
+.CardTitle {
+  text-decoration: none;
 }
 
-.card-title {
+.CardTitle:hover {
   text-decoration: none;
-  color: rgba(177, 174, 174, 0.842);
 }

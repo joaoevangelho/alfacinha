@@ -77,21 +77,22 @@ class RestaurantListView extends Component {
         return (
           <div
             key={restaurant.restaurant.id}
-            className="card ml-3 mb-5 mr-5"
+            className="RestaurantsCard card ml-3 mb-5 mr-5"
             style={{ maxWidth: '540px' }}
           >
             <div className="row no-gutters">
               <div className="col-md-4">
                 <img
+                fluid
                   src={restaurant.restaurant.featured_image}
-                  className="card-img"
+                  className="RestaurantsImg card-img"
                   alt="Restaurant"
                 />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
                   <Link to={`/restaurant/${restaurant.restaurant.id}`}>
-                    <h5 className="card-title">{restaurant.restaurant.name}</h5>
+                    <h5 className="CardTitle text-dark card-title">{restaurant.restaurant.name}</h5>
                   </Link>
                   <p className="card-text">
                     Cousine: {restaurant.restaurant.cuisines}
@@ -105,7 +106,7 @@ class RestaurantListView extends Component {
                     {restaurant.restaurant.currency}
                   </p>
                   <p className="card-text">
-                    <small className="text-muted">
+                    <small className="text-dark">
                       Contact: {restaurant.restaurant.phone_numbers}
                     </small>
                   </p>
@@ -134,7 +135,7 @@ class RestaurantListView extends Component {
             <div className="d-flex flex-wrap ml-5 mt-5">
               {this.renderRestaurants()}
             </div>
-            <Button className="MyBtn LogoutBtn mx-2" onClick={this.onLoadMore}>
+            <Button className="MyBtn LogoutBtn mx-2 mb-4" onClick={this.onLoadMore}>
               Load
             </Button>
           </div>
