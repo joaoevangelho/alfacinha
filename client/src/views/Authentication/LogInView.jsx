@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import Image from 'react-bootstrap/Image';
+import React, { Component } from "react";
+import Image from "react-bootstrap/Image";
 
-import { logIn as logInService } from '../../services/authentication';
+import { logIn as logInService } from "../../services/authentication";
 
-import './style.css';
+import "./style.css";
 
 class AuthenticationLogInView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
       error: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,53 +42,55 @@ class AuthenticationLogInView extends Component {
   render() {
     window.scrollTo(0, 0);
     return (
-      <main className="pt-5 m-5 text-center d-flex justify-content-center">
-        <form
-          onSubmit={this.handleFormSubmission}
-          className="form-signin LoginJoinForm"
-        >
-          <Image
-            fluid
-            className="mb-4 LoginJoinImg"
-            src="/images/alfacinha-logo1.png"
-            alt=""
-          />
-          <label htmlFor="username" className="sr-only">
-            Username
-          </label>
-          <input
-            type="text"
-            placeholder="Username"
-            id="username"
-            value={this.state.username}
-            name="username"
-            className="form-control mb-3"
-            onChange={this.handleInputChange}
-            required
-          />
-          <label htmlFor="password" id="password" className="sr-only">
-            Password
-          </label>
-          <input
-            type="password"
-            placeholder="Password"
-            id="password"
-            value={this.state.password}
-            name="password"
-            className="form-control mb-3"
-            onChange={this.handleInputChange}
-            required
-          />
-          {this.state.error && (
-            <div class="alert alert-danger" role="alert">
-              Validation failed! <br /> Check username and password and try
-              again.
-            </div>
-          )}
-          <button className="btn btn-lg MyBtn btn-block mb-5">Log In</button>
-          {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
-        </form>
-      </main>
+      <div className="BgColor pt-5">
+        <main className="pt-5 mx-5 text-center d-flex justify-content-center">
+          <form
+            onSubmit={this.handleFormSubmission}
+            className="form-signin LoginJoinForm"
+          >
+            <Image
+              fluid
+              className="mb-4 LoginJoinImg"
+              src="/images/alfacinha-logo1.png"
+              alt=""
+            />
+            <label htmlFor="username" className="sr-only">
+              Username
+            </label>
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              value={this.state.username}
+              name="username"
+              className="form-control mb-3"
+              onChange={this.handleInputChange}
+              required
+            />
+            <label htmlFor="password" id="password" className="sr-only">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              value={this.state.password}
+              name="password"
+              className="form-control mb-3"
+              onChange={this.handleInputChange}
+              required
+            />
+            {this.state.error && (
+              <div class="alert alert-danger" role="alert">
+                Validation failed! <br /> Check username and password and try
+                again.
+              </div>
+            )}
+            <button className="btn btn-lg MyBtn btn-block mb-5">Log In</button>
+            {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}
+          </form>
+        </main>
+      </div>
     );
   }
 }
