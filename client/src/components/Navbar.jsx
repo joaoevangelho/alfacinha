@@ -109,10 +109,10 @@ class NavBar extends Component {
               <Nav className="ml-auto">
                 <Nav.Link
                   as={Link}
-                  className="mx-2 text-dark font-weight-bold NavLinksText"
+                  className="mx-2 text-white font-weight-bold NavLinksText"
                   to="/user-profile"
                 >
-                  MY PROFILE
+                  My Profile
                 </Nav.Link>
                 {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">
                   Log Out

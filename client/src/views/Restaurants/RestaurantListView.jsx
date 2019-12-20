@@ -25,6 +25,7 @@ class RestaurantListView extends Component {
   }
 
   async componentDidMount() {
+    window.scrollTo(0, 0);
     const vegetarianRestaurants = await listRestaurants();
     this.setState({
       restaurants: vegetarianRestaurants
@@ -38,7 +39,7 @@ class RestaurantListView extends Component {
       [name]: value
     });
   }
-  
+
   filterBySearch(restaurant) {
     console.log('restasdsarsr', restaurant);
     if (restaurant.restaurant.name && this.state.nameQuery) {

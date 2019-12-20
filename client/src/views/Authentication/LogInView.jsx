@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
+import React, { Component } from 'react';
+import Image from 'react-bootstrap/Image';
 
-import { logIn as logInService } from "../../services/authentication";
+import { logIn as logInService } from '../../services/authentication';
 
-import "./style.css";
+import './style.css';
 
 class AuthenticationLogInView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       error: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,6 +40,7 @@ class AuthenticationLogInView extends Component {
   }
 
   render() {
+    window.scrollTo(0, 0);
     return (
       <main className="pt-5 m-5 text-center d-flex justify-content-center">
         <form
@@ -80,9 +81,9 @@ class AuthenticationLogInView extends Component {
           />
           {this.state.error && (
             <div class="alert alert-danger" role="alert">
-            Validation failed! <br /> Check username and password
-            and try again.
-          </div>
+              Validation failed! <br /> Check username and password and try
+              again.
+            </div>
           )}
           <button className="btn btn-lg MyBtn btn-block mb-5">Log In</button>
           {/* <p class="mt-5 mb-3 text-muted">&copy; 2019</p> */}

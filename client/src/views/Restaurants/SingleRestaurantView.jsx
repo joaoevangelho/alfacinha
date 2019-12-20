@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { loadRestaurant as restaurantApi } from "../../services/restaurantZomato";
-import CommentList from "./../Comments/CommentList";
-import Button from "react-bootstrap/Button";
-import MapBox from "./../../components/MapBox";
+import React, { Component } from 'react';
+import { loadRestaurant as restaurantApi } from '../../services/restaurantZomato';
+import CommentList from './../Comments/CommentList';
+import Button from 'react-bootstrap/Button';
+import MapBox from './../../components/MapBox';
 
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 // import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
-import { addToFavorites as addToFavoritesService } from "./../../services/authentication";
-import { removeFromFavorites as removeFromFavoritesService } from "./../../services/authentication";
+import { addToFavorites as addToFavoritesService } from './../../services/authentication';
+import { removeFromFavorites as removeFromFavoritesService } from './../../services/authentication';
 
-import "./style.css";
-import { Fragment } from "react";
+import './style.css';
+import { Fragment } from 'react';
 
 class singleRestaurant extends Component {
   constructor(props) {
@@ -36,6 +36,8 @@ class singleRestaurant extends Component {
       });
     }
     try {
+      window.scrollTo(0, 0);
+
       // const user = await loadUserInformationService();
       const singleRestaurant = await restaurantApi(id);
       //console.log('response from api', singleRestaurant);
@@ -44,10 +46,10 @@ class singleRestaurant extends Component {
         user: this.props.user,
         restId: arrFavId
       });
-      console.log("ARRAY ID", arrFavId);
+      console.log('ARRAY ID', arrFavId);
     } catch (error) {
       console.log(error);
-      this.props.history.push("/error/404");
+      this.props.history.push('/error/404');
     }
   }
 
@@ -55,12 +57,12 @@ class singleRestaurant extends Component {
     const arrFavId = this.state.restId;
     const restId = this.props.match.params.id * 1;
     let comparing = false;
-    console.log("REST ID", restId);
-    console.log("ARR ID", arrFavId);
+    console.log('REST ID', restId);
+    console.log('ARR ID', arrFavId);
     for (let i = 0; i < arrFavId.length; i++) {
-      console.log("Both", restId, arrFavId[i]);
+      console.log('Both', restId, arrFavId[i]);
       if (arrFavId[i] === restId) {
-        console.log("Ids,", arrFavId);
+        console.log('Ids,', arrFavId);
         comparing = true;
       }
     }
@@ -73,7 +75,7 @@ class singleRestaurant extends Component {
     const location = this.state.restaurant.location.address;
     const image = this.state.restaurant.featured_image;
     console.log(
-      "addToFavoritesButton STATE",
+      'addToFavoritesButton STATE',
       favoriteRestaurantId,
       name,
       location,
@@ -94,7 +96,7 @@ class singleRestaurant extends Component {
   async removeFromFavoritesButton() {
     // event.preventDefault();
     const favoriteRestaurantId = this.props.match.params.id;
-    console.log("removeFromFavoriteButton STATE", favoriteRestaurantId);
+    console.log('removeFromFavoriteButton STATE', favoriteRestaurantId);
     try {
       await removeFromFavoritesService(favoriteRestaurantId);
       this.setState({
@@ -160,7 +162,7 @@ class singleRestaurant extends Component {
                       Contact: {restaurant.phone_numbers}
                     </p>
                     <p className="card-text">
-                      Zomato Rating{/*  (1-5) */}:{" "}
+                      Zomato Rating{/*  (1-5) */}:{' '}
                       {restaurant.user_rating.aggregate_rating} (
                       {restaurant.user_rating.rating_text})
                     </p>

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+  withRouter
+} from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -76,10 +82,12 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          {<NavBarWithRouter
-            user={this.state.user}
-            changeAuthenticationStatus={this.changeAuthenticationStatus}
-          />}
+          {
+            <NavBarWithRouter
+              user={this.state.user}
+              changeAuthenticationStatus={this.changeAuthenticationStatus}
+            />
+          }
           {this.state.loaded && (
             <Switch>
               <Route

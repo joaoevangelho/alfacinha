@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
-import Image from "react-bootstrap/Image";
+import React, { Component, Fragment } from 'react';
+import Image from 'react-bootstrap/Image';
 
-import { edit as editUserService } from "./../../services/user";
+import { edit as editUserService } from './../../services/user';
 // import {
 //   edit as editUserService,
 //   remove as removeUserService
@@ -12,9 +12,9 @@ class UserEditProfileView extends Component {
     super(props);
     this.state = {
       // user: this.props.user,
-      name: "",
-      email: "",
-      aboutMe: "",
+      name: '',
+      email: '',
+      aboutMe: '',
       image: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,6 +24,7 @@ class UserEditProfileView extends Component {
   }
 
   async componentDidMount() {
+    window.scrollTo(0, 0);
     console.log(this.props.user);
     this.setState({
       name: this.props.user.name,
@@ -44,7 +45,7 @@ class UserEditProfileView extends Component {
 
   handleFileChange(event) {
     console.dir(event.target.files);
-    console.log("WHAT UUUUUP", event.target.files);
+    console.log('WHAT UUUUUP', event.target.files);
     const file = event.target.files[0];
     console.log(file);
     this.setState({
@@ -126,7 +127,7 @@ class UserEditProfileView extends Component {
                 <input
                   type="text"
                   placeholder="Name"
-                  value={user.name || ""}
+                  value={user.name || ''}
                   className="form-control mb-3"
                   name="name"
                   onChange={this.handleInputChange}
@@ -137,7 +138,7 @@ class UserEditProfileView extends Component {
                 <input
                   type="email"
                   placeholder="Email"
-                  value={user.email || ""}
+                  value={user.email || ''}
                   className="form-control mb-3"
                   name="email"
                   onChange={this.handleInputChange}
@@ -148,7 +149,7 @@ class UserEditProfileView extends Component {
                 <textarea
                   type="text"
                   placeholder="About Me"
-                  value={user.aboutMe || ""}
+                  value={user.aboutMe || ''}
                   className="form-control mb-3"
                   name="aboutMe"
                   onChange={this.handleInputChange}
