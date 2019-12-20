@@ -1,68 +1,128 @@
 [
   {
-    "name": "Celeiro Alvalade",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/alvalade_fachada_2018_1.png",
-    "location": "Praça de Alvalade nº 6, loja 14",
-    "contacts": "210106735"
-  },
-  {
-    "name": "Celeiro Av. António Augusto de Aguiar",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/aaa_fachada_2018_FINAL.png",
-    "location": "Av. António Augusto de Aguiar, 130-A",
-    "contacts": "213558164"
-  },
-  {
-    "name": "Celeiro Av. da República",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/loja-republica.jpg",
-    "location": "Av. da República, 83-C",
-    "contacts": "217952823"
-  },
-  {
-    "name": "Celeiro Amoreiras",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/amoreiras-_fachada_2018_final.png",
-    "location": "Amoreiras Shopping Center - Av. Eng. Duarte Pacheco, loja 1131",
-    "contacts": "210177800"
-  },
-  {
-    "name": "Celeiro Av. de Roma",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/roma_fachada_2018-(3)_FINAL.png",
-    "location": "Avenida de Roma, 12",
-    "contacts": "218486908"
-  },
-  {
-    "name": "Celeiro Saldanha Residence",
-    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/saldanha%201.jpg",
-    "location": "Avenida Fontes Pereira de Melo n.º 42 E, Loja n.º 06 , Saldanha",
-    "contacts": "212696483"
-  },
-  {
-    "name": "Go Natural Picoas - Supermercado",
-    "image": "https://nit.pt/wp-content/uploads/2019/07/07c328c738909152fd9a5631ccf48e7f-754x394.jpg",
-    "location": "R. Joaquim Bonifácio 21, 1150-115 Lisboa",
-    "contacts": "936 500 034"
-  },
-  {
-    "name": "Go Natural Amoreiras",
-    "image": "https://www.gonatural.pt/files/documentos/2018021914525835613861653463613066343264.png",
-    "location": "Av. Eng. Duarte Pacheco 3006, 1070-103 Lisboa",
-    "contacts": "21 383 2180"
-  },
-  {
+    "id": "01",
     "name": "Maria Granel",
     "image": "https://www.mariagranel.com/wp/wp-content/uploads/2016/11/Maria-Granel-Alvalade-Lisboa-28-Oct-2016-_16A3215-1024x683.jpg",
     "location": "R. José Duro 22, 1700-261 Lisboa",
     "contacts": "21 135 1896"
   },
   {
-    "name": "a outra face da lua",
+    "id": "02",
+    "name": "#granel - mercearia biológica",
+    "image": "http://hashtaggranel.pt/wp-content/uploads/2018/06/marianasabido-73.jpg",
+    "location": "Estr. de Benfica 451A, 1500-080 Lisboa",
+    "contacts": "21 017 4819"
+  },
+  {
+    "id": "03",
+    "name": "Couve - Shoes & Vegan Goods",
+    "image": "https://nit.pt/wp-content/uploads/2018/11/a8a6305259e87f5f9543a83f665f157f-1-754x394.jpg",
+    "location": "R. Maria 47A, 1170-210 Lisboa",
+    "contacts": "21 812 1057"
+  },
+  {
+    "id": "04",
+    "name": "A Outra Face da Lua",
     "image": "https://media-cdn.tripadvisor.com/media/photo-s/08/71/1c/4c/a-outra-face-da-lua.jpg",
     "location": "R. Assunção 22, 1100-044 Lisboa",
     "contacts": "21 886 3430"
   },
   {
-    "name": "COUVE - SHOES & VEGAN GOODS",
-    "image": "https://nit.pt/wp-content/uploads/2018/11/a8a6305259e87f5f9543a83f665f157f-1-754x394.jpg",
-    "location": "R. Maria 47A, 1170-210 Lisboa",
-    "contacts": "21 812 1057"
+    "id": "05",
+    "name": "Flamingos Vintage Kilo Lisboa",
+    "image": "https://media.timeout.com/images/105567375/630/472/image.jpg",
+    "location": "R. dos Douradores 168, 1100-207 Lisboa",
+    "contacts": "966 404 950"
+  },
+  {
+    "id": "06",
+    "name": "Fair Bazaar - Sustainable Fashion",
+    "image": "https://images.trustinnews.pt/uploads/sites/5/2019/10/a-fair-bazaar-quer-mudar-a-forma-como-fazemos-compras-2-1024x683.jpg",
+    "location": "Praça do Príncipe Real nº26 1º andar, 1250-184 Lisboa",
+    "contacts": " 914 437 721"
+  },
+  {
+    "id": "07",
+    "name": "Nae - Vegan Shoes",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu4eiOYVjteUx_5EJxsR9IqJS6ntwF0Amv-H-JZvZQQcMVr1od&s",
+    "location": "R. Rodrigues de Faria, 103 Edifício I Piso 0 Espaço 0.01 D.10, 1300-501 Lisboa",
+    "contacts": "963 820 884"
+  },
+  {
+    "id": "08",
+    "name": "Sapato Verde",
+    "image": "http://convida.pt/images/POIs/SapatoVerde-ConVida2017-010.jpg",
+    "location": "Rua das Chagas 31-33, 1200-106 Lisboa",
+    "contacts": "214830014"
+  },
+  {
+    "id": "09",
+    "name": "Naz - Sustainable Fashion",
+    "image": "https://media.timeout.com/images/105547296/630/472/image.jpg",
+    "location": "Rua Rodrigues Faria 103 - Edifício K, 1300-501 Lisboa",
+    "contacts": "wecare@naz.pt"
+  },
+  {
+    "id": "10",
+    "name": "Origanii",
+    "image": "https://fra1.digitaloceanspaces.com/afonso/organii/images/alvalade.jpg",
+    "location": "Rua José D’Esaguy, 8D, Alvalade, Lisboa",
+    "contacts": "912 932 221"
+  },
+  {
+    "id": "11",
+    "name": "The Body Shop",
+    "image": "https://i2.wp.com/trendy.pt/wp-content/uploads/2016/04/Body-Shop.jpg?resize=657%2C360&ssl=1",
+    "location": "Armazéns do Chiado - Rua do Carmo, 2 loja 4.10 1200-094 Lisboa",
+    "contacts": "213 462 247"
+  },
+  {
+    "id": "12",
+    "name": "Lush - Fresh Handmade Cosmetics",
+    "image": "https://res.cloudinary.com/lush/image/upload/v1543924308/lush_website_pt/shops/hero/2018/12/amoreiras_lush_lisboa.jpg",
+    "location": "Av. Eng. Duarte Pacheco, Centro Comercial Amoreiras, Lj.1113 Lisboa 1070-103",
+    "contacts": "939322997"
+  },
+  {
+    "id": "13",
+    "name": "Go Natural Picoas - Supermercado",
+    "image": "https://nit.pt/wp-content/uploads/2019/07/07c328c738909152fd9a5631ccf48e7f-754x394.jpg",
+    "location": "R. Joaquim Bonifácio 21, 1150-115 Lisboa",
+    "contacts": "936 500 034"
+  },
+  {
+    "id": "14",
+    "name": "Go Natural Amoreiras",
+    "image": "https://www.gonatural.pt/files/documentos/2018021914525835613861653463613066343264.png",
+    "location": "Av. Eng. Duarte Pacheco 3006, 1070-103 Lisboa",
+    "contacts": "21 383 2180"
+  },
+  {
+    "id": "15",
+    "name": "Celeiro Alvalade",
+    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/alvalade_fachada_2018_1.png",
+    "location": "Praça de Alvalade nº 6, loja 14",
+    "contacts": "210106735"
+  },
+  {
+    "id": "16",
+    "name": "Celeiro Av. de Roma",
+    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/roma_fachada_2018-(3)_FINAL.png",
+    "location": "Avenida de Roma, 12",
+    "contacts": "218486908"
+  },
+  {
+    "id": "17",
+    "name": "Celeiro Av. da República",
+    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/loja-republica.jpg",
+    "location": "Av. da República, 83-C",
+    "contacts": "217952823"
+  },
+  {
+    "id": "18",
+    "name": "Celeiro Amoreiras",
+    "image": "https://www.celeiro.pt/media/contentmanager/content/cache/400x400/lojas/amoreiras-_fachada_2018_final.png",
+    "location": "Amoreiras Shopping Center - Av. Eng. Duarte Pacheco, loja 1131",
+    "contacts": "210177800"
   }
 ]

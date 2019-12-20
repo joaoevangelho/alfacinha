@@ -54,7 +54,7 @@ class MapBox extends Component {
 
   render() {
     return (
-      <div className="mapbox" ref={this.mapRef} style={{ height: 200 }}></div>
+      <div className="mapbox" ref={this.mapRef} style={{ height: 300, width: 350 }}></div>
     );
   }
 }

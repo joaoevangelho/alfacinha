@@ -18,10 +18,10 @@ class ShopsSection extends Component {
             <Col sm={4} className="text-right p-3">
               <h5 className="mr-5">SHOPS</h5>
               <p className="text-justify mx-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                beatae impedit, perferendis eaque ratione rem provident maiores
-                rerum. Deserunt libero voluptas beatae sint quos commodi
-                inventore blanditiis, ratione dolorem iusto!
+                Reusable water bottles and coffee cups, silicone food storage
+                bags, second-hand vintage clothes, cruelty-free beauty
+                products... All of these sustainable options will help you help
+                the planet, and we'll help you find them.
               </p>
               <Link to="/shop-list">
                 <Button className="ReadMoreBtn w-50 mr-5">READ MORE</Button>

@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 // import Card from "react-bootstrap/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 // import Carousel from "react-bootstrap/Carousel";
 // import Button from "react-bootstrap/Button";
 
-import { loadUserInformation as loadUserInformationService } from './../../services/authentication';
+import { loadUserInformation as loadUserInformationService } from "./../../services/authentication";
 
-import './style.css';
+import "./style.css";
 
 class UserProfileView extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class UserProfileView extends Component {
       });
     } catch (error) {
       console.log(error);
-      this.props.history.push('/error/404');
+      this.props.history.push("/error/404");
     }
   }
 
@@ -43,19 +43,13 @@ class UserProfileView extends Component {
     const userFavorites = this.state.user.favorites;
     // console.log("favorites", userFavorites);
     return (
-      <div className="MinPageHeight my-5 mx-5 justify-content-center UserProfileBg">
+      <div className="MinPageHeight justify-content-center UserProfileBg">
         {(user && (
           <Container>
             <Row className="mb-5">
               <Col
-                sm={9}
-                className="d-flex justify-content-end align-items-end"
-              >
-                <h1 className="text-right">{user.name}</h1>
-              </Col>
-              <Col
-                sm={3}
-                className="d-flex justify-content-end align-items-end"
+                sm={5}
+                className="d-flex justify-content-start align-items-center"
               >
                 <Image
                   fluid
@@ -64,22 +58,24 @@ class UserProfileView extends Component {
                   className="UserProfileImg m-0 p-0"
                 />
               </Col>
+              <Col
+                sm={7}
+                className="d-flex justify-content-end align-items-end"
+              >
+                <div>
+                  <h2 className="text-left font-weight-bold AlfacinhaFont">{user.name}</h2>
+                  <p className="text-left">({user.username})</p>
+                  <h6 className="text-left font-weight-bold">About Me</h6>
+                  <p className="text-left">{user.aboutMe}</p>
+                </div>
+              </Col>
             </Row>
+
             <Row className="my-1">
               <Col
                 sm={12}
                 className="d-flex justify-content-start align-items-center"
-              >
-                <h4 className="text-left">About Me</h4>
-              </Col>
-            </Row>
-            <Row className="my-1">
-              <Col
-                sm={12}
-                className="d-flex justify-content-start align-items-center"
-              >
-                <p className="text-left">{user.aboutMe}</p>
-              </Col>
+              ></Col>
             </Row>
             {(userFavorites.length === 0 && (
               <Fragment>
@@ -121,7 +117,7 @@ class UserProfileView extends Component {
                     <div>
                       {userFavorites.map(userFavorite => {
                         return (
-                          <div className="card" style={{ width: '10rem' }}>
+                          <div className="card row" style={{ width: "10rem" }}>
                             <img
                               className="card-img-top"
                               src={userFavorite.image}

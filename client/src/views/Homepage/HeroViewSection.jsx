@@ -17,14 +17,14 @@ class HeroViewSection extends Component {
             <Row className="pt-5">
               <Col md={1}></Col>
               <Col /* className="text-light" */>
-                <h3 className="pl-5">Welcome to</h3>
-                <h1 className="font-weight-bold LineH75 ">ALFACINHA</h1>
+                {/* <h3 className="pl-5">Welcome to</h3> */}
+                <h1 className="ml-3 font-weight-bold LineH75 PurpleTxt AlfacinhaTitleText">ALFACINHA</h1>
               </Col>
             </Row>
             <Row>
               <Col md={4} lg={4} xl={4}></Col>
               <Col /* className="text-light" */>
-                <h1 className="pl-5 font-weight-normal">
+                <h1 className="pl-5 font-weight-normal AlfacinhaSubtitle">
                   Your green guide to Lisbon
                 </h1>
               </Col>

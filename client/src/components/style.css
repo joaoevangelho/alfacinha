@@ -3,9 +3,8 @@
 }
 
 .TransparentBg {
-  background-color: rgb(52, 58, 64, 0.4);
-  /* background-color: rgb(92, 180, 113); */
-  /* background-color: rgba(92, 180, 113, 0.2); */
+  background-color: rgb(101, 155, 94, 0.7);
+  /* background-color: rgb(52, 58, 64, 0.4); */
   /* background-color: transparent; */
   /* -webkit-transition: background-color 0.2s linear; */
   /* transition: background-color 0.2s linear; */
@@ -87,7 +86,7 @@
 
 .SingleRestaurantCard {
   background-color: transparent;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .BgHack {

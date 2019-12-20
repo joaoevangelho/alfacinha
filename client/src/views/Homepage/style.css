@@ -8,8 +8,12 @@
 
 .AlfacinhaTitleText {
   font-family: "Amatic SC", cursive;
-  font-size: 12em;
+  font-size: 18vw;
   font-weight: 700;
+}
+
+.AlfacinhaSubtitle {
+  font-size: 4vw;
 }
 
 .HomepageCenterImg {
@@ -21,13 +25,13 @@
 }
 
 .AboutCarouselBgLayer1 {
-  /* background: url("/images/lettuce1.jpg") bottom center no-repeat; */
+  background: url("/images/lettuce1.jpg") bottom center no-repeat;
   min-height: 25em;
 }
 
 .AboutCarouselBgLayer2 {
-  background-color: #ca895f;
-  /* background-color: rgba(90, 89, 89, 0.5); */
+  /* background-color: #ca895f; */
+  background-color: rgba(101, 155, 94, 0.8);
   min-height: 25em;
 }
 
@@ -66,4 +70,14 @@
   border-radius: 0;
   color: rgb(78, 78, 78);
   margin: 0;
+}
+
+.DataSources {
+  text-decoration: none;
+  color: rgb(53, 52, 52);
+}
+
+.DataSources:hover {
+  text-decoration: none;
+  color: rgb(114, 111, 111);
 }
