@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './style.css';
 
 class Shop extends Component {
   render() {
@@ -13,8 +13,8 @@ class Shop extends Component {
     return (
       <div
         key={name}
-        className="card ml-3 mb-5 mr-5 "
-        style={{ maxWidth: "540px" }}
+        className="card ml-3 mb-5 mr-5 height-card-shop"
+        style={{ maxWidth: '540px' }}
       >
         <div className="row no-gutters">
           <div className="col-md-4">
@@ -26,9 +26,7 @@ class Shop extends Component {
                 <h5 className="card-title">{name}</h5>
               </Link>
               <p className="card-text">Address: {location}</p>
-              <p className="card-text">
-                <small className="text-muted">Contact: {contacts}</small>
-              </p>
+              <p className="card-text">Contact: {contacts}</p>
             </div>
           </div>
         </div>

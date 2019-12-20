@@ -39,7 +39,8 @@
 } */
 
 .FavoritesCard {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: transparent; */
   /* margin-top: 1em;
   margin-left: 1em; */
   /* width: 80em;
@@ -47,10 +48,9 @@
 }
 
 .FavoritesImg {
-  width: 11.5em;
-  height: 11em;
+  width: 11em;
+  height: 12em;
   object-fit: cover;
-  padding-top: 1em;
 }
 
 .EditViewImg {
