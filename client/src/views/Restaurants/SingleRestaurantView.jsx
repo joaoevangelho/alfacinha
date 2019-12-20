@@ -117,15 +117,15 @@ class singleRestaurant extends Component {
     //console.log('hello', restaurant);
     return (
       <div className="MinPageHeight mt-4 pt-4 mx-2">
-        <div className="row">
+        <div className="row my-2">
           {restaurant && (
             // <div className="SingleRestaurantCard card">
             <Fragment>
-              <div className="SingleRestaurantCard card my-3 mx-4 p-0 no-gutters col-md-6 d-flex justify-content-center">
+              <div className="SingleRestaurantCard card my-3 mx-4 p-0 no-gutters col-md-6 d-flex border-0">
                 {/* <div className="row no-gutters"> */}
                 {/* <div className="col-md-6"> */}
                 <div>
-                  <div className="card-body">
+                  <div className="card-body ">
                     <h5 className="card-title">{restaurant.name}</h5>
                     <img
                       src={restaurant.featured_image}
