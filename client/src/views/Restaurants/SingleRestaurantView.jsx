@@ -108,17 +108,6 @@ class singleRestaurant extends Component {
     }
   }
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   console.log("PROPS", this.props);
-  //   console.log("revious state", prevState.update);
-  //   console.log("current state", this.state.update);
-  //   if (prevState.update !== this.state.update) {
-  //     console.log("UPDATE!");
-  //     this.props.loadUser();
-  //     this.compareFavoriteId();
-  //   }
-  // }
-
   render() {
     const restaurant = this.state.restaurant;
     const user = this.state.user;

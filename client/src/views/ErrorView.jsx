@@ -13,12 +13,19 @@ class ErrorView extends Component {
     const code = this.props.match.params.code;
     const message = errorMessageMap[code] || defaultErrorMessage;
     return (
-      <main className="MinPageHeight m-5 p-5">
-        <h2>Something went wrong...</h2>
-        <h5>{message}</h5>
+      <main className="MinPageHeight backimg">
+        <p className="centered">
+          <h1 className="four-o-four">404</h1>
+          <h1>We are sorry, </h1>
+          <h5>but this page can not be found. Keep helping our planet.</h5>
+          <br />
+          <h5> Thank you for your support</h5>
+        </p>
       </main>
     );
   }
 }
 
 export default ErrorView;
+
+//{message}
