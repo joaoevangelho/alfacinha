@@ -18,10 +18,9 @@ class NavBar extends Component {
     this.state = {
       expanded: false
     };
-    
+
     this.onLogOutTrigger = this.onLogOutTrigger.bind(this);
     this.handleToggleMenu = this.handleToggleMenu.bind(this);
-
   }
 
   handleToggleMenu() {
@@ -50,7 +49,7 @@ class NavBar extends Component {
     const user = this.props.user;
     return (
       <Navbar
-      expanded={this.state.expanded}
+        expanded={this.state.expanded}
         collapseOnSelect
         expand="lg"
         fixed="top"
@@ -68,7 +67,10 @@ class NavBar extends Component {
             alt="BrandLogo"
           />
         </Nav.Link>
-        <Navbar.Toggle onClick={this.handleToggleMenu} aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          onClick={this.handleToggleMenu}
+          aria-controls="responsive-navbar-nav"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link
@@ -105,7 +107,11 @@ class NavBar extends Component {
           {(user && (
             <Fragment>
               <Nav className="ml-auto">
-                <Nav.Link as={Link} className="mx-2 text-white" to="/user-profile">
+                <Nav.Link
+                  as={Link}
+                  className="mx-2 text-white"
+                  to="/user-profile"
+                >
                   My Profile
                 </Nav.Link>
                 {/*    <Nav.Link type="button" onClick={this.onLogOutTrigger} className="btn MyBtn mx-2" href="/">

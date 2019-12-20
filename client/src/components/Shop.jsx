@@ -4,6 +4,7 @@ import './style.css';
 
 class Shop extends Component {
   render() {
+    window.scrollTo(0, 0);
     const name = this.props.name;
     const image = this.props.image;
     const location = this.props.location;
