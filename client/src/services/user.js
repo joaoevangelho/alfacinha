@@ -17,10 +17,10 @@ const apiUserService = axios.create({
 export const edit = async (user) => {
   console.log("USER INFO ON SERVICE", user);
   const data = new FormData();
-  data.append('name', user.name);
-  data.append('email', user.email);
   data.append('aboutMe', user.aboutMe);
+  data.append('email', user.email);
   data.append('image', user.image);
+  data.append('name', user.name);
   try {
     await apiUserService.patch(`/user-profile/edit`, data);
     //console.log("RESPONSE DATA!!", data);

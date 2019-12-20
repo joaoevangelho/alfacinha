@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Shop from '../../components/Shop';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import Shop from "../../components/Shop";
+import { Link } from "react-router-dom";
 
-import { listShops } from './../../services/shops';
+import { listShops } from "./../../services/shops";
 
 class ListShopView extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class ListShopView extends Component {
 
   render() {
     const shops = this.state.shops;
-    console.log('whats this', shops);
+    console.log("whats this", shops);
 
     return (
       <div>

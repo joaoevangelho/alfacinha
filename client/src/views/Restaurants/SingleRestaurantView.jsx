@@ -105,17 +105,6 @@ class singleRestaurant extends Component {
     }
   }
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   console.log("PROPS", this.props);
-  //   console.log("revious state", prevState.update);
-  //   console.log("current state", this.state.update);
-  //   if (prevState.update !== this.state.update) {
-  //     console.log("UPDATE!");
-  //     this.props.loadUser();
-  //     this.compareFavoriteId();
-  //   }
-  // }
-
   render() {
     const restaurant = this.state.restaurant;
     const user = this.state.user;
@@ -184,27 +173,6 @@ class singleRestaurant extends Component {
                         </Button>
                       )}
                     </div>
-                    // <div>
-                    //   {(this.compareFavoriteId() && (
-                    //     <Button
-                    //       onClick={event => {
-                    //         this.removeFromFavoritesButton();
-                    //       }}
-                    //       className="btn MyBtn"
-                    //     >
-                    //       Remove from Favorites
-                    //     </Button>
-                    //   )) || (
-                    //     <Button
-                    //       onClick={event => {
-                    //         this.addToFavoritesButton(event, restaurant.name);
-                    //       }}
-                    //       className="btn MyBtn"
-                    //     >
-                    //       Add to Favorites
-                    //     </Button>
-                    //   )}
-                    // </div>
                   )}
                 </div>
               </div>
@@ -214,13 +182,6 @@ class singleRestaurant extends Component {
         <div>
           {user && <CommentList {...this.props} />}
           <br />
-          {/* <CommentCreateView {...this.props} /> */}
-          {/* <div
-            className="fb-comments"
-            data-href="https://www.facebook.com/Alfacinha-100341914808752"
-            data-width=""
-            data-numposts="10"
-          ></div> */}
           <br />
         </div>
       </div>

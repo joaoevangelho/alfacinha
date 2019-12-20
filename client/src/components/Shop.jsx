@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Shop extends Component {
   render() {
+    const id = this.props.id;
     const name = this.props.name;
     const image = this.props.image;
     const location = this.props.location;

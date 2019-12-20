@@ -19,7 +19,9 @@ class Footer extends Component {
             >
               Go Green
             </Nav.Link> */}
-            <Nav.Item className="py-2 px-3 text-secondary">Useful Links:</Nav.Item>
+            <Nav.Item className="py-2 px-3 text-secondary">
+              Useful Links:
+            </Nav.Item>
             <Nav.Link
               href="#"
               target="blank"
