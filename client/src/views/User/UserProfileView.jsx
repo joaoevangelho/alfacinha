@@ -44,127 +44,135 @@ class UserProfileView extends Component {
     const userFavorites = this.state.user.favorites;
     // console.log("favorites", userFavorites);
     return (
-      <div className="MinPageHeight justify-content-center UserProfileBg">
+      <div className="MinPageHeight UserProfileBg">
         {(user && (
           <Container>
-            <Row className="mb-5 py-5">
-              <Col
-                sm={5}
-                className="d-flex justify-content-start align-items-center"
-              >
-                <Image
-                  fluid
-                  src={user.image}
-                  alt="User profile pic"
-                  className="UserProfileImg m-0 p-0"
-                />
-              </Col>
-              <Col
-                sm={7}
-                className="d-flex justify-content-start align-items-start"
-              >
-                <div>
-                  <h2 className="text-left font-weight-bold AlfacinhaFont">
-                    {user.name}
-                  </h2>
-                  <p className="text-left">({user.username})</p>
-                  <h6 className="text-left font-weight-bold">About Me</h6>
-                  <p className="text-left">{user.aboutMe}</p>
-                </div>
-              </Col>
-            </Row>
-
-            <Row className="my-1">
-              <Col
-                sm={12}
-                className="d-flex justify-content-start align-items-center"
-              ></Col>
-            </Row>
-            {(userFavorites.length === 0 && (
-              <Fragment>
-                <Row className="my-1">
+            <div className="row">
+              <div className="col">
+                <Row className="mb-0 pt-5 pb-3">
                   <Col
-                    sm={12}
-                    className="d-flex justify-content-start align-items-center"
+                    sm={3}
+                    className="col d-flex justify-content-center align-items-center"
                   >
-                    <h4 className="text-left">My Favorites</h4>
+                    <Image
+                      fluid
+                      src={user.image}
+                      alt="User profile pic"
+                      className="UserProfileImg m-0 p-0"
+                    />
                   </Col>
-                </Row>
-                <Row className="my-1">
                   <Col
-                    sm={12}
-                    className="d-flex justify-content-start align-items-center"
-                  >
-                    <p>
-                      You have no favorites yet. Browse through our lists to
-                      find places you like!
-                    </p>
-                  </Col>
-                </Row>
-              </Fragment>
-            )) || (
-              <div>
-                <Row className="my-1">
-                  <Col
-                    sm={12}
-                    className="d-flex justify-content-start align-items-center"
-                  >
-                    <h4 className="text-left">My Favorites</h4>
-                  </Col>
-                </Row>
-                <Row className="my-1">
-                  <Col
-                    sm={12}
-                    className="d-flex justify-content-start align-items-center"
+                    sm={9}
+                    className="col pl-4 d-flex justify-content-start align-items-start"
                   >
                     <div>
-                      {userFavorites.map(userFavorite => {
-                        return (
-                          <div className="card mb-3">
-                            <div class="row no-gutters">
-                              <div class="col-md-4">
-                                <img
-                                  className="card-img"
-                                  src={userFavorite.image}
-                                  alt="CardPicCap"
-                                />
-                              </div>
-                              <div class="col-md-8">
-                                <div className="card-body">
-                                  <h5 className="card-title">
-                                    {userFavorite.name}
-                                  </h5>
-                                  <p className="card-text">
-                                    {userFavorite.location}
-                                  </p>
-                                  <Link
-                                    className="btn btn-primary"
-                                    to={`/restaurant/${userFavorite.resId}`}
-                                  >
-                                    Details
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
+                      <h2 className="text-left font-weight-bold AlfacinhaFont">
+                        {user.name}
+                      </h2>
+                      <p className="text-left">({user.username})</p>
+                      <h6 className="text-left font-weight-bold">About Me</h6>
+                      <p className="text-left">{user.aboutMe}</p>
                     </div>
                   </Col>
                 </Row>
-              </div>
-            )}
 
-            <Row className="my-1">
-              <Col
-                sm={12}
-                className="d-flex justify-content-start align-items-center"
-              >
-                <Link className="btn MyBtn" to={`/user-profile/edit`}>
-                  Edit Profile
-                </Link>
-              </Col>
-            </Row>
+                {/* <Row className="my-1">
+                <Col
+                  sm={12}
+                  className="d-flex justify-content-start align-items-center"
+                ></Col>
+              </Row> */}
+                {(userFavorites.length === 0 && (
+                  <Fragment>
+                    <Row className="my-1">
+                      <Col
+                        sm={12}
+                        className="d-flex justify-content-start align-items-center"
+                      >
+                        <h4 className="text-left">My Favorites</h4>
+                      </Col>
+                    </Row>
+                    <Row className="my-1">
+                      <Col
+                        sm={12}
+                        className="d-flex justify-content-start align-items-center"
+                      >
+                        <p>
+                          You have no favorites yet. Browse through our lists to
+                          find places you like!
+                        </p>
+                      </Col>
+                    </Row>
+                  </Fragment>
+                )) || (
+                  <div>
+                    <Row className="my-1">
+                      <Col
+                        sm={12}
+                        className="d-flex justify-content-start align-items-center"
+                      >
+                        <h4 className="text-left">My Favorites</h4>
+                      </Col>
+                    </Row>
+                    <Row className="my-1">
+                      <Col
+                        sm={12}
+                        className="d-flex justify-content-start align-items-center"
+                      >
+                        <div>
+                          {userFavorites.map(userFavorite => {
+                            return (
+                              <div className="FavoritesCard card mb-3">
+                                <div class="row no-gutters">
+                                  <div class="col col-sm-4">
+                                    <img
+                                      fluid
+                                      className="FavoritesImg card-img m-auto"
+                                      src={userFavorite.image}
+                                      alt="CardPicCap"
+                                    />
+                                  </div>
+                                  <div class="col col-sm-8">
+                                    <div className="card-body">
+                                      <h5 className="card-title">
+                                        {userFavorite.name}
+                                      </h5>
+                                      <p className="card-text">
+                                        {userFavorite.location}
+                                      </p>
+                                      <Link
+                                        className="btn btn-sm MyBtn"
+                                        to={`/restaurant/${userFavorite.resId}`}
+                                      >
+                                        More info
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                )}
+
+                <Row className="my-1">
+                  <Col
+                    sm={12}
+                    className="d-flex justify-content-start align-items-center"
+                  >
+                    <Link
+                      className="btn MyBtn w-50 mt-2"
+                      to={`/user-profile/edit`}
+                    >
+                      Edit Profile
+                    </Link>
+                  </Col>
+                </Row>
+              </div>
+            </div>
           </Container>
         )) || <p>There's no user logged in...</p>}
       </div>
