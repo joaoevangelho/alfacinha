@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
+import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 
 // import { Link } from "react-router-dom";
 
-import "./style.css";
+import './style.css';
 
-import { logOut as logOutService } from "./../services/authentication";
+import { logOut as logOutService } from './../services/authentication';
 
 class NavBar extends Component {
   constructor(props) {
